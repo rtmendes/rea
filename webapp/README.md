@@ -29,7 +29,7 @@ The page detects its mode at load: an artifact runtime → connector; `api/healt
 
 ### GitHub Pages (static mode)
 
-[`.github/workflows/webapp-pages.yml`](../.github/workflows/webapp-pages.yml) builds `webapp/` with `VITE_BASE=/<repo>/`, enables Pages on first run and deploys on every push to `main` or the feature branch that touches `webapp/`. GitHub Actions must be enabled on the repository (a fork starts with workflows disabled: open the repository's **Actions** tab once and enable them). The site is then at `https://<owner>.github.io/<repo>/`.
+[`.github/workflows/webapp-pages.yml`](../.github/workflows/webapp-pages.yml) builds `webapp/` with `VITE_BASE=/<repo>/` and pushes the result to the `gh-pages` branch on every push to `main` or the feature branch that touches `webapp/`. GitHub serves that branch at `https://<owner>.github.io/<repo>/` (live: https://rtmendes.github.io/rea/).
 
 ## Use it without hosting: the claude.ai artifact (connector mode)
 
