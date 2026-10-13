@@ -1,6 +1,6 @@
 // Turns dist-artifact/ (Vite build with relative paths) into artifact/index.html, the page body
 // published as a claude.ai artifact (the platform wraps it in its own document skeleton).
-import { mkdirSync, readFileSync, writeFileSync, readdirSync, copyFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync, readdirSync, copyFileSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 
 const dist = 'dist-artifact'
@@ -23,6 +23,7 @@ const page = `<title>Reverse Engineer Any App</title>
 <div id="root"></div>
 <script type="module" src="${script.replace(/^\.\//, '')}"></script>
 `.replace(/<link rel="stylesheet" href="assets\/[^"]+\.js" hidden>\n/, '')
+rmSync(join(out, 'assets'), { recursive: true, force: true }) // stale chunks from earlier builds must not ship
 mkdirSync(join(out, 'assets'), { recursive: true })
 writeFileSync(join(out, 'index.html'), page)
 for (const f of readdirSync(join(dist, 'assets'))) copyFileSync(join(dist, 'assets', f), join(out, 'assets', f))
