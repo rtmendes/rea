@@ -11,14 +11,15 @@ An interactive web app that reverse engineers any public web app or site from a 
 - **Security posture**: header audit with score, cookie flags, SRI coverage, mixed content.
 - **Site discovery**: `robots.txt`, `sitemap.xml`, `manifest.json`, `security.txt`, `humans.txt`.
 - **Rebuild blueprint**: component tree, `tokens.css`, interactions to re-implement, integrations to recreate with your own IDs, content model, build checklist.
+- **Visual identity**: a rendered screenshot thumbnail (local Chromium, 640×400 JPEG), the site's logo/icon (apple-touch-icon, SVG/PNG favicon or `/favicon.ico`), the `og:image` preview and the brand colours. Every analyzed site gets a card in the library grid, so a long list stays scannable.
 
-Exports: JSON, Markdown report, `tokens.css`. Analyses are kept in browser history; `?url=` deep links re-run an analysis.
+Exports: JSON, Markdown report, `tokens.css`, screenshot and icon. Paste many URLs (one per line or comma separated) to queue a batch. Reports and thumbnails are kept in the browser (IndexedDB) and open instantly from the library; `?url=` deep links open the stored report or run a new analysis.
 
 This UI is a companion to the [REA CLI/MCP](../README.md). It performs **static analysis only**: the HTML response is parsed without executing JavaScript, so client-rendered DOM and runtime network traffic are not observed. For runtime observation use REA's `inspect-web-page` / `analyze-web-bundle` against a Chromium CDP endpoint, as documented in [`docs/browser-observation.md`](../docs/browser-observation.md).
 
 ## Run
 
-Requires Node.js ≥ 20.
+Requires Node.js ≥ 20. Screenshots need a local Chromium: the app looks for Playwright's browsers (`PLAYWRIGHT_BROWSERS_PATH`, `~/.cache/ms-playwright`, `/opt/pw-browsers`), then system `chromium` / `google-chrome`; set `REA_CHROMIUM_PATH=/path/to/chrome` to point at one, or `REA_DISABLE_SCREENSHOTS=1` to skip. Without a browser the report still completes and says why no screenshot was taken; the `og:image` is used as the preview when present. Install Playwright's browser with `npx playwright install chromium` if you have none.
 
 ```bash
 cd webapp
@@ -48,14 +49,15 @@ npm test
 
 ## API
 
-`POST /api/analyze` with `{"url": "...", "discover": true, "scripts": true}` or `GET /api/analyze?url=...`. Returns the full report (`reportVersion: 1`). Errors are `400` for blocked/invalid targets and `500` for analysis failures.
+`POST /api/analyze` with `{"url": "...", "discover": true, "scripts": true, "screenshot": true}` or `GET /api/analyze?url=...`. Returns the full report (`reportVersion: 2`); `visuals.screenshot.dataUrl` and `visuals.icon.dataUrl` carry the images inline. Errors are `400` for blocked/invalid targets and `500` for analysis failures.
 
-Deployable to Vercel as-is: [`vercel.json`](vercel.json) builds the Vite UI and [`api/analyze.js`](api/analyze.js) wraps the same handler as a serverless function.
+Deployable to Vercel as-is: [`vercel.json`](vercel.json) builds the Vite UI and [`api/analyze.js`](api/analyze.js) wraps the same handler as a serverless function. Vercel functions have no Chromium, so screenshots are skipped there (the `og:image` fallback still works); run `npm start` on a machine with Chromium for full visuals.
 
 ## Safety
 
 - Only `http(s)` URLs are fetched. Every hop, including redirects, is resolved first and refused when it points at loopback, private, link-local, multicast, cloud-metadata or other non-public ranges (see [`server/analyze/fetch.mjs`](server/analyze/fetch.mjs)).
-- Bodies are capped (3 MB page, 1 MB per asset) and requests time out (20 s page, 12 s assets).
+- Bodies are capped (3 MB page, 1 MB per asset, 200 KB icon, 600 KB og:image) and requests time out (20 s page, 12 s assets, 15 s screenshot navigation).
+- The screenshot browser runs with request interception: every subresource host is resolved and must be public, so a page cannot pull the renderer into private networks. Downloads are refused and motion is reduced.
 - Tracking IDs, pixel IDs and endpoints observed on a target belong to that target. The blueprint says so and tells you to create your own.
 
 ## Research notes

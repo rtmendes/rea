@@ -1,0 +1,9 @@
+# Rendered images written by the CLI next to --out files (binaries stay out of the repo;
+# the same data is embedded as data URLs inside the JSON reports).
+research/**/*.jpg
+research/**/*.jpeg
+research/**/*.png
+research/**/*.ico
+research/**/*.svg
+research/**/*.webp
+research/**/*.gif

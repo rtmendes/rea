@@ -1,6 +1,8 @@
 # Reverse-engineering report: https://app.dvoracle.com/login
 
-Generated 2026-10-13T10:58:19.707Z in 1872 ms. HTTP 200, 75686 bytes, TTFB 496 ms.
+Generated 2026-10-13T11:18:47.626Z in 4104 ms. HTTP 200, 75686 bytes, TTFB 477 ms.
+
+Visuals: screenshot 640×400 captured 2026-10-13T11:18:47.618Z; icon https://app.dvoracle.com/favicon.ico (image/x-icon, 5036 B); og:image none; brand colour n/a (unknown).
 
 ## Summary
 
@@ -310,4 +312,4 @@ _none observed_
 
 - Static analysis of the HTML response only; JavaScript was not executed, so client-rendered DOM, XHR/fetch traffic and runtime state are not observed.
 
-Response headers observed: cache-control: no-store, no-cache, must-revalidate; content-encoding: br; content-security-policy: frame-ancestors 'none'; content-type: text/html; charset=UTF-8; date: Tue, 13 Oct 2026 10:58:18 GMT; expires: Thu, 19 Nov 1981 08:52:00 GMT; pragma: no-cache; referrer-policy: same-origin; server: nginx; set-cookie: PHPSESSID=0sk2ff7m7dg1dv36bssq90ple9; path=/; secure; HttpOnly; SameSite=Lax; transfer-encoding: chunked; vary: Accept-Encoding; x-frame-options: DENY
+Response headers observed: cache-control: no-store, no-cache, must-revalidate; content-encoding: br; content-security-policy: frame-ancestors 'none'; content-type: text/html; charset=UTF-8; date: Tue, 13 Oct 2026 11:18:44 GMT; expires: Thu, 19 Nov 1981 08:52:00 GMT; pragma: no-cache; referrer-policy: same-origin; server: nginx; set-cookie: PHPSESSID=b0ac1n68cogvn1rt5c2h9bln6i; path=/; secure; HttpOnly; SameSite=Lax; transfer-encoding: chunked; vary: Accept-Encoding; x-frame-options: DENY

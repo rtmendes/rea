@@ -1,6 +1,8 @@
 # Reverse-engineering report: https://dvoracle.com/
 
-Generated 2026-10-13T10:58:15.053Z in 1651 ms. HTTP 200, 137286 bytes, TTFB 475 ms.
+Generated 2026-10-13T11:18:37.443Z in 6905 ms. HTTP 200, 137286 bytes, TTFB 671 ms.
+
+Visuals: screenshot 640×400 captured 2026-10-13T11:18:37.431Z; icon https://dvoracle.com/apple-touch-icon.png (image/png, 1482 B); og:image none; brand colour #00b3dd (dark).
 
 ## Summary
 
@@ -532,4 +534,4 @@ HTTPS: true. Header score 33/100. Server: nginx.
 
 - Static analysis of the HTML response only; JavaScript was not executed, so client-rendered DOM, XHR/fetch traffic and runtime state are not observed.
 
-Response headers observed: cache-control: public, max-age=300, must-revalidate; content-encoding: br; content-type: text/html; charset=UTF-8; date: Tue, 13 Oct 2026 10:58:13 GMT; referrer-policy: strict-origin-when-cross-origin; server: nginx; transfer-encoding: chunked; vary: Accept-Encoding; x-content-type-options: nosniff
+Response headers observed: cache-control: public, max-age=300, must-revalidate; content-encoding: br; content-type: text/html; charset=UTF-8; date: Tue, 13 Oct 2026 11:18:31 GMT; referrer-policy: strict-origin-when-cross-origin; server: nginx; transfer-encoding: chunked; vary: Accept-Encoding; x-content-type-options: nosniff

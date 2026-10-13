@@ -11,15 +11,17 @@ import { analyzeNetwork } from './network.mjs'
 import { analyzeSecurity } from './security.mjs'
 import { discoverSiteFiles } from './discovery.mjs'
 import { buildBlueprint } from './blueprint.mjs'
+import { collectVisuals } from './visuals.mjs'
+import { captureScreenshot } from '../screenshot.mjs'
 
-export const REPORT_VERSION = 1
+export const REPORT_VERSION = 2
 
 /**
  * @param {string} input   URL typed by the user
- * @param {{discover?: boolean, fetchFirstPartyScripts?: boolean}} options
+ * @param {{discover?: boolean, fetchFirstPartyScripts?: boolean, screenshot?: boolean}} options
  */
 export async function analyzeUrl(input, options = {}) {
-  const { discover = true, fetchFirstPartyScripts = true } = options
+  const { discover = true, fetchFirstPartyScripts = true, screenshot = true } = options
   const started = Date.now()
   const url = normalizeTargetUrl(input)
   const page = await guardedFetch(url, { accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8' })
@@ -44,10 +46,24 @@ export async function analyzeUrl(input, options = {}) {
   const network = analyzeNetwork({ $, pageUrl, html })
   const security = analyzeSecurity({ headers: page.headers, finalUrl: pageUrl, scripts, network })
 
-  const [discovery, fetchedScripts] = await Promise.all([
+  const [discovery, fetchedScripts, visualAssets, shot] = await Promise.all([
     discover ? discoverSiteFiles(pageUrl) : Promise.resolve(null),
     fetchFirstPartyScripts ? inspectScripts(selectScriptsToFetch(scripts.external), pageUrl) : Promise.resolve([]),
+    collectVisuals({ $, pageUrl, ogImageUrl: content.openGraph.image }),
+    screenshot ? captureScreenshot(pageUrl) : Promise.resolve({ error: 'Screenshot disabled for this run.' }),
   ])
+  const visuals = {
+    icon: visualAssets.icon,
+    iconAttempts: visualAssets.iconAttempts,
+    ogImage: visualAssets.ogImage,
+    screenshot: shot.dataUrl ? shot : null,
+    screenshotError: shot.error || null,
+    brandColor: design.colors.roles.accent || design.colors.themeColor || design.colors.roles.background || null,
+    backgroundColor: design.colors.roles.background || null,
+    mode: design.colors.mode,
+  }
+  if (shot.error) limitations.push(shot.error)
+  if (shot.partial) limitations.push(shot.partial)
   if (!discover) limitations.push('Well-known file discovery was skipped.')
   if (!fetchFirstPartyScripts) limitations.push('External script bodies were not fetched.')
   scripts.fetchedScripts = fetchedScripts
@@ -79,6 +95,7 @@ export async function analyzeUrl(input, options = {}) {
     network,
     security,
     discovery,
+    visuals,
     limitations,
   }
   report.blueprint = buildBlueprint(report)
@@ -144,6 +161,8 @@ function summarize(report) {
     trackingIds: scripts.trackingIds,
     developerCommentLanguage: content.comments.languageHint,
     headline: content.headlines[0] || content.textBlocks[0]?.text || null,
+    hasScreenshot: Boolean(report.visuals.screenshot),
+    hasIcon: Boolean(report.visuals.icon),
   }
 }
 

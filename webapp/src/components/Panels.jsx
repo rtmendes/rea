@@ -1,13 +1,47 @@
 import { useMemo, useState } from 'react'
 import { Chips, CopyButton, ExternalLink, Section, Severity, Stat, Table } from './ui.jsx'
+import { Lightbox, SiteIcon, Thumbnail } from './Visuals.jsx'
 
 const fmtNum = (n) => (typeof n === 'number' ? n.toLocaleString() : n ?? '—')
 
 export function OverviewPanel({ report, onOpenTab }) {
   const s = report.summary
   const t = report.target
+  const v = report.visuals || {}
+  const host = new URL(t.finalUrl).hostname
+  const [zoom, setZoom] = useState(null)
+  const thumb = v.screenshot?.dataUrl || v.ogImage?.dataUrl || null
+  const thumbKind = v.screenshot ? 'screenshot' : v.ogImage?.dataUrl ? 'og:image' : null
   return (
     <div className="space-y-4">
+      <Lightbox src={zoom} alt={`${thumbKind || 'preview'} of ${host}`} onClose={() => setZoom(null)} />
+      <section className="card grid gap-4 md:grid-cols-[minmax(0,360px)_1fr]">
+        <div>
+          <Thumbnail src={thumb} kind={thumbKind} host={host} brandColor={v.brandColor} backgroundColor={v.backgroundColor} palette={report.design.colors.palette.slice(0, 6).map((p) => p.hex)} onClick={thumb ? () => setZoom(thumb) : undefined} title={thumb ? 'Click to enlarge' : undefined} />
+          <div className="mt-1 text-[11px] text-ink-400">
+            {v.screenshot ? `Screenshot ${v.screenshot.width}×${v.screenshot.height}, captured ${new Date(v.screenshot.capturedAt).toLocaleTimeString()}` : v.ogImage?.dataUrl ? `Social preview image (og:image) — ${v.screenshotError || 'no screenshot'}` : v.screenshotError || 'No preview available'}
+          </div>
+        </div>
+        <div className="min-w-0 space-y-3">
+          <div className="flex items-center gap-3">
+            <SiteIcon icon={v.icon?.dataUrl} host={host} brandColor={v.brandColor} size={56} />
+            <div className="min-w-0">
+              <div className="truncate text-lg font-semibold text-white">{s.title || host}</div>
+              <div className="truncate text-sm text-ink-400">{host} · {s.siteType}</div>
+              <div className="mt-1 text-[11px] text-ink-400">{v.icon ? `Logo from ${v.icon.rel} (${v.icon.type}, ${v.icon.bytes} B)` : 'No icon declared or fetchable; monogram generated'}</div>
+            </div>
+          </div>
+          <p className="text-sm text-ink-200">{s.description || s.headline || '—'}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[11px] uppercase tracking-wide text-ink-400">Brand</span>
+            {[['background', v.backgroundColor], ['accent', report.design.colors.roles.accent], ['foreground', report.design.colors.roles.foreground], ['theme-color', report.design.colors.themeColor]].filter(([, c]) => c).map(([label, c]) => (
+              <span key={label} className="chip"><span className="inline-block h-3 w-3 rounded-sm border border-white/20" style={{ background: c }} />{label} {c}</span>
+            ))}
+            <span className="chip">{v.mode || s.colorMode} mode</span>
+          </div>
+          <div className="flex flex-wrap gap-1.5">{report.design.colors.palette.slice(0, 10).map((p) => <span key={p.hex} className="h-5 w-5 rounded border border-white/10" style={{ background: p.hex }} title={`${p.hex} · ${p.role}`} />)}</div>
+        </div>
+      </section>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-6">
         <Stat label="Site type" value={s.siteType} hint={s.language} />
         <Stat label="Technologies" value={s.technologyCount} hint={`${s.thirdPartyHosts} third-party hosts`} />

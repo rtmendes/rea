@@ -39,8 +39,9 @@ export async function handleAnalyze(req, res) {
   const options = {
     discover: params.discover !== 'false' && params.discover !== false,
     fetchFirstPartyScripts: params.scripts !== 'false' && params.scripts !== false,
+    screenshot: params.screenshot !== 'false' && params.screenshot !== false,
   }
-  const key = `${url}|${options.discover}|${options.fetchFirstPartyScripts}`
+  const key = `${url}|${options.discover}|${options.fetchFirstPartyScripts}|${options.screenshot}`
   try {
     let pending = inflight.get(key)
     if (!pending) {

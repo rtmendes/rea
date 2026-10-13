@@ -11,6 +11,10 @@ export function reportToMarkdown(r) {
   lines.push('')
   lines.push(`Generated ${r.generatedAt} in ${r.durationMs} ms. HTTP ${r.target.status}, ${r.target.bytes} bytes, TTFB ${r.target.timing.ttfbMs} ms.`)
   lines.push('')
+  if (r.visuals) {
+    lines.push(`Visuals: ${r.visuals.screenshot ? `screenshot ${r.visuals.screenshot.width}×${r.visuals.screenshot.height} captured ${r.visuals.screenshot.capturedAt}` : `no screenshot (${r.visuals.screenshotError || 'disabled'})`}; icon ${r.visuals.icon ? `${r.visuals.icon.url} (${r.visuals.icon.type}, ${r.visuals.icon.bytes} B)` : 'not fetched'}; og:image ${r.visuals.ogImage?.ok ? r.visuals.ogImage.url : 'none'}; brand colour ${r.visuals.brandColor || 'n/a'} (${r.visuals.mode}).`)
+    lines.push('')
+  }
   lines.push('## Summary')
   lines.push('')
   lines.push(table(['Field', 'Value'], [
