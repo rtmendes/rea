@@ -1,0 +1,1100 @@
+{
+  "reportVersion": 1,
+  "generatedAt": "2026-10-13T10:58:17.478Z",
+  "durationMs": 2086,
+  "target": {
+    "input": "https://app.dvoracle.com/login",
+    "url": "https://app.dvoracle.com/login",
+    "finalUrl": "https://app.dvoracle.com/login",
+    "status": 200,
+    "statusText": "OK",
+    "redirects": [],
+    "addresses": [
+      "217.196.61.135"
+    ],
+    "headers": {
+      "cache-control": "no-store, no-cache, must-revalidate",
+      "content-encoding": "br",
+      "content-security-policy": "frame-ancestors 'none'",
+      "content-type": "text/html; charset=UTF-8",
+      "date": "Tue, 13 Oct 2026 10:58:16 GMT",
+      "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+      "pragma": "no-cache",
+      "referrer-policy": "same-origin",
+      "server": "nginx",
+      "set-cookie": "PHPSESSID=5uite4leer7fsn5miced71inf3; path=/; secure; HttpOnly; SameSite=Lax",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-frame-options": "DENY"
+    },
+    "bytes": 75686,
+    "truncated": false,
+    "timing": {
+      "ttfbMs": 654,
+      "totalMs": 860
+    },
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "summary": {
+    "title": "app.dvoracle.com",
+    "description": null,
+    "language": "en",
+    "siteType": "authentication / login page",
+    "technologyCount": 4,
+    "technologiesByCategory": {
+      "Web fonts": [
+        "Google Fonts"
+      ],
+      "Chat / support": [
+        "Custom embedded AI chat widget (DVChatConfig)"
+      ],
+      "Server / backend": [
+        "nginx",
+        "PHP"
+      ]
+    },
+    "thirdPartyHosts": 4,
+    "sections": 0,
+    "ctas": [
+      "Tema",
+      "English",
+      "Português",
+      "Español",
+      "Forgot password?"
+    ],
+    "forms": 1,
+    "wordCount": 32,
+    "prices": 0,
+    "colorMode": "unknown",
+    "primaryFonts": [
+      "Inter",
+      "IBM Plex Mono"
+    ],
+    "securityScore": 58,
+    "trackingIds": {},
+    "developerCommentLanguage": {
+      "language": "portuguese",
+      "confidence": 0.5
+    },
+    "headline": "Welcome back"
+  },
+  "technologies": [
+    {
+      "name": "Google Fonts",
+      "category": "fonts",
+      "categoryLabel": "Web fonts",
+      "website": "https://fonts.google.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "fonts.gstatic.com"
+        }
+      ]
+    },
+    {
+      "name": "Custom embedded AI chat widget (DVChatConfig)",
+      "category": "chat",
+      "categoryLabel": "Chat / support",
+      "website": "https://chat.dvshipping.com/widget.js",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "window.DVChatConfig"
+        }
+      ]
+    },
+    {
+      "name": "nginx",
+      "category": "server",
+      "categoryLabel": "Server / backend",
+      "website": "https://nginx.org/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "response header server",
+          "match": "nginx"
+        }
+      ]
+    },
+    {
+      "name": "PHP",
+      "category": "server",
+      "categoryLabel": "Server / backend",
+      "website": "https://www.php.net/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "set-cookie",
+          "match": "PHPSESSID=…"
+        }
+      ]
+    }
+  ],
+  "design": {
+    "stylesheetBytesInline": 2943,
+    "inlineStyleAttributes": 0,
+    "externalStylesheets": [
+      "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=optional",
+      "/oracle.css?v=1791422553"
+    ],
+    "colors": {
+      "themeColor": null,
+      "palette": [
+        {
+          "hex": "#00b3dd",
+          "count": 12,
+          "asBackground": 12,
+          "asText": 0,
+          "alphas": [
+            0.18,
+            0.22,
+            0.24,
+            0.28,
+            0.3,
+            0.32,
+            0.38,
+            0.4,
+            0.45,
+            0.58,
+            0.62
+          ],
+          "role": "accent / surface",
+          "luminance": 0.375
+        },
+        {
+          "hex": "#000000",
+          "count": 5,
+          "asBackground": 5,
+          "asText": 0,
+          "alphas": [
+            0.3,
+            0.34,
+            0.55
+          ],
+          "role": "background (dark)",
+          "luminance": 0
+        },
+        {
+          "hex": "#eef3f8",
+          "count": 3,
+          "asBackground": 0,
+          "asText": 3,
+          "alphas": [
+            0.7,
+            1
+          ],
+          "role": "text (light)",
+          "luminance": 0.891
+        },
+        {
+          "hex": "#ffffff",
+          "count": 3,
+          "asBackground": 3,
+          "asText": 0,
+          "alphas": [
+            0.1,
+            0.16
+          ],
+          "role": "overlay / border",
+          "luminance": 1
+        },
+        {
+          "hex": "#111111",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.006
+        },
+        {
+          "hex": "#222222",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.016
+        }
+      ],
+      "roles": {
+        "background": null,
+        "foreground": null,
+        "accent": null,
+        "contrastBackgroundForeground": null,
+        "contrastAccentOnBackground": null
+      },
+      "mode": "unknown"
+    },
+    "typography": {
+      "families": [],
+      "fontFaces": [],
+      "googleFonts": [
+        {
+          "family": "Inter",
+          "axes": "wght@400;500;600;700"
+        },
+        {
+          "family": "IBM Plex Mono",
+          "axes": "wght@400;500;600;700"
+        }
+      ],
+      "typeScalePx": [],
+      "weights": [],
+      "lineHeights": [],
+      "letterSpacing": []
+    },
+    "shape": {
+      "borderRadius": [],
+      "boxShadow": [
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.28),\n                           0 0 18px rgba(0,179,221,.45),\n                           0 0 4",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.45),\n                                 0 0 26px rgba(0,179,221,.62),\n                          ",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.24),\n                       0 0 16px rgba(0,179,221,.38),\n                       0 0 40px rgba",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.40),\n                       0 0 26px rgba(0,179,221,.58),\n                       0 0 60px rgba",
+          "count": 1
+        },
+        {
+          "value": "none",
+          "count": 1
+        },
+        {
+          "value": "0 18px 50px rgba(0,0,0,.55)",
+          "count": 1
+        }
+      ],
+      "gradients": [],
+      "backdropFilter": [],
+      "transitions": [
+        {
+          "value": "box-shadow .35s ease, transform .25s ease",
+          "count": 1
+        }
+      ],
+      "easings": [
+        {
+          "value": "ease",
+          "count": 2
+        },
+        {
+          "value": "ease-in-out",
+          "count": 1
+        }
+      ],
+      "breakpoints": [],
+      "cssVariables": [],
+      "keyframes": [
+        "dvo-zhou-pulso"
+      ],
+      "usesPrefersReducedMotion": true,
+      "usesPrefersColorScheme": false,
+      "usesContainerQueries": false,
+      "usesCustomProperties": false
+    }
+  },
+  "structure": {
+    "landmarks": {
+      "header": 0,
+      "nav": 0,
+      "main": 0,
+      "footer": 0,
+      "section": 0,
+      "article": 0,
+      "aside": 0,
+      "form": 1,
+      "dialog": 0
+    },
+    "outline": [
+      {
+        "level": 1,
+        "text": "Welcome back"
+      }
+    ],
+    "sections": [],
+    "navLinks": [],
+    "ctas": [
+      {
+        "text": "Tema",
+        "occurrences": 1,
+        "kind": "none",
+        "hrefs": []
+      },
+      {
+        "text": "English",
+        "occurrences": 1,
+        "kind": "none",
+        "hrefs": []
+      },
+      {
+        "text": "Português",
+        "occurrences": 1,
+        "kind": "none",
+        "hrefs": []
+      },
+      {
+        "text": "Español",
+        "occurrences": 1,
+        "kind": "none",
+        "hrefs": []
+      },
+      {
+        "text": "Forgot password?",
+        "occurrences": 1,
+        "kind": "internal",
+        "hrefs": [
+          "/forgot"
+        ]
+      },
+      {
+        "text": "Sign in",
+        "occurrences": 1,
+        "kind": "none",
+        "hrefs": []
+      },
+      {
+        "text": "Create account",
+        "occurrences": 1,
+        "kind": "internal",
+        "hrefs": [
+          "/apply"
+        ]
+      }
+    ],
+    "forms": [
+      {
+        "action": null,
+        "method": "post",
+        "id": null,
+        "fields": [
+          {
+            "tag": "input",
+            "type": "hidden",
+            "name": "csrf",
+            "placeholder": null,
+            "required": false
+          },
+          {
+            "tag": "input",
+            "type": "email",
+            "name": "email",
+            "placeholder": "your.email@company.com",
+            "required": true
+          },
+          {
+            "tag": "input",
+            "type": "password",
+            "name": "password",
+            "placeholder": "Enter your password",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "images": {
+      "count": 2,
+      "withAlt": 2,
+      "lazy": 0,
+      "formats": {
+        "png": 2
+      },
+      "sources": [
+        "/assets/oracle-light.png",
+        "/assets/oracle-dark.png"
+      ],
+      "inlineSvg": 3
+    },
+    "media": {
+      "video": 0,
+      "audio": 0,
+      "iframes": [],
+      "canvas": 0
+    },
+    "dom": {
+      "totalElements": 37,
+      "maxDepth": 6,
+      "topTags": [
+        {
+          "tag": "div",
+          "count": 9
+        },
+        {
+          "tag": "button",
+          "count": 6
+        },
+        {
+          "tag": "path",
+          "count": 4
+        },
+        {
+          "tag": "svg",
+          "count": 3
+        },
+        {
+          "tag": "input",
+          "count": 3
+        },
+        {
+          "tag": "img",
+          "count": 2
+        },
+        {
+          "tag": "circle",
+          "count": 2
+        },
+        {
+          "tag": "label",
+          "count": 2
+        },
+        {
+          "tag": "a",
+          "count": 2
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "h1",
+          "count": 1
+        },
+        {
+          "tag": "p",
+          "count": 1
+        },
+        {
+          "tag": "form",
+          "count": 1
+        }
+      ]
+    },
+    "interactive": {
+      "withId": 1,
+      "ariaAttributes": 6,
+      "tabindex": 0,
+      "details": 0,
+      "dialogs": 0
+    },
+    "hasSkipLink": false,
+    "hasMobileVariant": false
+  },
+  "content": {
+    "title": "app.dvoracle.com",
+    "description": null,
+    "lang": "en",
+    "canonical": null,
+    "robotsMeta": "noindex, nofollow",
+    "viewport": "width=device-width, initial-scale=1",
+    "themeColor": null,
+    "generator": null,
+    "openGraph": {
+      "title": null,
+      "description": null,
+      "type": null,
+      "url": null,
+      "image": null,
+      "locale": null,
+      "siteName": null
+    },
+    "twitter": {
+      "card": null,
+      "site": null,
+      "image": null
+    },
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/favicon.ico",
+        "sizes": "any"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/favicon.ico",
+        "sizes": null
+      }
+    ],
+    "hreflang": [],
+    "jsonLd": [],
+    "metas": {
+      "google": "notranslate",
+      "viewport": "width=device-width, initial-scale=1",
+      "robots": "noindex, nofollow"
+    },
+    "wordCount": 32,
+    "textBlocks": [
+      {
+        "tag": "button",
+        "text": "English"
+      },
+      {
+        "tag": "button",
+        "text": "Português"
+      },
+      {
+        "tag": "button",
+        "text": "Español"
+      },
+      {
+        "tag": "h1",
+        "text": "Welcome back"
+      },
+      {
+        "tag": "p",
+        "text": "Sign in to access your dashboard"
+      },
+      {
+        "tag": "label",
+        "text": "Email address"
+      },
+      {
+        "tag": "label",
+        "text": "Password"
+      },
+      {
+        "tag": "a",
+        "text": "Forgot password?"
+      },
+      {
+        "tag": "button",
+        "text": "Sign in"
+      },
+      {
+        "tag": "div",
+        "text": "Don't have an account?"
+      },
+      {
+        "tag": "a",
+        "text": "Create account"
+      },
+      {
+        "tag": "div",
+        "text": "© 2026 DV ORACLE. ALL RIGHTS RESERVED."
+      }
+    ],
+    "headlines": [
+      "Welcome back"
+    ],
+    "prices": [],
+    "emails": [
+      "your.email@company.com"
+    ],
+    "phones": [],
+    "socialLinks": [],
+    "externalLinkHosts": [],
+    "comments": {
+      "htmlCount": 2,
+      "jsCount": 19,
+      "sample": [
+        "A ZHOU vem de chat.dvshipping.com, um TERCEIRO dominio (o app e' app.dvoracle.com, as fontes sao do Google). Sem este aviso o navegador so' comeca a resolver esse nome quando o parser chega no <script defer> la' no fim — e ai paga DNS + TCP + TLS em serie. Medido: 532ms no total, dos quais 461ms so' de DNS na primeira visita (100-160ms em regime). Com o preconnect essa negociacao corre em PARALELO com o resto da pagina. Sem crossorigin de proposito: e' script, nao fonte; com crossorigin o navegador abriria uma segunda conexao anonima e o aviso se perderia.",
+        "Endereco IDENTICO ao @import que o oracle.css ja faz: com a mesma URL o navegador busca uma vez so', e aqui a busca comeca junto com o HTML — o @import so' e' descoberto depois que a folha inteira chega.",
+        "Tema: classe .dv-dark no <html> + localStorage, mesma mecanica do Front v2. Roda no <head> (antes da pintura) pra nao piscar branco em quem usa escuro. Sem preferencia salva o padrao e' CLARO. O botao PODE ter <svg> dentro: a troca de arte e' por CSS (.m-light / .m-dark sob html.dv-dark) e nada aqui reescreve o conteudo dele.",
+        "No EMBED quem manda e' a plataforma, e o tema ja' veio no HTML pelo PHP. Sem esta saida o toggle abaixo APAGARIA a classe dv-dark: dentro de um iframe de outro dominio o localStorage e' o do iframe (vazio, as vezes bloqueado), entao 'escuro' daria false e o embed voltaria ao claro mesmo com a plataforma no escuro. Tambem nao ha botao de tema aqui (header=0).",
+        "A linha que estava aqui escrevia b.textContent = escuro ? '☼' : '☾'. Isso APAGAVA os dois <svg> de dentro do botao e punha um caractere no lugar — que herda font-size:14px do .ico e sai minusculo ao lado do globo e do logout. A troca de arte ja e' feita por CSS (.m-light / .m-dark sob html.dv-dark), entao a linha nao servia para nada alem de destruir o icone. O botao tem title e aria-label, nao precisa de texto.",
+        "HTML indentado gera quebras de linha DENTRO do no de texto; sem normalizar,",
+        "a chave do dicionario nunca casa. NORM colapsa qualquer espaco em um so.",
+        "[data-l] e' obrigatorio no seletor: o botao do globo agora mora no MESMO",
+        "container e, sem o filtro, um clique nele gravaria ads_lang=undefined e",
+        "recarregaria a pagina em ingles. A troca em si nao mudou.",
+        "Fechar clicando fora: o teste de contencao, e NAO stopPropagation no",
+        "globo — a barra inteira depende de clique delegado no document (tema,",
+        "modais), e cortar a subida do evento mataria vizinho sem dar erro.",
+        "Conteudo injetado por JS depois do load (resultados do Traffic Analytics,",
+        "do Mine Leads, mensagens de coleta) tambem precisa passar pelo dicionario.",
+        "Observa SO childList: tr() altera nodeValue (characterData), entao nao ha laco.",
+        "Olho de mostrar/ocultar senha, como no login do app. Envolve cada campo das telas deslogadas — um lugar so' serve login, apply (2 campos) e set-password sem tocar no HTML de cada um.",
+        "nao e' submit: senao mostrar a senha enviava o formulario",
+        "fora do Tab: o caminho do teclado e' senha -> entrar",
+        "logo: o mesmo chevron do dvoracle.com, fundo transparente — por isso combina tanto no lancador quanto no cabecalho escuro. A imagem foi COPIADA para assets/ em vez de apontar para dvoracle.com: assim a bolha nao depende de outro dominio (nem do DNS de fora) e continua desenhada igual quando o app e' aberto por 127.0.0.1.",
+        "paleta: o azul de fabrica do widget (#3d4cf0 / #0037FF / lavanda) sai e entra o ciano da marca. O texto do usuario fica num ciano mais fundo porque ele tambem pinta o campo de digitacao, que e' claro. Estes valores sao os MESMOS do dvoracle.com — mudar um deles aqui e' a ZHOU deixar de ser a mesma nos dois lugares."
+      ],
+      "languageHint": {
+        "language": "portuguese",
+        "confidence": 0.5
+      }
+    },
+    "languageHint": {
+      "language": "english",
+      "confidence": 0.3
+    }
+  },
+  "scripts": {
+    "external": [
+      {
+        "src": "https://chat.dvshipping.com/widget.js",
+        "host": "chat.dvshipping.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "Embedded widget",
+        "version": null
+      }
+    ],
+    "inline": [
+      {
+        "type": "text/javascript",
+        "bytes": 1809,
+        "purpose": "UI interaction",
+        "globals": [],
+        "listeners": [
+          "click"
+        ],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": true,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "/* Tema: classe .dv-dark no <html> + localStorage, mesma mecanica do Front v2. Roda no <head> (antes da pintura) pra nao piscar branco em quem usa escuro. Sem preferencia salva o padrao e' CLARO. O botao PODE ter <svg> d"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 63697,
+        "purpose": "UI interaction",
+        "globals": [],
+        "listeners": [
+          "click",
+          "keydown"
+        ],
+        "elementIds": [
+          "langsel"
+        ],
+        "selectors": [
+          "[placeholder]",
+          "[title]",
+          "button[data-l]",
+          ".dv-lang__b"
+        ],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": true,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": true,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "(function(){ var LANG=\"en\"; var DICT={\"Previous announcement\":{\"pt\":\"Aviso anterior\",\"zh\":\"上一条公告\",\"es\":\"Aviso anterior\"},\"Next announcement\":{\"pt\":\"Próximo aviso\",\"zh\":\"下一条公告\",\"es\":\"Siguiente aviso\"},\"Learn more\":{\"pt\":\""
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 1648,
+        "purpose": "UI interaction",
+        "globals": [],
+        "listeners": [
+          "click"
+        ],
+        "elementIds": [],
+        "selectors": [
+          ".card input[type=password]"
+        ],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "/* Olho de mostrar/ocultar senha, como no login do app. Envolve cada campo das telas deslogadas — um lugar so' serve login, apply (2 campos) e set-password sem tocar no HTML de cada um. */ (function () { if (!document.bo"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 1275,
+        "purpose": "configuration object",
+        "globals": [
+          "DVChatConfig"
+        ],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://dvoracle.com/terms/"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "window.DVChatConfig = { title: 'ZHOU', subtitle: \"Account Assistant\", welcome: \"Hi! How can I help you? 🙂\", footerText: \"This chat is being recorded. By chatting, you agree to the\", termsText: \"AI Terms\", termsUrl: 'htt"
+      }
+    ],
+    "totals": {
+      "external": 1,
+      "thirdPartyExternal": 1,
+      "inline": 4,
+      "inlineBytes": 68429,
+      "withIntegrity": 0
+    },
+    "dataBlobs": [
+      {
+        "name": "DVChatConfig",
+        "kind": "object",
+        "bytes": null,
+        "shape": null,
+        "sample": null
+      }
+    ],
+    "trackingIds": {},
+    "behaviours": [
+      "Toggle / switch control (e.g. monthly ↔ yearly pricing)",
+      "Accordion / FAQ expand-collapse",
+      "Browser storage (localStorage/sessionStorage)",
+      "Multi-language content switching"
+    ],
+    "fetchedScripts": [
+      {
+        "src": "https://chat.dvshipping.com/widget.js",
+        "ok": true,
+        "firstParty": false,
+        "bytes": 34731,
+        "truncated": false,
+        "contentType": "text/javascript",
+        "lastModified": "Sat, 03 Oct 2026 04:45:09 GMT",
+        "minified": false,
+        "sourceMap": null,
+        "endpoints": [
+          "https://SEUDOMINIO/dv-chat/chat.php",
+          "https://SEUDOMINIO/dv-chat/widget.js",
+          "https://chat.dvshipping.com/chat.php",
+          "https://chat.dvshipping.com/logo-bolinha.png?v=1",
+          "https://chat.dvshipping.com/logo.png",
+          "https://dvshipping.com/privacy-and-terms/",
+          "http://www.w3.org/2000/svg"
+        ],
+        "relativeEndpoints": [],
+        "globals": [
+          "DVChatConfig"
+        ],
+        "storageKeys": [
+          "dvchat_sid"
+        ],
+        "headerComment": "DV Shipping — Widget de chat com IA  (incorporável) Estilo inspirado no agente do Jotform: cabeçalho claro com logo + selo \"AI\", botões de sugestão, campo lavanda com clipe e botão de enviar redondo, rodapé. ------------------------------------------------------------------ Uso (antes de </body>):   <script>     window.DVChatConfig = { endpoint: \"https://SEUDOMINIO/dv-chat/chat.php\" };   </script>   <script src=\"https://SEUDOMINIO/dv-chat/widget.js\" defer></script> ------------------------------------------------------------------",
+        "usesFetch": true,
+        "usesWebSocket": false
+      }
+    ]
+  },
+  "network": {
+    "hosts": [
+      {
+        "host": "chat.dvshipping.com",
+        "kinds": [
+          "script",
+          "link:preconnect",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Chat / support",
+        "insecure": false
+      },
+      {
+        "host": "fonts.googleapis.com",
+        "kinds": [
+          "link:preconnect",
+          "link:stylesheet",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Web fonts",
+        "insecure": false
+      },
+      {
+        "host": "fonts.gstatic.com",
+        "kinds": [
+          "link:preconnect",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Web fonts",
+        "insecure": false
+      },
+      {
+        "host": "dvoracle.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 1,
+        "firstParty": false,
+        "category": "Other",
+        "insecure": false
+      },
+      {
+        "host": "app.dvoracle.com",
+        "kinds": [
+          "link:icon",
+          "link:apple-touch-icon",
+          "link:stylesheet",
+          "media",
+          "anchor"
+        ],
+        "count": 7,
+        "firstParty": true,
+        "category": "Other",
+        "insecure": false
+      }
+    ],
+    "thirdPartyCount": 4,
+    "byCategory": {
+      "Chat / support": [
+        "chat.dvshipping.com"
+      ],
+      "Web fonts": [
+        "fonts.googleapis.com",
+        "fonts.gstatic.com"
+      ],
+      "Other": [
+        "dvoracle.com"
+      ]
+    },
+    "preconnects": [
+      "https://chat.dvshipping.com",
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ],
+    "preloads": [],
+    "mixedContent": [],
+    "subdomainsOfTarget": []
+  },
+  "security": {
+    "https": true,
+    "score": 58,
+    "headerChecks": [
+      {
+        "header": "strict-transport-security",
+        "label": "HSTS",
+        "weight": 2,
+        "advice": "Add Strict-Transport-Security with max-age ≥ 31536000.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "content-security-policy",
+        "label": "Content-Security-Policy",
+        "weight": 3,
+        "advice": "Define a CSP; inline scripts will need nonces or hashes.",
+        "present": true,
+        "value": "frame-ancestors 'none'"
+      },
+      {
+        "header": "x-content-type-options",
+        "label": "X-Content-Type-Options",
+        "weight": 1,
+        "advice": "Set X-Content-Type-Options: nosniff.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "x-frame-options",
+        "label": "X-Frame-Options / frame-ancestors",
+        "weight": 1,
+        "advice": "Set X-Frame-Options: DENY or CSP frame-ancestors.",
+        "present": true,
+        "value": "DENY"
+      },
+      {
+        "header": "referrer-policy",
+        "label": "Referrer-Policy",
+        "weight": 1,
+        "advice": "Set Referrer-Policy (strict-origin-when-cross-origin is a safe default).",
+        "present": true,
+        "value": "same-origin"
+      },
+      {
+        "header": "permissions-policy",
+        "label": "Permissions-Policy",
+        "weight": 1,
+        "advice": "Set Permissions-Policy to disable unused browser features.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "cross-origin-opener-policy",
+        "label": "Cross-Origin-Opener-Policy",
+        "weight": 1,
+        "advice": "Consider COOP: same-origin.",
+        "present": false,
+        "value": null
+      }
+    ],
+    "cookies": [
+      {
+        "name": "PHPSESSID",
+        "secure": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "sessionHint": "server session cookie"
+      }
+    ],
+    "cacheControl": "no-store, no-cache, must-revalidate",
+    "server": "nginx",
+    "poweredBy": null,
+    "findings": [
+      {
+        "severity": "medium",
+        "text": "HSTS header missing. Add Strict-Transport-Security with max-age ≥ 31536000."
+      },
+      {
+        "severity": "low",
+        "text": "X-Content-Type-Options header missing. Set X-Content-Type-Options: nosniff."
+      },
+      {
+        "severity": "low",
+        "text": "Permissions-Policy header missing. Set Permissions-Policy to disable unused browser features."
+      },
+      {
+        "severity": "low",
+        "text": "Cross-Origin-Opener-Policy header missing. Consider COOP: same-origin."
+      },
+      {
+        "severity": "medium",
+        "text": "1 third-party script(s) load without Subresource Integrity: chat.dvshipping.com."
+      },
+      {
+        "severity": "info",
+        "text": "4 inline script block(s); a strict CSP would need nonces/hashes."
+      }
+    ]
+  },
+  "discovery": {
+    "robots": {
+      "url": "https://app.dvoracle.com/robots.txt",
+      "status": 200,
+      "ok": false,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 137286,
+      "error": null
+    },
+    "sitemap": {
+      "url": "https://app.dvoracle.com/sitemap.xml",
+      "status": 200,
+      "ok": false,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 137286,
+      "error": null
+    },
+    "securityTxt": {
+      "url": "https://app.dvoracle.com/.well-known/security.txt",
+      "status": 403,
+      "ok": false,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 9,
+      "error": null
+    },
+    "humans": {
+      "url": "https://app.dvoracle.com/humans.txt",
+      "status": 200,
+      "ok": false,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 137286,
+      "error": null
+    },
+    "manifest": {
+      "url": "https://app.dvoracle.com/manifest.json",
+      "status": 200,
+      "ok": false,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 137286,
+      "error": null
+    }
+  },
+  "limitations": [
+    "Static analysis of the HTML response only; JavaScript was not executed, so client-rendered DOM, XHR/fetch traffic and runtime state are not observed."
+  ],
+  "blueprint": {
+    "components": [],
+    "tokensCss": ":root {\n  --palette-1: #00b3dd; /* accent / surface, 12× */\n  --palette-2: #000000; /* background (dark), 5× */\n  --palette-3: #eef3f8; /* text (light), 3× */\n  --palette-4: #ffffff; /* overlay / border, 3× */\n  --palette-5: #111111; /* background (dark), 1× */\n  --palette-6: #222222; /* background (dark), 1× */\n  --font-heading: 'Inter', system-ui, sans-serif;\n  --font-body: 'IBM Plex Mono', system-ui, sans-serif;\n  --shadow-1: 0 0 0 1px rgba(0,179,221,.28),\n                           0 0 18px rgba(0,179,221,.45),\n                           0 0 4;\n  --shadow-2: 0 0 0 1px rgba(0,179,221,.45),\n                                 0 0 26px rgba(0,179,221,.62),\n                          ;\n  --ease-1: ease;\n  --ease-2: ease-in-out;\n}",
+    "integrations": [
+      {
+        "name": "Google Fonts",
+        "category": "Web fonts",
+        "website": "https://fonts.google.com/",
+        "observedId": null,
+        "note": null
+      },
+      {
+        "name": "Custom embedded AI chat widget (DVChatConfig)",
+        "category": "Chat / support",
+        "website": "https://chat.dvshipping.com/widget.js",
+        "observedId": null,
+        "note": null
+      }
+    ],
+    "interactions": [
+      "Toggle / switch control (e.g. monthly ↔ yearly pricing)",
+      "Accordion / FAQ expand-collapse",
+      "Browser storage (localStorage/sessionStorage)",
+      "Multi-language content switching",
+      "1 form(s) to wire to your own backend"
+    ],
+    "recommendedStack": {
+      "frontend": "Vite + React + Tailwind CSS (static marketing page; replace fixed-canvas absolute positioning with responsive flex/grid sections)",
+      "animation": [
+        "CSS transitions + IntersectionObserver reveals"
+      ],
+      "hosting": "Any static host (target uses nginx)",
+      "backend": "No separate app origin observed from this page",
+      "analytics": []
+    },
+    "contentModel": {
+      "pages": [
+        "https://app.dvoracle.com/login"
+      ],
+      "sections": [],
+      "pricingTiers": null,
+      "embeddedData": [
+        {
+          "name": "DVChatConfig",
+          "shape": null
+        }
+      ],
+      "faq": null,
+      "locales": []
+    },
+    "checklist": [
+      "Write original copy, imagery and brand assets; do not reuse the target's text, logos, fonts or screenshots.",
+      "Build 0 section components: none detected.",
+      "Apply the token sheet below and verify contrast (background/foreground ratio n/a).",
+      "Re-implement: Toggle / switch control (e.g. monthly ↔ yearly pricing).",
+      "Re-implement: Accordion / FAQ expand-collapse.",
+      "Re-implement: Browser storage (localStorage/sessionStorage).",
+      "Re-implement: Multi-language content switching.",
+      "Re-implement: 1 form(s) to wire to your own backend.",
+      "Set up your own Custom embedded AI chat widget (DVChatConfig) account and ID.",
+      "License or substitute the typefaces (self-hosted fonts observed on the target are not yours to redistribute).",
+      "Avoid the target's gap: HSTS header missing. Add Strict-Transport-Security with max-age ≥ 31536000.",
+      "Avoid the target's gap: X-Content-Type-Options header missing. Set X-Content-Type-Options: nosniff.",
+      "Avoid the target's gap: Permissions-Policy header missing. Set Permissions-Policy to disable unused browser features.",
+      "Avoid the target's gap: Cross-Origin-Opener-Policy header missing. Consider COOP: same-origin."
+    ],
+    "legalNote": "This blueprint describes structure, tokens and integrations observed in public HTML for research and competitive analysis. Copying text, images, logos, licensed fonts or code verbatim may infringe copyright or trademark rights; build an original implementation."
+  }
+}

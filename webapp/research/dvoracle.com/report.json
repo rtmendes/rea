@@ -1,0 +1,3741 @@
+{
+  "reportVersion": 1,
+  "generatedAt": "2026-10-13T10:58:13.059Z",
+  "durationMs": 1765,
+  "target": {
+    "input": "https://dvoracle.com",
+    "url": "https://dvoracle.com/",
+    "finalUrl": "https://dvoracle.com/",
+    "status": 200,
+    "statusText": "OK",
+    "redirects": [],
+    "addresses": [
+      "217.196.61.135"
+    ],
+    "headers": {
+      "cache-control": "public, max-age=300, must-revalidate",
+      "content-encoding": "br",
+      "content-type": "text/html; charset=UTF-8",
+      "date": "Tue, 13 Oct 2026 10:58:11 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff"
+    },
+    "bytes": 137286,
+    "truncated": false,
+    "timing": {
+      "ttfbMs": 600,
+      "totalMs": 777
+    },
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "summary": {
+    "title": "dvoracle.com",
+    "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+    "language": "en",
+    "siteType": "landing page",
+    "technologyCount": 15,
+    "technologiesByCategory": {
+      "Site builder / CMS": [
+        "Figma-exported fixed canvas"
+      ],
+      "Animation / scrolling": [
+        "GSAP 3.12.5",
+        "GSAP ScrollTrigger",
+        "Lenis smooth scroll 1.1.14"
+      ],
+      "Web fonts": [
+        "Google Fonts",
+        "Self-hosted @font-face"
+      ],
+      "Tag manager": [
+        "Google Tag Manager GTM-N7TLPBPF"
+      ],
+      "Ad / marketing pixel": [
+        "Reddit Pixel a2_jpe9ofbt2021",
+        "OpenAI Pixel (oaiq) Jf2xESMk6VRh9ovoBDsAv5"
+      ],
+      "Chat / support": [
+        "Custom embedded AI chat widget (DVChatConfig)"
+      ],
+      "CDN / hosting": [
+        "cdnjs (Cloudflare)",
+        "unpkg"
+      ],
+      "Server / backend": [
+        "nginx"
+      ],
+      "Other": [
+        "Open Graph metadata",
+        "hreflang multi-language"
+      ]
+    },
+    "thirdPartyHosts": 11,
+    "sections": 23,
+    "ctas": [
+      "DV Shipping",
+      "Start now",
+      "Instagram",
+      "Get access to DV Oracle",
+      "See how it works"
+    ],
+    "forms": 0,
+    "wordCount": 1467,
+    "prices": 3,
+    "colorMode": "dark",
+    "primaryFonts": [
+      "Prometo",
+      "Plus Jakarta Sans",
+      "Inter",
+      "Poppins",
+      "Space Grotesk"
+    ],
+    "securityScore": 33,
+    "trackingIds": {
+      "gtm": [
+        "GTM-N7TLPBPF"
+      ],
+      "redditPixel": [
+        "a2_jpe9ofbt2021"
+      ],
+      "openaiPixel": [
+        "Jf2xESMk6VRh9ovoBDsAv5"
+      ]
+    },
+    "developerCommentLanguage": {
+      "language": "portuguese",
+      "confidence": 0.5
+    },
+    "headline": "Intelligence for your ecommerce"
+  },
+  "technologies": [
+    {
+      "name": "Figma-exported fixed canvas",
+      "category": "ssg",
+      "categoryLabel": "Site builder / CMS",
+      "website": "https://www.figma.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "width:1920px;height:10202px"
+        }
+      ]
+    },
+    {
+      "name": "GSAP",
+      "category": "animation",
+      "categoryLabel": "Animation / scrolling",
+      "website": "https://gsap.com/",
+      "version": "3.12.5",
+      "confidence": "high",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        },
+        {
+          "where": "inline script",
+          "match": "gsap.registerPlugin("
+        }
+      ]
+    },
+    {
+      "name": "GSAP ScrollTrigger",
+      "category": "animation",
+      "categoryLabel": "Animation / scrolling",
+      "website": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/",
+      "version": null,
+      "confidence": "high",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        },
+        {
+          "where": "inline script",
+          "match": "ScrollTrigger.update"
+        }
+      ]
+    },
+    {
+      "name": "Lenis smooth scroll",
+      "category": "animation",
+      "categoryLabel": "Animation / scrolling",
+      "website": "https://lenis.darkroom.engineering/",
+      "version": "1.1.14",
+      "confidence": "high",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"
+        },
+        {
+          "where": "inline script",
+          "match": "new Lenis("
+        }
+      ]
+    },
+    {
+      "name": "Google Fonts",
+      "category": "fonts",
+      "categoryLabel": "Web fonts",
+      "website": "https://fonts.google.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "fonts.gstatic.com"
+        }
+      ]
+    },
+    {
+      "name": "Self-hosted @font-face",
+      "category": "fonts",
+      "categoryLabel": "Web fonts",
+      "website": "https://developer.mozilla.org/docs/Web/CSS/@font-face",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "@font-face{font-family:'Prometo';src:url('"
+        }
+      ]
+    },
+    {
+      "name": "Google Tag Manager",
+      "category": "tagmanager",
+      "categoryLabel": "Tag manager",
+      "website": "https://tagmanager.google.com/",
+      "version": "GTM-N7TLPBPF",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "googletagmanager.com/gtm.js"
+        }
+      ]
+    },
+    {
+      "name": "Reddit Pixel",
+      "category": "ads",
+      "categoryLabel": "Ad / marketing pixel",
+      "website": "https://advertising.reddithelp.com/",
+      "version": "a2_jpe9ofbt2021",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "redditstatic.com/ads/pixel.js"
+        }
+      ]
+    },
+    {
+      "name": "OpenAI Pixel (oaiq)",
+      "category": "ads",
+      "categoryLabel": "Ad / marketing pixel",
+      "website": "https://openai.com/",
+      "version": "Jf2xESMk6VRh9ovoBDsAv5",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "bzrcdn.openai.com/sdk/oaiq"
+        }
+      ]
+    },
+    {
+      "name": "Custom embedded AI chat widget (DVChatConfig)",
+      "category": "chat",
+      "categoryLabel": "Chat / support",
+      "website": "https://chat.dvshipping.com/widget.js",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "window.DVChatConfig"
+        }
+      ]
+    },
+    {
+      "name": "cdnjs (Cloudflare)",
+      "category": "cdn",
+      "categoryLabel": "CDN / hosting",
+      "website": "https://cdnjs.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        }
+      ]
+    },
+    {
+      "name": "unpkg",
+      "category": "cdn",
+      "categoryLabel": "CDN / hosting",
+      "website": "https://unpkg.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"
+        }
+      ]
+    },
+    {
+      "name": "nginx",
+      "category": "server",
+      "categoryLabel": "Server / backend",
+      "website": "https://nginx.org/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "response header server",
+          "match": "nginx"
+        }
+      ]
+    },
+    {
+      "name": "Open Graph metadata",
+      "category": "misc",
+      "categoryLabel": "Other",
+      "website": "https://ogp.me/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "<meta property=\"og:"
+        }
+      ]
+    },
+    {
+      "name": "hreflang multi-language",
+      "category": "misc",
+      "categoryLabel": "Other",
+      "website": "https://developers.google.com/search/docs/specialty/international/localized-versions",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "<link rel=\"alternate\" hreflang="
+        }
+      ]
+    }
+  ],
+  "design": {
+    "stylesheetBytesInline": 19986,
+    "inlineStyleAttributes": 351,
+    "externalStylesheets": [
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    ],
+    "colors": {
+      "themeColor": "#09101A",
+      "palette": [
+        {
+          "hex": "#ffffff",
+          "count": 140,
+          "asBackground": 39,
+          "asText": 100,
+          "alphas": [
+            0,
+            0.082,
+            0.09,
+            0.1,
+            0.12,
+            0.14,
+            0.16,
+            0.55,
+            0.7,
+            0.72,
+            0.76,
+            0.82,
+            1
+          ],
+          "role": "text (light)",
+          "luminance": 1
+        },
+        {
+          "hex": "#00b3dd",
+          "count": 52,
+          "asBackground": 47,
+          "asText": 3,
+          "alphas": [
+            0,
+            0.18,
+            0.22,
+            0.24,
+            0.28,
+            0.3,
+            0.31,
+            0.32,
+            0.35,
+            0.38,
+            0.4,
+            0.45,
+            0.5,
+            0.558,
+            0.58,
+            0.62,
+            0.684,
+            0.76,
+            0.9,
+            1
+          ],
+          "role": "accent / surface",
+          "luminance": 0.375
+        },
+        {
+          "hex": "#000000",
+          "count": 48,
+          "asBackground": 43,
+          "asText": 5,
+          "alphas": [
+            0,
+            0.05,
+            0.2,
+            0.3,
+            0.34,
+            0.38,
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0
+        },
+        {
+          "hex": "#181818",
+          "count": 22,
+          "asBackground": 22,
+          "asText": 0,
+          "alphas": [
+            0.09
+          ],
+          "role": "overlay / border",
+          "luminance": 0.009
+        },
+        {
+          "hex": "#00b7e1",
+          "count": 18,
+          "asBackground": 18,
+          "asText": 0,
+          "alphas": [
+            0.08,
+            0.26
+          ],
+          "role": "overlay / border",
+          "luminance": 0.393
+        },
+        {
+          "hex": "#1a1a1a",
+          "count": 12,
+          "asBackground": 0,
+          "asText": 12,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.01
+        },
+        {
+          "hex": "#09101a",
+          "count": 8,
+          "asBackground": 7,
+          "asText": 0,
+          "alphas": [
+            0.34,
+            0.42,
+            0.62,
+            0.86,
+            0.88,
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.005
+        },
+        {
+          "hex": "#888888",
+          "count": 6,
+          "asBackground": 0,
+          "asText": 6,
+          "alphas": [
+            1
+          ],
+          "role": "text (accent)",
+          "luminance": 0.246
+        },
+        {
+          "hex": "#eef3f8",
+          "count": 5,
+          "asBackground": 0,
+          "asText": 3,
+          "alphas": [
+            0.62,
+            0.7,
+            1
+          ],
+          "role": "text (light)",
+          "luminance": 0.891
+        },
+        {
+          "hex": "#06222c",
+          "count": 3,
+          "asBackground": 0,
+          "asText": 3,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.014
+        },
+        {
+          "hex": "#1f1f1f",
+          "count": 3,
+          "asBackground": 3,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.014
+        },
+        {
+          "hex": "#f8f9fb",
+          "count": 3,
+          "asBackground": 0,
+          "asText": 3,
+          "alphas": [
+            0.314,
+            0.502
+          ],
+          "role": "text (light)",
+          "luminance": 0.947
+        },
+        {
+          "hex": "#064456",
+          "count": 2,
+          "asBackground": 2,
+          "asText": 0,
+          "alphas": [
+            0.92
+          ],
+          "role": "background (dark)",
+          "luminance": 0.048
+        },
+        {
+          "hex": "#0c121c",
+          "count": 2,
+          "asBackground": 2,
+          "asText": 0,
+          "alphas": [
+            0,
+            0.72
+          ],
+          "role": "background (dark)",
+          "luminance": 0.006
+        },
+        {
+          "hex": "#d9d9d9",
+          "count": 2,
+          "asBackground": 2,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "accent / surface",
+          "luminance": 0.694
+        },
+        {
+          "hex": "#111a26",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.01
+        },
+        {
+          "hex": "#040a12",
+          "count": 1,
+          "asBackground": 1,
+          "asText": 0,
+          "alphas": [
+            0.88
+          ],
+          "role": "background (dark)",
+          "luminance": 0.003
+        },
+        {
+          "hex": "#4aa9d4",
+          "count": 1,
+          "asBackground": 1,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "accent / surface",
+          "luminance": 0.346
+        },
+        {
+          "hex": "#0b1b24",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 1,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.01
+        },
+        {
+          "hex": "#112233",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 1,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.015
+        },
+        {
+          "hex": "#111111",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.006
+        },
+        {
+          "hex": "#222222",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.016
+        }
+      ],
+      "roles": {
+        "background": "#09101a",
+        "foreground": "#ffffff",
+        "accent": "#00b3dd",
+        "contrastBackgroundForeground": 19.08,
+        "contrastAccentOnBackground": 7.72
+      },
+      "mode": "dark"
+    },
+    "typography": {
+      "families": [
+        {
+          "family": "Plus Jakarta Sans",
+          "count": 54,
+          "fallbacks": [
+            "-apple-system",
+            "BlinkMacSystemFont",
+            "sans-serif"
+          ]
+        },
+        {
+          "family": "Prometo",
+          "count": 40,
+          "fallbacks": [
+            "Space Grotesk",
+            "sans-serif"
+          ]
+        },
+        {
+          "family": "Inter",
+          "count": 33,
+          "fallbacks": [
+            "sans-serif"
+          ]
+        },
+        {
+          "family": "Poppins",
+          "count": 5,
+          "fallbacks": [
+            "sans-serif"
+          ]
+        }
+      ],
+      "fontFaces": [
+        {
+          "family": "Prometo",
+          "weight": "400",
+          "style": "normal",
+          "src": "assets/fonts/Prometo-Regular.woff2",
+          "display": "swap"
+        },
+        {
+          "family": "Prometo",
+          "weight": "700",
+          "style": "normal",
+          "src": "assets/fonts/Prometo-Bold.woff2",
+          "display": "swap"
+        }
+      ],
+      "googleFonts": [
+        {
+          "family": "Plus Jakarta Sans",
+          "axes": "wght@400;500;600;700;800"
+        },
+        {
+          "family": "Inter",
+          "axes": "wght@400;500;600;700"
+        },
+        {
+          "family": "Poppins",
+          "axes": "wght@400;500;600"
+        },
+        {
+          "family": "Space Grotesk",
+          "axes": "wght@400;500;600;700"
+        }
+      ],
+      "typeScalePx": [
+        {
+          "px": 11,
+          "count": 2
+        },
+        {
+          "px": 12,
+          "count": 3
+        },
+        {
+          "px": 13,
+          "count": 3
+        },
+        {
+          "px": 14,
+          "count": 16
+        },
+        {
+          "px": 15,
+          "count": 6
+        },
+        {
+          "px": 16,
+          "count": 25
+        },
+        {
+          "px": 19,
+          "count": 2
+        },
+        {
+          "px": 20,
+          "count": 30
+        },
+        {
+          "px": 21,
+          "count": 1
+        },
+        {
+          "px": 22,
+          "count": 2
+        },
+        {
+          "px": 24,
+          "count": 21
+        },
+        {
+          "px": 30,
+          "count": 1
+        },
+        {
+          "px": 32,
+          "count": 16
+        },
+        {
+          "px": 34,
+          "count": 2
+        },
+        {
+          "px": 40,
+          "count": 10
+        },
+        {
+          "px": 48,
+          "count": 2
+        },
+        {
+          "px": 64,
+          "count": 11
+        },
+        {
+          "px": 96,
+          "count": 1
+        }
+      ],
+      "weights": [
+        {
+          "weight": "400",
+          "count": 75
+        },
+        {
+          "weight": "500",
+          "count": 38
+        },
+        {
+          "weight": "600",
+          "count": 1
+        },
+        {
+          "weight": "700",
+          "count": 19
+        }
+      ],
+      "lineHeights": [
+        {
+          "value": "26.0px",
+          "count": 30
+        },
+        {
+          "value": "19.4px",
+          "count": 23
+        },
+        {
+          "value": "33.6px",
+          "count": 18
+        },
+        {
+          "value": "44.8px",
+          "count": 16
+        },
+        {
+          "value": "83.2px",
+          "count": 11
+        },
+        {
+          "value": "56.0px",
+          "count": 7
+        },
+        {
+          "value": "16.9px",
+          "count": 4
+        },
+        {
+          "value": "30.2px",
+          "count": 3
+        }
+      ],
+      "letterSpacing": [
+        {
+          "value": "-0.96px",
+          "count": 13
+        },
+        {
+          "value": "-0.72px",
+          "count": 9
+        },
+        {
+          "value": "-1.92px",
+          "count": 4
+        },
+        {
+          "value": "1.2px",
+          "count": 1
+        },
+        {
+          "value": "1px",
+          "count": 1
+        },
+        {
+          "value": "2.4px",
+          "count": 1
+        },
+        {
+          "value": "0.48px",
+          "count": 1
+        }
+      ]
+    },
+    "shape": {
+      "borderRadius": [
+        {
+          "value": "25.0px 0.0px 25.0px 0.0px",
+          "count": 16
+        },
+        {
+          "value": "25.0px",
+          "count": 10
+        },
+        {
+          "value": "50%",
+          "count": 7
+        },
+        {
+          "value": "999px",
+          "count": 6
+        },
+        {
+          "value": "15.0px 0.0px 15.0px 0.0px",
+          "count": 5
+        },
+        {
+          "value": "14px",
+          "count": 4
+        },
+        {
+          "value": "20.0px",
+          "count": 4
+        },
+        {
+          "value": "10.0px",
+          "count": 3
+        },
+        {
+          "value": "999.0px",
+          "count": 3
+        },
+        {
+          "value": "100.0px",
+          "count": 3
+        },
+        {
+          "value": "10px",
+          "count": 2
+        },
+        {
+          "value": "12px",
+          "count": 2
+        }
+      ],
+      "boxShadow": [
+        {
+          "value": "0 8px 26px rgba(0,0,0,.34)",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.35)",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 rgba(0,0,0,0)",
+          "count": 1
+        },
+        {
+          "value": "0 14px 44px rgba(0,0,0,.38)",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.28),\n                     0 0 18px rgba(0,179,221,.45),\n                     0 0 44px rgba(0,1",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.45),\n                            0 0 26px rgba(0,179,221,.62),\n                            0 0",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.24),\n                       0 0 16px rgba(0,179,221,.38),\n                       0 0 40px rgba",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.40),\n                       0 0 26px rgba(0,179,221,.58),\n                       0 0 60px rgba",
+          "count": 1
+        },
+        {
+          "value": "none !important",
+          "count": 1
+        }
+      ],
+      "gradients": [
+        {
+          "value": "linear-gradient(rgba(24,24,24,0.09),rgba(24,24,24,0.09))",
+          "count": 11
+        },
+        {
+          "value": "linear-gradient(rgba(0,179,221,1.0),rgba(0,179,221,1.0))",
+          "count": 6
+        },
+        {
+          "value": "linear-gradient(rgba(0,183,225,0.08),rgba(0,183,225,0.08))",
+          "count": 6
+        },
+        {
+          "value": "linear-gradient(rgba(255,255,255,1.0),rgba(255,255,255,1.0))",
+          "count": 3
+        },
+        {
+          "value": "radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,179,221,1.0) 0%,rgba(0,179,221,0.9) 25%,rgba(0,179,221,0.5) 50%,rgba(0,179,221,0) 100%)",
+          "count": 3
+        },
+        {
+          "value": "linear-gradient(rgba(0,0,0,1.0),rgba(0,0,0,1.0))",
+          "count": 3
+        },
+        {
+          "value": "linear-gradient(rgba(0,183,225,0.26),rgba(0,183,225,0.26))",
+          "count": 3
+        },
+        {
+          "value": "linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0))",
+          "count": 2
+        },
+        {
+          "value": "linear-gradient(180deg,rgba(9,16,26,.42) 0%,rgba(9,16,26,.34) 38%,\n                                          rgba(9,16,26,.62) 74%,rgba(9,16,26,.88) 100%)",
+          "count": 1
+        },
+        {
+          "value": "linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(4,10,18,.88) 100%)",
+          "count": 1
+        },
+        {
+          "value": "linear-gradient(rgba(217,217,217,1.0),rgba(217,217,217,1.0))",
+          "count": 1
+        },
+        {
+          "value": "linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('assets/hero-bg.webp')",
+          "count": 1
+        }
+      ],
+      "backdropFilter": [
+        {
+          "value": "blur(7px)",
+          "count": 40
+        },
+        {
+          "value": "blur(14px)",
+          "count": 2
+        },
+        {
+          "value": "blur(12px)",
+          "count": 2
+        },
+        {
+          "value": "blur(0px)",
+          "count": 2
+        },
+        {
+          "value": "blur(18px) saturate(140%)",
+          "count": 2
+        }
+      ],
+      "transitions": [
+        {
+          "value": "none",
+          "count": 2
+        },
+        {
+          "value": "opacity .2s,outline-color .2s",
+          "count": 1
+        },
+        {
+          "value": "transform .25s ease,background-color .25s ease",
+          "count": 1
+        },
+        {
+          "value": "left .26s cubic-bezier(.2,.8,.2,1)",
+          "count": 1
+        },
+        {
+          "value": "left .28s cubic-bezier(.2,.8,.2,1)",
+          "count": 1
+        },
+        {
+          "value": "color .22s ease",
+          "count": 1
+        },
+        {
+          "value": "opacity .18s ease",
+          "count": 1
+        },
+        {
+          "value": "opacity .22s ease",
+          "count": 1
+        },
+        {
+          "value": "top .32s cubic-bezier(.2,.8,.2,1),height .32s cubic-bezier(.2,.8,.2,1)",
+          "count": 1
+        },
+        {
+          "value": "opacity .25s ease",
+          "count": 1
+        },
+        {
+          "value": "transform .35s cubic-bezier(.2,.8,.2,1),filter .35s ease",
+          "count": 1
+        },
+        {
+          "value": "transform .25s cubic-bezier(.2,.8,.2,1),filter .25s ease",
+          "count": 1
+        }
+      ],
+      "easings": [
+        {
+          "value": "linear",
+          "count": 50
+        },
+        {
+          "value": "ease",
+          "count": 14
+        },
+        {
+          "value": "ease-in-out",
+          "count": 3
+        }
+      ],
+      "breakpoints": [
+        {
+          "value": "860px",
+          "count": 1
+        }
+      ],
+      "cssVariables": [
+        {
+          "name": "--k",
+          "value": "calc(min(100vw, 1920px) / 1920px)"
+        },
+        {
+          "name": "--m-ciano",
+          "value": "#00b3dd"
+        },
+        {
+          "name": "--m-fundo",
+          "value": "#09101a"
+        },
+        {
+          "name": "--m-painel",
+          "value": "#111a26"
+        },
+        {
+          "name": "--m-borda",
+          "value": "rgba(255,255,255,.09)"
+        },
+        {
+          "name": "--m-texto",
+          "value": "#eef3f8"
+        },
+        {
+          "name": "--m-suave",
+          "value": "rgba(238,243,248,.62)"
+        }
+      ],
+      "keyframes": [
+        "m-vento",
+        "dvo-vento",
+        "dvo-zhou-pulso"
+      ],
+      "usesPrefersReducedMotion": true,
+      "usesPrefersColorScheme": false,
+      "usesContainerQueries": false,
+      "usesCustomProperties": true
+    }
+  },
+  "structure": {
+    "landmarks": {
+      "header": 1,
+      "nav": 2,
+      "main": 0,
+      "footer": 1,
+      "section": 11,
+      "article": 0,
+      "aside": 0,
+      "form": 0,
+      "dialog": 0,
+      "role=switch": 1
+    },
+    "outline": [
+      {
+        "level": 1,
+        "text": "Intelligence for your ecommerce"
+      },
+      {
+        "level": 3,
+        "text": "Two fronts, one intelligence"
+      },
+      {
+        "level": 2,
+        "text": "What DV Oracle does"
+      },
+      {
+        "level": 3,
+        "text": "An AI shows what already works before you invest"
+      },
+      {
+        "level": 3,
+        "text": "Access any competitor in one click"
+      },
+      {
+        "level": 3,
+        "text": "Everything in one place, on the same account"
+      },
+      {
+        "level": 2,
+        "text": "Our Products"
+      },
+      {
+        "level": 3,
+        "text": "Ad Library"
+      },
+      {
+        "level": 3,
+        "text": "Chrome Extension"
+      },
+      {
+        "level": 2,
+        "text": "Proof"
+      },
+      {
+        "level": 3,
+        "text": "Nothing here is static."
+      },
+      {
+        "level": 2,
+        "text": "How It Works"
+      },
+      {
+        "level": 3,
+        "text": "Open DV Oracle"
+      },
+      {
+        "level": 3,
+        "text": "Filter or analyze"
+      },
+      {
+        "level": 3,
+        "text": "Decide on real data"
+      },
+      {
+        "level": 2,
+        "text": "Why DV Oracle"
+      },
+      {
+        "level": 2,
+        "text": "Frequently Asked Questions"
+      },
+      {
+        "level": 2,
+        "text": "Unlock the full intelligence"
+      },
+      {
+        "level": 3,
+        "text": "PRO"
+      },
+      {
+        "level": 3,
+        "text": "GROWTH"
+      },
+      {
+        "level": 3,
+        "text": "AGENCY"
+      },
+      {
+        "level": 2,
+        "text": "Get access to DV Oracle"
+      },
+      {
+        "level": 4,
+        "text": "Product"
+      },
+      {
+        "level": 4,
+        "text": "Support"
+      },
+      {
+        "level": 4,
+        "text": "DV Shipping"
+      }
+    ],
+    "sections": [
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Hero",
+        "heading": null,
+        "firstText": "Intelligence for your ecommerce DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already perfo",
+        "textChars": 238,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "About Us",
+        "heading": null,
+        "firstText": "Two fronts, one intelligence DV Oracle works on two fronts: the Ad Library, which shows what is already performing before you invest, and th",
+        "textChars": 303,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Achievement",
+        "heading": null,
+        "firstText": "50,000 ads monitored 3,000 stores analyzed ∞ Continuous updates 24/7 AI running 24/7 Data working for you, around the clock.",
+        "textChars": 124,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Best featured",
+        "heading": null,
+        "firstText": "What DV Oracle does Two tools, one intelligence. An AI shows what already works before you invest Our AI scans thousands of live ads and sep",
+        "textChars": 534,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Best featured",
+        "heading": null,
+        "firstText": "Our Products Two tools that work together so you sell more. Thousands of live ads, filtered by an AI that separates what is actually perform",
+        "textChars": 365,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "About Us",
+        "heading": null,
+        "firstText": "Proof What you can expect from DV Oracle. A continuously updated ad catalog, with product and creative side by side. One-click extension ins",
+        "textChars": 460,
+        "links": 0,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Best featured",
+        "heading": null,
+        "firstText": "How It Works Three steps to get started. Open DV Oracle Through your dashboard or by installing the Chrome extension. Filter or analyze Filt",
+        "textChars": 350,
+        "links": 0,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "About Us",
+        "heading": null,
+        "firstText": "Why DV Oracle What makes the difference. All in one system Ad library and extension, with no separate tools to open. AI, not guesswork Every",
+        "textChars": 391,
+        "links": 0,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Footer",
+        "heading": null,
+        "firstText": "Intelligence for people who sell online Product Ad Library Chrome Extension Pricing Support FAQ Contact Terms of Use DV Shipping contact@dvo",
+        "textChars": 149,
+        "links": 2,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Question",
+        "heading": null,
+        "firstText": "Frequently Asked Questions Do I need to be a DV Shipping client to use DV Oracle? No. DV Shipping clients get free access to the Ad Library.",
+        "textChars": 316,
+        "links": 0,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "pricing-section",
+        "heading": null,
+        "firstText": "Unlock the full intelligence Unlimited ad library, plus the AI that analyzes any competing store. Monthly Yearly SAVE 20% PRO Ideal for thos",
+        "textChars": 788,
+        "links": 0,
+        "buttons": 0,
+        "images": 14,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Group 2",
+        "heading": null,
+        "firstText": "Instant Access Get access to DV Oracle Put the artificial intelligence of online sellers to work analyzing your competitors and finding prof",
+        "textChars": 186,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Navbar",
+        "heading": null,
+        "firstText": "Home Library Extension Pricing FAQ",
+        "textChars": 34,
+        "links": 3,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "nav",
+        "id": null,
+        "label": "idioma",
+        "heading": null,
+        "firstText": null,
+        "textChars": 0,
+        "links": 3,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "header",
+        "id": null,
+        "label": null,
+        "heading": null,
+        "firstText": null,
+        "textChars": 0,
+        "links": 3,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "nav",
+        "id": null,
+        "label": "idioma",
+        "heading": null,
+        "firstText": null,
+        "textChars": 0,
+        "links": 3,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Intelligence for your ecommerce",
+        "firstText": "Intelligence for your ecommerce DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already perfo",
+        "textChars": 238,
+        "links": 2,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": null,
+        "firstText": "Data working for you, around the clock. 50,000ads monitored 3,000stores analyzed ∞Continuous updates 24/7AI running 24/7",
+        "textChars": 120,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Two fronts, one intelligence",
+        "firstText": "Two fronts, one intelligence DV Oracle works on two fronts: the Ad Library, which shows what is already performing before you invest, and th",
+        "textChars": 303,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "What DV Oracle does",
+        "firstText": "What DV Oracle does Two tools, one intelligence. An AI shows what already works before you invest Our AI scans thousands of live ads and sep",
+        "textChars": 534,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Our Products",
+        "firstText": "Our Products Two tools that work together so you sell more. Ad Library Thousands of live ads, filtered by an AI that separates what is actua",
+        "textChars": 365,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Proof",
+        "firstText": "Proof What you can expect from DV Oracle. A continuously updated ad catalog, with product and creative side by side. One-click extension ins",
+        "textChars": 460,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "How It Works",
+        "firstText": "How It Works Three steps to get started. Open DV OracleThrough your dashboard or by installing the Chrome extension. Filter or analyzeFilter",
+        "textChars": 347,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Why DV Oracle",
+        "firstText": "Why DV Oracle What makes the difference. Intelligence for people who sell online All in one systemAd library and extension, with no separate",
+        "textChars": 387,
+        "links": 1,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": "m-faq",
+        "label": null,
+        "heading": "Frequently Asked Questions",
+        "firstText": "Frequently Asked Questions Do I need to be a DV Shipping client to use DV Oracle? No. DV Shipping clients get free access to the Ad Library.",
+        "textChars": 595,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": "m-precos",
+        "label": null,
+        "heading": "Unlock the full intelligence",
+        "firstText": "Unlock the full intelligence Unlimited ad library, plus the AI that analyzes any competing store. Monthly Yearly SAVE 20% PRO Ideal for thos",
+        "textChars": 850,
+        "links": 3,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Get access to DV Oracle",
+        "firstText": "Instant Access Get access to DV Oracle Put the artificial intelligence of online sellers to work analyzing your competitors and finding prof",
+        "textChars": 186,
+        "links": 1,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "footer",
+        "id": null,
+        "label": null,
+        "heading": null,
+        "firstText": "Intelligence for people who sell online Product Ad Library Chrome Extension Pricing Support FAQ Contact Terms of Use DV Shipping contact@dvo",
+        "textChars": 149,
+        "links": 9,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      }
+    ],
+    "navLinks": [
+      {
+        "text": "",
+        "href": "./"
+      },
+      {
+        "text": "",
+        "href": "./?lang=pt"
+      },
+      {
+        "text": "",
+        "href": "./?lang=es"
+      },
+      {
+        "text": "",
+        "href": "./"
+      },
+      {
+        "text": "",
+        "href": "./?lang=pt"
+      },
+      {
+        "text": "",
+        "href": "./?lang=es"
+      }
+    ],
+    "ctas": [
+      {
+        "text": "DV Shipping",
+        "occurrences": 4,
+        "kind": "external",
+        "hrefs": [
+          "https://dvshipping.com"
+        ]
+      },
+      {
+        "text": "Start now",
+        "occurrences": 3,
+        "kind": "external",
+        "hrefs": [
+          "https://app.dvoracle.com/login"
+        ]
+      },
+      {
+        "text": "Instagram",
+        "occurrences": 2,
+        "kind": "external",
+        "hrefs": [
+          "https://instagram.com/dv.shipping"
+        ]
+      },
+      {
+        "text": "Get access to DV Oracle",
+        "occurrences": 2,
+        "kind": "external",
+        "hrefs": [
+          "https://app.dvoracle.com/login"
+        ]
+      },
+      {
+        "text": "See how it works",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-escuro"
+        ]
+      },
+      {
+        "text": "Ad Library",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-precos"
+        ]
+      },
+      {
+        "text": "Chrome Extension",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-precos"
+        ]
+      },
+      {
+        "text": "Pricing",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-precos"
+        ]
+      },
+      {
+        "text": "FAQ",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-faq"
+        ]
+      },
+      {
+        "text": "Contact",
+        "occurrences": 1,
+        "kind": "mailto",
+        "hrefs": [
+          "mailto:contact@dvoracle.com"
+        ]
+      },
+      {
+        "text": "Terms of Use",
+        "occurrences": 1,
+        "kind": "internal",
+        "hrefs": [
+          "/terms/"
+        ]
+      },
+      {
+        "text": "contact@dvoracle.com",
+        "occurrences": 1,
+        "kind": "mailto",
+        "hrefs": [
+          "mailto:contact@dvoracle.com"
+        ]
+      }
+    ],
+    "forms": [],
+    "images": {
+      "count": 15,
+      "withAlt": 5,
+      "lazy": 0,
+      "formats": {
+        "webp": 5,
+        "svg": 10
+      },
+      "sources": [
+        "assets/bg-glow.webp",
+        "assets/final-y.webp",
+        "assets/logo-hero.svg",
+        "assets/footer-bg.webp",
+        "assets/productby-footer.svg",
+        "assets/logo-footer.svg",
+        "assets/productby-card.svg",
+        "assets/logo-navbar.svg",
+        "assets/logo-navbar.svg",
+        "assets/logo-hero.svg",
+        "assets/refresh.webp",
+        "assets/productby-card.svg",
+        "assets/final-y.webp",
+        "assets/logo-footer.svg",
+        "assets/productby-footer.svg"
+      ],
+      "inlineSvg": 38
+    },
+    "media": {
+      "video": 0,
+      "audio": 0,
+      "iframes": [],
+      "canvas": 0
+    },
+    "dom": {
+      "totalElements": 673,
+      "maxDepth": 13,
+      "topTags": [
+        {
+          "tag": "div",
+          "count": 356
+        },
+        {
+          "tag": "svg",
+          "count": 38
+        },
+        {
+          "tag": "circle",
+          "count": 34
+        },
+        {
+          "tag": "path",
+          "count": 32
+        },
+        {
+          "tag": "rect",
+          "count": 29
+        },
+        {
+          "tag": "p",
+          "count": 28
+        },
+        {
+          "tag": "a",
+          "count": 25
+        },
+        {
+          "tag": "li",
+          "count": 23
+        },
+        {
+          "tag": "img",
+          "count": 15
+        },
+        {
+          "tag": "span",
+          "count": 13
+        },
+        {
+          "tag": "h3",
+          "count": 13
+        },
+        {
+          "tag": "section",
+          "count": 11
+        },
+        {
+          "tag": "b",
+          "count": 8
+        },
+        {
+          "tag": "h2",
+          "count": 8
+        },
+        {
+          "tag": "small",
+          "count": 7
+        }
+      ]
+    },
+    "interactive": {
+      "withId": 62,
+      "ariaAttributes": 9,
+      "tabindex": 1,
+      "details": 4,
+      "dialogs": 0
+    },
+    "hasSkipLink": false,
+    "hasMobileVariant": true
+  },
+  "content": {
+    "title": "dvoracle.com",
+    "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+    "lang": "en",
+    "canonical": "https://dvoracle.com/",
+    "robotsMeta": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "themeColor": "#09101A",
+    "generator": null,
+    "openGraph": {
+      "title": "dvoracle.com",
+      "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+      "type": "website",
+      "url": "https://dvoracle.com/",
+      "image": null,
+      "locale": "en",
+      "siteName": null
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "site": null,
+      "image": null
+    },
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/favicon.svg",
+        "sizes": null
+      },
+      {
+        "rel": "icon",
+        "href": "/icon-32.png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "alternate icon",
+        "href": "/favicon.ico",
+        "sizes": "16x16 32x32 48x48"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-touch-icon.png",
+        "sizes": "180x180"
+      }
+    ],
+    "hreflang": [
+      {
+        "lang": "en",
+        "href": "https://dvoracle.com/"
+      },
+      {
+        "lang": "pt-BR",
+        "href": "https://dvoracle.com/?lang=pt"
+      },
+      {
+        "lang": "es",
+        "href": "https://dvoracle.com/?lang=es"
+      },
+      {
+        "lang": "x-default",
+        "href": "https://dvoracle.com/"
+      }
+    ],
+    "jsonLd": [],
+    "metas": {
+      "viewport": "width=device-width, initial-scale=1",
+      "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+      "og:title": "dvoracle.com",
+      "og:description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+      "og:type": "website",
+      "og:url": "https://dvoracle.com/",
+      "og:locale": "en",
+      "twitter:card": "summary_large_image",
+      "theme-color": "#09101A"
+    },
+    "wordCount": 1467,
+    "textBlocks": [
+      {
+        "tag": "div",
+        "text": "Intelligence for your ecommerce"
+      },
+      {
+        "tag": "div",
+        "text": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place."
+      },
+      {
+        "tag": "div",
+        "text": "Get access to DV Oracle"
+      },
+      {
+        "tag": "span",
+        "text": "See how it works"
+      },
+      {
+        "tag": "div",
+        "text": "Two fronts, one intelligence"
+      },
+      {
+        "tag": "div",
+        "text": "DV Oracle works on two fronts: the , which shows what is already performing before you invest, and the , which analyzes any competing store straight from your browser. Both run on the same account, with the same credits — you choose where t"
+      },
+      {
+        "tag": "span",
+        "text": "Ad Library"
+      },
+      {
+        "tag": "span",
+        "text": "Chrome Extension"
+      },
+      {
+        "tag": "div",
+        "text": "Stop deciding in the dark."
+      },
+      {
+        "tag": "div",
+        "text": "50,000"
+      },
+      {
+        "tag": "div",
+        "text": "ads monitored"
+      },
+      {
+        "tag": "div",
+        "text": "3,000"
+      },
+      {
+        "tag": "div",
+        "text": "stores analyzed"
+      },
+      {
+        "tag": "div",
+        "text": "Continuous updates"
+      },
+      {
+        "tag": "div",
+        "text": "24/7"
+      },
+      {
+        "tag": "div",
+        "text": "AI running 24/7"
+      },
+      {
+        "tag": "div",
+        "text": "Data working for you, around the clock."
+      },
+      {
+        "tag": "div",
+        "text": "What DV Oracle does"
+      },
+      {
+        "tag": "div",
+        "text": "Two tools, one intelligence."
+      },
+      {
+        "tag": "div",
+        "text": "An AI shows what already works before you invest"
+      },
+      {
+        "tag": "div",
+        "text": "Our AI scans thousands of live ads and separates the ones that are truly performing, so you do not have to dig through them one by one."
+      },
+      {
+        "tag": "div",
+        "text": "Access any competitor in one click"
+      },
+      {
+        "tag": "div",
+        "text": "The DV Oracle extension AI estimates traffic, catalog and revenue for any store, right on the page you are viewing."
+      },
+      {
+        "tag": "div",
+        "text": "Everything in one place, on the same account"
+      },
+      {
+        "tag": "div",
+        "text": "The ad library and the extension share one login and one credit balance, with no separate tools to open."
+      },
+      {
+        "tag": "div",
+        "text": "Our Products"
+      },
+      {
+        "tag": "div",
+        "text": "Two tools that work together so you sell more."
+      },
+      {
+        "tag": "div",
+        "text": "Thousands of live ads, filtered by an AI that separates what is actually performing right now. Filter by niche, product or creative format."
+      },
+      {
+        "tag": "div",
+        "text": "Install in one click and analyze any competing store straight from your browser. An AI estimates traffic, revenue and catalog in seconds."
+      },
+      {
+        "tag": "div",
+        "text": "Proof"
+      },
+      {
+        "tag": "div",
+        "text": "What you can expect from DV Oracle."
+      },
+      {
+        "tag": "div",
+        "text": "A continuously updated ad catalog, with product and creative side by side."
+      },
+      {
+        "tag": "div",
+        "text": "One-click extension install, with real catalog data (Shopify stores)."
+      },
+      {
+        "tag": "div",
+        "text": "AI-generated estimates for traffic, revenue and ads."
+      },
+      {
+        "tag": "div",
+        "text": "Catalog and pricing are real, public data taken straight from the store."
+      },
+      {
+        "tag": "div",
+        "text": "Nothing here is static."
+      },
+      {
+        "tag": "div",
+        "text": "The AI reprocesses ads and stores continuously. What you see is always the current picture, not a snapshot from months ago."
+      },
+      {
+        "tag": "div",
+        "text": "How It Works"
+      },
+      {
+        "tag": "div",
+        "text": "Three steps to get started."
+      },
+      {
+        "tag": "div",
+        "text": "Open DV Oracle"
+      },
+      {
+        "tag": "div",
+        "text": "Through your dashboard or by installing the Chrome extension."
+      },
+      {
+        "tag": "div",
+        "text": "Filter or analyze"
+      },
+      {
+        "tag": "div",
+        "text": "Filter by niche or product, or analyze any competing store you like in one click."
+      },
+      {
+        "tag": "div",
+        "text": "Decide on real data"
+      },
+      {
+        "tag": "div",
+        "text": "Use the data (ads, traffic, catalog, estimated revenue) as your reference for what to sell and how to advertise."
+      },
+      {
+        "tag": "div",
+        "text": "Why DV Oracle"
+      },
+      {
+        "tag": "div",
+        "text": "What makes the difference."
+      },
+      {
+        "tag": "div",
+        "text": "All in one system"
+      },
+      {
+        "tag": "div",
+        "text": "Ad library and extension, with no separate tools to open."
+      },
+      {
+        "tag": "div",
+        "text": "AI, not guesswork"
+      },
+      {
+        "tag": "div",
+        "text": "Every analysis is done by artificial intelligence, updated continuously."
+      },
+      {
+        "tag": "div",
+        "text": "Any online operation"
+      },
+      {
+        "tag": "div",
+        "text": "Dropshipping, marketplaces or ecommerce in general."
+      },
+      {
+        "tag": "div",
+        "text": "Works on its own"
+      },
+      {
+        "tag": "div",
+        "text": "You do not need to be a DV Shipping client to use it."
+      },
+      {
+        "tag": "div",
+        "text": "Intelligence for people who sell online"
+      },
+      {
+        "tag": "div",
+        "text": "Product"
+      },
+      {
+        "tag": "div",
+        "text": "Pricing"
+      },
+      {
+        "tag": "div",
+        "text": "Support"
+      },
+      {
+        "tag": "div",
+        "text": "FAQ"
+      },
+      {
+        "tag": "div",
+        "text": "Contact"
+      },
+      {
+        "tag": "div",
+        "text": "Terms of Use"
+      },
+      {
+        "tag": "div",
+        "text": "DV Shipping"
+      },
+      {
+        "tag": "div",
+        "text": "contact@dvoracle.com"
+      },
+      {
+        "tag": "div",
+        "text": "Frequently Asked Questions"
+      },
+      {
+        "tag": "div",
+        "text": "Do I need to be a DV Shipping client to use DV Oracle?"
+      },
+      {
+        "tag": "div",
+        "text": "No. DV Shipping clients get free access to the Ad Library. Everyone else can subscribe separately. The Chrome extension is free for anyone, with credits included."
+      },
+      {
+        "tag": "div",
+        "text": "Is this only for dropshipping?"
+      },
+      {
+        "tag": "div",
+        "text": "Is the data real?"
+      },
+      {
+        "tag": "div",
+        "text": "Can I cancel any time?"
+      },
+      {
+        "tag": "div",
+        "text": "Unlock the full intelligence"
+      },
+      {
+        "tag": "div",
+        "text": "Unlimited ad library, plus the AI that analyzes any competing store."
+      },
+      {
+        "tag": "div",
+        "text": "Monthly"
+      },
+      {
+        "tag": "div",
+        "text": "Yearly"
+      },
+      {
+        "tag": "div",
+        "text": "SAVE 20%"
+      },
+      {
+        "tag": "div",
+        "text": "PRO"
+      },
+      {
+        "tag": "div",
+        "text": "Ideal for those starting to validate ads."
+      },
+      {
+        "tag": "div",
+        "text": "US$ 39"
+      },
+      {
+        "tag": "div",
+        "text": "/mo"
+      },
+      {
+        "tag": "div",
+        "text": "Unlimited Ad Library"
+      },
+      {
+        "tag": "div",
+        "text": "100 analysis credits per month"
+      },
+      {
+        "tag": "div",
+        "text": "CSV data export"
+      },
+      {
+        "tag": "div",
+        "text": "Priority chat support"
+      },
+      {
+        "tag": "div",
+        "text": "Start now"
+      },
+      {
+        "tag": "div",
+        "text": "Most Popular"
+      },
+      {
+        "tag": "div",
+        "text": "GROWTH"
+      },
+      {
+        "tag": "div",
+        "text": "The best-selling plan for operations at scale."
+      },
+      {
+        "tag": "div",
+        "text": "US$ 97"
+      },
+      {
+        "tag": "div",
+        "text": "Everything in PRO"
+      },
+      {
+        "tag": "div",
+        "text": "500 analysis credits per month"
+      },
+      {
+        "tag": "div",
+        "text": "3 simultaneous logins"
+      },
+      {
+        "tag": "div",
+        "text": "50 ads per query"
+      },
+      {
+        "tag": "div",
+        "text": "Advanced AI filters"
+      },
+      {
+        "tag": "div",
+        "text": "AGENCY"
+      },
+      {
+        "tag": "div",
+        "text": "Perfect for large agencies and multiple ecommerce brands."
+      },
+      {
+        "tag": "div",
+        "text": "US$ 249"
+      },
+      {
+        "tag": "div",
+        "text": "Everything in GROWTH"
+      },
+      {
+        "tag": "div",
+        "text": "2000 analysis credits per month"
+      },
+      {
+        "tag": "div",
+        "text": "10 simultaneous logins"
+      },
+      {
+        "tag": "div",
+        "text": "150 ads per query"
+      },
+      {
+        "tag": "div",
+        "text": "Dedicated account manager"
+      },
+      {
+        "tag": "div",
+        "text": "Not ready yet?"
+      },
+      {
+        "tag": "span",
+        "text": "Start a free 3-day trial, no card required."
+      },
+      {
+        "tag": "div",
+        "text": "Pick a plan · secure checkout · cancel any time"
+      },
+      {
+        "tag": "div",
+        "text": "Instant Access"
+      },
+      {
+        "tag": "div",
+        "text": "Put the artificial intelligence of online sellers to work analyzing your competitors and finding profitable ads in seconds."
+      },
+      {
+        "tag": "div",
+        "text": "Home"
+      },
+      {
+        "tag": "div",
+        "text": "Library"
+      },
+      {
+        "tag": "div",
+        "text": "Extension"
+      },
+      {
+        "tag": "p",
+        "text": "No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce."
+      },
+      {
+        "tag": "p",
+        "text": "Yes. The data is real and public, updated continuously, covering the last 6 months."
+      },
+      {
+        "tag": "p",
+        "text": "Yes. You can cancel at any time, with no penalty and no lock-in."
+      },
+      {
+        "tag": "li",
+        "text": "Unlimited cached ad library"
+      },
+      {
+        "tag": "li",
+        "text": "10,000 collection credits / month"
+      },
+      {
+        "tag": "li",
+        "text": "Leads by LinkedIn, CNAE and Instagram"
+      },
+      {
+        "tag": "li",
+        "text": "Up to 120 leads per search"
+      },
+      {
+        "tag": "li",
+        "text": "CSV export"
+      },
+      {
+        "tag": "li",
+        "text": "30,000 collection credits / month"
+      },
+      {
+        "tag": "li",
+        "text": "2 seats, one login each"
+      },
+      {
+        "tag": "li",
+        "text": "150 ads per library pull (150 credits)"
+      },
+      {
+        "tag": "li",
+        "text": "Niches your team already pulled cost nothing"
+      },
+      {
+        "tag": "li",
+        "text": "80,000 collection credits / month"
+      },
+      {
+        "tag": "li",
+        "text": "5 seats, one login each"
+      },
+      {
+        "tag": "li",
+        "text": "Up to 200 leads per search"
+      },
+      {
+        "tag": "li",
+        "text": "300 ads per library pull (300 credits)"
+      },
+      {
+        "tag": "p",
+        "text": "Not ready yet? Start a free 3-day trial, no card required."
+      }
+    ],
+    "headlines": [],
+    "prices": [
+      {
+        "amount": "US$ 39/mo",
+        "context": "arly SAVE 20% PRO Ideal for those starting to validate ads. US$ 39/mo Unlimited cached ad library10,000 collection credits / mont"
+      },
+      {
+        "amount": "US$ 97/mo",
+        "context": "pular GROWTH The best-selling plan for operations at scale. US$ 97/mo Everything in PRO30,000 collection credits / month2 seats,"
+      },
+      {
+        "amount": "US$ 249/mo",
+        "context": "Y Perfect for large agencies and multiple ecommerce brands. US$ 249/mo Everything in GROWTH80,000 collection credits / month5 seat"
+      },
+      {
+        "amount": "US$ 374.40",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 931.20",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 2,390.40",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 39",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 31.20",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 97",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 77.60",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 249",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 199.20",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "R$ 97",
+        "context": "inline script literal"
+      }
+    ],
+    "emails": [
+      "contact@dvoracle.com"
+    ],
+    "phones": [],
+    "socialLinks": [
+      "https://instagram.com/dv.shipping"
+    ],
+    "externalLinkHosts": [
+      {
+        "host": "app.dvoracle.com",
+        "count": 5
+      },
+      {
+        "host": "dvshipping.com",
+        "count": 4
+      },
+      {
+        "host": "instagram.com",
+        "count": 2
+      },
+      {
+        "host": "",
+        "count": 2
+      }
+    ],
+    "comments": {
+      "htmlCount": 5,
+      "jsCount": 42,
+      "sample": [
+        "Reddit Pixel",
+        "DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER",
+        "OpenAI Pixel",
+        "o Safari do iPhone usa o apple-touch-icon; sem ele a guia fica sem icone",
+        "dv: hide stray GTM text",
+        "seletor mensal/anual do celular",
+        "fator de escala da prancha. Nao da pra ler o --k do CSS: ele guarda uma EXPRESSAO calc(), e getComputedStyle devolve o texto cru. Calculo aqui.",
+        "========================================================== 1) Seletor Mensal / Anual O mock do Figma mostra a bolinha a direita mas com \"Mensal\" em destaque e os precos mensais — comeco em Mensal, que e o estado coerente, e a bolinha anda ao clicar. ==========================================================",
+        "O \"/mes\" fica numa coluna fixa no Figma, calibrada para \"R$ 97\". Com os valores reais em dolar (mais largos, e mais largos ainda no anual) ele cobria os digitos. Recoloco logo apos o texto — e como a troca tem 180ms de transicao, preciso medir DEPOIS dela, senao uso a largura antiga e o sufixo cai em cima do numero.",
+        "caixa encolhe ate o texto",
+        "posicoes da bolinha dentro do trilho, medidas do Figma: trilho 52px de largura, bolinha 24px, folga de 2px de cada lado",
+        "agora sim, com a largura nova",
+        "O \"/mes\" fica numa coluna fixa no Figma, calibrada para 'R$ 97'. Com os valores reais em dolar (mais largos) ele ficava por baixo do preco — entao recoloco logo apos o texto, medindo a largura real.",
+        "linha \"cobrado anualmente\" sob cada preco",
+        "========================================================== 2) Cabecalho que acompanha a rolagem e embaca o fundo ==========================================================",
+        "fundo da ilha, atras do conteudo",
+        "tira da prancha, poe no fixo",
+        "========================================================== 3) Rolagem suave (mesma lib do dvshipping.com) ==========================================================",
+        "========================================================== 4) Movimento na rolagem Uso IntersectionObserver (e nao ScrollTrigger) para revelar as secoes: ele dispara mesmo com rolagem programatica ou com a rolagem suave do Lenis. Testei o caminho com ScrollTrigger e, ao pular direto pra uma posicao, as secoes ficavam em opacity 0. ==========================================================",
+        "rede de seguranca: o que ainda estiver escondido apos 4s e ja estiver na tela aparece de qualquer jeito",
+        "========================================================== 5) Parallax do hero e entrada inicial (GSAP) Aqui o GSAP so MOVE coisas ja visiveis: se falhar, nada some. ==========================================================",
+        "========================================================== 6) Vida no ponteiro: botoes e cartoes reagem ==========================================================",
+        "========================================================== 7) Botao da CTA final: texto + seta centralizados como par No Figma o rotulo e a seta ficam lado a lado e o CONJUNTO e que esta centrado no botao. Com o texto mudando de largura a cada idioma, recoloco os dois a partir da largura real do texto — assim vale para pt, en e zh. ==========================================================",
+        "volta a px da prancha",
+        "as fontes podem chegar depois e mudar a largura do texto"
+      ],
+      "languageHint": {
+        "language": "portuguese",
+        "confidence": 0.5
+      }
+    },
+    "languageHint": {
+      "language": "english",
+      "confidence": 1
+    }
+  },
+  "scripts": {
+    "external": [
+      {
+        "src": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
+        "host": "cdnjs.cloudflare.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "GSAP",
+        "version": "3.12.5"
+      },
+      {
+        "src": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js",
+        "host": "cdnjs.cloudflare.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "GSAP",
+        "version": "3.12.5"
+      },
+      {
+        "src": "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js",
+        "host": "unpkg.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "Lenis",
+        "version": "1.1.14"
+      },
+      {
+        "src": "https://chat.dvshipping.com/widget.js",
+        "host": "chat.dvshipping.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "Embedded widget",
+        "version": null
+      }
+    ],
+    "inline": [
+      {
+        "type": "text/javascript",
+        "bytes": 342,
+        "purpose": "Google Tag Manager loader",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://www.googletagmanager.com/gtm.js?id="
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.goog"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 404,
+        "purpose": "Reddit Pixel",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_jpe9ofbt2021"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement(\"script\");t.src=\"https://www.redditstatic.com/ads/pixel.js?pix"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 329,
+        "purpose": "OpenAI Pixel",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,\"scr"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 398,
+        "purpose": "OpenAI Pixel",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": true,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "(function(){function r(){var b=document.body,c,i,x;if(!b)return;c=b.childNodes;for(i=c.length-1;i>=0;i--){x=c[i];if(x.nodeType===3&&x.nodeValue.indexOf(\"oaiq(\")>-1&&x.nodeValue.indexOf(\"page_viewed\")>-1)b.removeChild(x);"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 909,
+        "purpose": "embedded data",
+        "globals": [
+          "__dvoFAQ",
+          "__dvoAnual",
+          "__dvoPlanos"
+        ],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "window.__dvoFAQ=[\"No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce.\",\"Yes. The data is real and public, updated continuously, covering the l"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 943,
+        "purpose": "UI interaction",
+        "globals": [],
+        "listeners": [
+          "click",
+          "keydown"
+        ],
+        "elementIds": [
+          "m-toggle",
+          "m-lbl-mes",
+          "m-lbl-ano"
+        ],
+        "selectors": [
+          ".mob .m-valor",
+          ".mob .m-anual"
+        ],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "/* seletor mensal/anual do celular */ (function () { var t = document.getElementById('m-toggle'); if (!t) return; var lm = document.getElementById('m-lbl-mes'), la = document.getElementById('m-lbl-ano'); var anual = fals"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 15778,
+        "purpose": "animation / scroll behaviour",
+        "globals": [
+          "__dvoLenis"
+        ],
+        "listeners": [
+          "load",
+          "click",
+          "keydown",
+          "scroll",
+          "resize"
+        ],
+        "elementIds": [
+          "dvo-toggle",
+          "dvo-knob",
+          "dvo-mensal",
+          "dvo-anual",
+          "dvo-preco-pro",
+          "dvo-sufixo-pro",
+          "dvo-preco-growth",
+          "dvo-sufixo-growth",
+          "dvo-preco-agency",
+          "dvo-sufixo-agency",
+          "dvo-cta-btn",
+          "dvo-cta-lbl",
+          "dvo-cta-seta",
+          "dvo-faq-",
+          "dvo-faqrow-",
+          "dvo-faqic-",
+          "dvo-faqans-1"
+        ],
+        "selectors": [
+          ".stage",
+          ".stage > [data-sec=",
+          ".stage > [data-sec]",
+          ".t",
+          "[data-sec=",
+          ".stage .t, .dvo-navfix .t",
+          "[id]"
+        ],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": true,
+        "usesMutationObserver": false,
+        "usesMatchMedia": true,
+        "usesRequestAnimationFrame": true,
+        "preview": "window.addEventListener('load', function () { var SEM_MOVIMENTO = window.matchMedia('(prefers-reduced-motion: reduce)').matches; var stage = document.querySelector('.stage'); /* fator de escala da prancha. Nao da pra ler"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 3013,
+        "purpose": "animation / scroll behaviour",
+        "globals": [],
+        "listeners": [
+          "load",
+          "click",
+          "keydown"
+        ],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://app.dvoracle.com/login"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "/* Menu do cabecalho. Antes eu casava o rotulo pelo TEXTO ('Início', 'Preços'...), o que so funcionava em portugues: em ingles e chines nada acontecia ao clicar. Agora cada link tem um id proprio e o destino e a posicao "
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 913,
+        "purpose": "configuration object",
+        "globals": [
+          "DVChatConfig"
+        ],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://dvoracle.com/terms/",
+          "https://dvoracle.com/icon-192.png"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "window.DVChatConfig = { title: 'ZHOU', subtitle: \"Account Assistant\", welcome: \"Hi! How can I help you? 🙂\", footerText: \"This chat is being recorded. By chatting, you agree to the\", termsText: \"AI Terms\", termsUrl: 'htt"
+      }
+    ],
+    "totals": {
+      "external": 4,
+      "thirdPartyExternal": 4,
+      "inline": 9,
+      "inlineBytes": 23029,
+      "withIntegrity": 0
+    },
+    "dataBlobs": [
+      {
+        "name": "__dvoFAQ",
+        "kind": "array",
+        "bytes": 286,
+        "shape": "array(3) of string",
+        "sample": "[\"No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce.\",\"Yes. The data is real and public, updated continuously, covering the last 6 months.\",\"Yes. You can cancel at any time, with no penalty and no lock-in.\"]",
+        "parsed": [
+          "No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce.",
+          "Yes. The data is real and public, updated continuously, covering the last 6 months.",
+          "Yes. You can cancel at any time, with no penalty and no lock-in."
+        ]
+      },
+      {
+        "name": "__dvoAnual",
+        "kind": "array",
+        "bytes": 84,
+        "shape": "array(3) of string",
+        "sample": "[\"US$ 374.40 billed yearly\",\"US$ 931.20 billed yearly\",\"US$ 2,390.40 billed yearly\"]",
+        "parsed": [
+          "US$ 374.40 billed yearly",
+          "US$ 931.20 billed yearly",
+          "US$ 2,390.40 billed yearly"
+        ]
+      },
+      {
+        "name": "__dvoPlanos",
+        "kind": "array",
+        "bytes": 483,
+        "shape": "array(3) of array(5) of string",
+        "sample": "[[\"Unlimited cached ad library\",\"10,000 collection credits \\/ month\",\"Leads by LinkedIn, CNAE and Instagram\",\"Up to 120 leads per search\",\"CSV export\"],[\"Everything in PRO\",\"30,000 collection credits \\/ month\",\"2 seats, one login each\",\"150 ads per library pull (150 credits)\",\"Niches your team already pulled cost nothing\"],[\"Everything in GROWTH\",\"80,000 collection credits \\/ month\",\"5 seats, one ",
+        "parsed": [
+          [
+            "Unlimited cached ad library",
+            "10,000 collection credits / month",
+            "Leads by LinkedIn, CNAE and Instagram",
+            "Up to 120 leads per search",
+            "CSV export"
+          ],
+          [
+            "Everything in PRO",
+            "30,000 collection credits / month",
+            "2 seats, one login each",
+            "150 ads per library pull (150 credits)",
+            "Niches your team already pulled cost nothing"
+          ],
+          [
+            "Everything in GROWTH",
+            "80,000 collection credits / month",
+            "5 seats, one login each",
+            "Up to 200 leads per search",
+            "300 ads per library pull (300 credits)"
+          ]
+        ]
+      },
+      {
+        "name": "DVChatConfig",
+        "kind": "object",
+        "bytes": 877,
+        "shape": "{ title, subtitle, welcome, footerText, termsText, termsUrl, headerBg, launcherBg, inputBg, userBg, userText, sendColor, sendActiveColor }",
+        "sample": "{\n  title:      'ZHOU',\n  subtitle:   \"Account Assistant\",\n  welcome:    \"Hi! How can I help you? 🙂\",\n  footerText: \"This chat is being recorded. By chatting, you agree to the\",\n  termsText:  \"AI Terms\",\n  termsUrl:   'https://dvoracle.com/terms/',\n\n  /* logo: o mesmo chevron do site, fundo transparente — por isso combina\n     tanto no lançador quanto no cabeçalho escuro */\n  logoUrl:    'https:/"
+      }
+    ],
+    "trackingIds": {
+      "gtm": [
+        "GTM-N7TLPBPF"
+      ],
+      "redditPixel": [
+        "a2_jpe9ofbt2021"
+      ],
+      "openaiPixel": [
+        "Jf2xESMk6VRh9ovoBDsAv5"
+      ]
+    },
+    "behaviours": [
+      "Toggle / switch control (e.g. monthly ↔ yearly pricing)",
+      "Accordion / FAQ expand-collapse",
+      "Smooth scrolling",
+      "Scroll-linked parallax / reveal animation",
+      "Reveal-on-scroll via IntersectionObserver",
+      "Anchor navigation with programmatic scroll",
+      "Respects prefers-reduced-motion",
+      "Responsive scaling computed in JS",
+      "Multi-language content switching"
+    ],
+    "fetchedScripts": [
+      {
+        "src": "https://chat.dvshipping.com/widget.js",
+        "ok": true,
+        "firstParty": false,
+        "bytes": 34731,
+        "truncated": false,
+        "contentType": "text/javascript",
+        "lastModified": "Sat, 03 Oct 2026 04:45:09 GMT",
+        "minified": false,
+        "sourceMap": null,
+        "endpoints": [
+          "https://SEUDOMINIO/dv-chat/chat.php",
+          "https://SEUDOMINIO/dv-chat/widget.js",
+          "https://chat.dvshipping.com/chat.php",
+          "https://chat.dvshipping.com/logo-bolinha.png?v=1",
+          "https://chat.dvshipping.com/logo.png",
+          "https://dvshipping.com/privacy-and-terms/",
+          "http://www.w3.org/2000/svg"
+        ],
+        "relativeEndpoints": [],
+        "globals": [
+          "DVChatConfig"
+        ],
+        "storageKeys": [
+          "dvchat_sid"
+        ],
+        "headerComment": "DV Shipping — Widget de chat com IA  (incorporável) Estilo inspirado no agente do Jotform: cabeçalho claro com logo + selo \"AI\", botões de sugestão, campo lavanda com clipe e botão de enviar redondo, rodapé. ------------------------------------------------------------------ Uso (antes de </body>):   <script>     window.DVChatConfig = { endpoint: \"https://SEUDOMINIO/dv-chat/chat.php\" };   </script>   <script src=\"https://SEUDOMINIO/dv-chat/widget.js\" defer></script> ------------------------------------------------------------------",
+        "usesFetch": true,
+        "usesWebSocket": false
+      }
+    ]
+  },
+  "network": {
+    "hosts": [
+      {
+        "host": "dvshipping.com",
+        "kinds": [
+          "anchor",
+          "literal"
+        ],
+        "count": 8,
+        "firstParty": false,
+        "category": "Other",
+        "insecure": false
+      },
+      {
+        "host": "www.w3.org",
+        "kinds": [
+          "literal"
+        ],
+        "count": 5,
+        "firstParty": false,
+        "category": "Other",
+        "insecure": false
+      },
+      {
+        "host": "cdnjs.cloudflare.com",
+        "kinds": [
+          "script",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Public JS CDN",
+        "insecure": false
+      },
+      {
+        "host": "fonts.googleapis.com",
+        "kinds": [
+          "link:preconnect",
+          "link:stylesheet",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Web fonts",
+        "insecure": false
+      },
+      {
+        "host": "instagram.com",
+        "kinds": [
+          "anchor",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Social profile",
+        "insecure": false
+      },
+      {
+        "host": "unpkg.com",
+        "kinds": [
+          "script",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Public JS CDN",
+        "insecure": false
+      },
+      {
+        "host": "chat.dvshipping.com",
+        "kinds": [
+          "script",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Chat / support",
+        "insecure": false
+      },
+      {
+        "host": "fonts.gstatic.com",
+        "kinds": [
+          "link:preconnect",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Web fonts",
+        "insecure": false
+      },
+      {
+        "host": "www.googletagmanager.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Tag manager",
+        "insecure": false
+      },
+      {
+        "host": "www.redditstatic.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 1,
+        "firstParty": false,
+        "category": "Ad pixel",
+        "insecure": false
+      },
+      {
+        "host": "bzrcdn.openai.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 1,
+        "firstParty": false,
+        "category": "Ad pixel",
+        "insecure": false
+      },
+      {
+        "host": "dvoracle.com",
+        "kinds": [
+          "link:canonical",
+          "link:alternate",
+          "link:icon",
+          "link:apple-touch-icon",
+          "media",
+          "anchor",
+          "literal"
+        ],
+        "count": 44,
+        "firstParty": true,
+        "category": "Other",
+        "insecure": false
+      },
+      {
+        "host": "app.dvoracle.com",
+        "kinds": [
+          "anchor",
+          "literal"
+        ],
+        "count": 11,
+        "firstParty": true,
+        "category": "Other",
+        "insecure": false
+      }
+    ],
+    "thirdPartyCount": 11,
+    "byCategory": {
+      "Other": [
+        "dvshipping.com",
+        "www.w3.org"
+      ],
+      "Public JS CDN": [
+        "cdnjs.cloudflare.com",
+        "unpkg.com"
+      ],
+      "Web fonts": [
+        "fonts.googleapis.com",
+        "fonts.gstatic.com"
+      ],
+      "Social profile": [
+        "instagram.com"
+      ],
+      "Chat / support": [
+        "chat.dvshipping.com"
+      ],
+      "Tag manager": [
+        "www.googletagmanager.com"
+      ],
+      "Ad pixel": [
+        "www.redditstatic.com",
+        "bzrcdn.openai.com"
+      ]
+    },
+    "preconnects": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ],
+    "preloads": [],
+    "mixedContent": [],
+    "subdomainsOfTarget": [
+      "app.dvoracle.com"
+    ]
+  },
+  "security": {
+    "https": true,
+    "score": 33,
+    "headerChecks": [
+      {
+        "header": "strict-transport-security",
+        "label": "HSTS",
+        "weight": 2,
+        "advice": "Add Strict-Transport-Security with max-age ≥ 31536000.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "content-security-policy",
+        "label": "Content-Security-Policy",
+        "weight": 3,
+        "advice": "Define a CSP; inline scripts will need nonces or hashes.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "x-content-type-options",
+        "label": "X-Content-Type-Options",
+        "weight": 1,
+        "advice": "Set X-Content-Type-Options: nosniff.",
+        "present": true,
+        "value": "nosniff"
+      },
+      {
+        "header": "x-frame-options",
+        "label": "X-Frame-Options / frame-ancestors",
+        "weight": 1,
+        "advice": "Set X-Frame-Options: DENY or CSP frame-ancestors.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "referrer-policy",
+        "label": "Referrer-Policy",
+        "weight": 1,
+        "advice": "Set Referrer-Policy (strict-origin-when-cross-origin is a safe default).",
+        "present": true,
+        "value": "strict-origin-when-cross-origin"
+      },
+      {
+        "header": "permissions-policy",
+        "label": "Permissions-Policy",
+        "weight": 1,
+        "advice": "Set Permissions-Policy to disable unused browser features.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "cross-origin-opener-policy",
+        "label": "Cross-Origin-Opener-Policy",
+        "weight": 1,
+        "advice": "Consider COOP: same-origin.",
+        "present": false,
+        "value": null
+      }
+    ],
+    "cookies": [],
+    "cacheControl": "public, max-age=300, must-revalidate",
+    "server": "nginx",
+    "poweredBy": null,
+    "findings": [
+      {
+        "severity": "medium",
+        "text": "HSTS header missing. Add Strict-Transport-Security with max-age ≥ 31536000."
+      },
+      {
+        "severity": "medium",
+        "text": "Content-Security-Policy header missing. Define a CSP; inline scripts will need nonces or hashes."
+      },
+      {
+        "severity": "low",
+        "text": "X-Frame-Options / frame-ancestors header missing. Set X-Frame-Options: DENY or CSP frame-ancestors."
+      },
+      {
+        "severity": "low",
+        "text": "Permissions-Policy header missing. Set Permissions-Policy to disable unused browser features."
+      },
+      {
+        "severity": "low",
+        "text": "Cross-Origin-Opener-Policy header missing. Consider COOP: same-origin."
+      },
+      {
+        "severity": "medium",
+        "text": "4 third-party script(s) load without Subresource Integrity: cdnjs.cloudflare.com, cdnjs.cloudflare.com, unpkg.com, chat.dvshipping.com."
+      },
+      {
+        "severity": "info",
+        "text": "9 inline script block(s); a strict CSP would need nonces/hashes."
+      }
+    ]
+  },
+  "discovery": {
+    "robots": {
+      "url": "https://dvoracle.com/robots.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    },
+    "sitemap": {
+      "url": "https://dvoracle.com/sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/xml; charset=utf-8",
+      "bytes": 256,
+      "error": null,
+      "urls": [
+        "https://dvoracle.com/",
+        "https://dvoracle.com/terms/"
+      ],
+      "isIndex": false
+    },
+    "securityTxt": {
+      "url": "https://dvoracle.com/.well-known/security.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    },
+    "humans": {
+      "url": "https://dvoracle.com/humans.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    },
+    "manifest": {
+      "url": "https://dvoracle.com/manifest.json",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    }
+  },
+  "limitations": [
+    "Static analysis of the HTML response only; JavaScript was not executed, so client-rendered DOM, XHR/fetch traffic and runtime state are not observed."
+  ],
+  "blueprint": {
+    "components": [
+      {
+        "name": "Hero",
+        "sourceLabel": "Hero",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body"
+        ]
+      },
+      {
+        "name": "AboutUs",
+        "sourceLabel": "About Us",
+        "heading": null,
+        "occurrences": 3,
+        "contentHints": [
+          "long copy",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Achievement",
+        "sourceLabel": "Achievement",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body"
+        ]
+      },
+      {
+        "name": "BestFeatured",
+        "sourceLabel": "Best featured",
+        "heading": null,
+        "occurrences": 3,
+        "contentHints": [
+          "long copy",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Footer",
+        "sourceLabel": "Footer",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Question",
+        "sourceLabel": "Question",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "PricingSection",
+        "sourceLabel": "pricing-section",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "long copy",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Group2",
+        "sourceLabel": "Group 2",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Navbar",
+        "sourceLabel": "Navbar",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Idioma",
+        "sourceLabel": "idioma",
+        "heading": null,
+        "occurrences": 2,
+        "contentHints": [
+          "link list",
+          "image gallery / cards"
+        ],
+        "props": [
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Header",
+        "sourceLabel": "header",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "IntelligenceForYourEcommerce",
+        "sourceLabel": "Intelligence for your ecommerce",
+        "heading": "Intelligence for your ecommerce",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "cta"
+        ]
+      },
+      {
+        "name": "Section",
+        "sourceLabel": "section",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body"
+        ]
+      },
+      {
+        "name": "TwoFrontsOneIntelligence",
+        "sourceLabel": "Two fronts, one intelligence",
+        "heading": "Two fronts, one intelligence",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "WhatDvOracleDoes",
+        "sourceLabel": "What DV Oracle does",
+        "heading": "What DV Oracle does",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "OurProducts",
+        "sourceLabel": "Our Products",
+        "heading": "Our Products",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "Proof",
+        "sourceLabel": "Proof",
+        "heading": "Proof",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "HowItWorks",
+        "sourceLabel": "How It Works",
+        "heading": "How It Works",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "WhyDvOracle",
+        "sourceLabel": "Why DV Oracle",
+        "heading": "Why DV Oracle",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "FrequentlyAskedQuestions",
+        "sourceLabel": "Frequently Asked Questions",
+        "heading": "Frequently Asked Questions",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "UnlockTheFullIntelligence",
+        "sourceLabel": "Unlock the full intelligence",
+        "heading": "Unlock the full intelligence",
+        "occurrences": 1,
+        "contentHints": [
+          "long copy"
+        ],
+        "props": [
+          "title",
+          "body",
+          "cta"
+        ]
+      },
+      {
+        "name": "GetAccessToDvOracle",
+        "sourceLabel": "Get access to DV Oracle",
+        "heading": "Get access to DV Oracle",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Footer",
+        "sourceLabel": "footer",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "link list",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "cta",
+          "media"
+        ]
+      }
+    ],
+    "tokensCss": ":root {\n  --color-background: #09101a;\n  --color-foreground: #ffffff;\n  --color-accent: #00b3dd;\n  --palette-1: #ffffff; /* text (light), 140× */\n  --palette-2: #00b3dd; /* accent / surface, 52× */\n  --palette-3: #000000; /* background (dark), 48× */\n  --palette-4: #181818; /* overlay / border, 22× */\n  --palette-5: #00b7e1; /* overlay / border, 18× */\n  --palette-6: #1a1a1a; /* text (dark), 12× */\n  --palette-7: #09101a; /* background (dark), 8× */\n  --palette-8: #888888; /* text (accent), 6× */\n  --palette-9: #eef3f8; /* text (light), 5× */\n  --palette-10: #06222c; /* text (dark), 3× */\n  --palette-11: #1f1f1f; /* background (dark), 3× */\n  --palette-12: #f8f9fb; /* text (light), 3× */\n  --font-heading: 'Prometo', system-ui, sans-serif;\n  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;\n  --text-1: 14px;\n  --text-2: 15px;\n  --text-3: 16px;\n  --text-4: 20px;\n  --text-5: 24px;\n  --text-6: 32px;\n  --text-7: 40px;\n  --text-8: 64px;\n  --radius-1: 25.0px 0.0px 25.0px 0.0px;\n  --radius-2: 25.0px;\n  --radius-3: 50%;\n  --shadow-1: 0 8px 26px rgba(0,0,0,.34);\n  --shadow-2: 0 0 0 1px rgba(0,179,221,.35);\n  --ease-1: linear;\n  --ease-2: ease;\n}",
+    "integrations": [
+      {
+        "name": "Google Fonts",
+        "category": "Web fonts",
+        "website": "https://fonts.google.com/",
+        "observedId": null,
+        "note": null
+      },
+      {
+        "name": "Self-hosted @font-face",
+        "category": "Web fonts",
+        "website": "https://developer.mozilla.org/docs/Web/CSS/@font-face",
+        "observedId": null,
+        "note": null
+      },
+      {
+        "name": "Google Tag Manager",
+        "category": "Tag manager",
+        "website": "https://tagmanager.google.com/",
+        "observedId": "GTM-N7TLPBPF",
+        "note": "Observed identifier belongs to the target; create your own account/ID."
+      },
+      {
+        "name": "Reddit Pixel",
+        "category": "Ad / marketing pixel",
+        "website": "https://advertising.reddithelp.com/",
+        "observedId": "a2_jpe9ofbt2021",
+        "note": "Observed identifier belongs to the target; create your own account/ID."
+      },
+      {
+        "name": "OpenAI Pixel (oaiq)",
+        "category": "Ad / marketing pixel",
+        "website": "https://openai.com/",
+        "observedId": "Jf2xESMk6VRh9ovoBDsAv5",
+        "note": "Observed identifier belongs to the target; create your own account/ID."
+      },
+      {
+        "name": "Custom embedded AI chat widget (DVChatConfig)",
+        "category": "Chat / support",
+        "website": "https://chat.dvshipping.com/widget.js",
+        "observedId": null,
+        "note": null
+      }
+    ],
+    "interactions": [
+      "Toggle / switch control (e.g. monthly ↔ yearly pricing)",
+      "Accordion / FAQ expand-collapse",
+      "Smooth scrolling",
+      "Scroll-linked parallax / reveal animation",
+      "Reveal-on-scroll via IntersectionObserver",
+      "Anchor navigation with programmatic scroll",
+      "Respects prefers-reduced-motion",
+      "Responsive scaling computed in JS",
+      "Multi-language content switching",
+      "Language switcher for: en, pt-BR, es, x-default",
+      "Separate mobile layout variant (target ships a distinct mobile DOM)"
+    ],
+    "recommendedStack": {
+      "frontend": "Vite + React + Tailwind CSS (static marketing page; replace fixed-canvas absolute positioning with responsive flex/grid sections)",
+      "animation": [
+        "GSAP + ScrollTrigger",
+        "Lenis smooth scroll (or native CSS scroll-behavior)"
+      ],
+      "hosting": "Any static host (target uses nginx)",
+      "backend": "Separate app origin(s) observed: app.dvoracle.com — plan an authenticated app shell apart from the marketing site",
+      "analytics": [
+        "Google Tag Manager",
+        "Reddit Pixel",
+        "OpenAI Pixel (oaiq)"
+      ]
+    },
+    "contentModel": {
+      "pages": [
+        "https://dvoracle.com/",
+        "https://dvoracle.com/terms/"
+      ],
+      "sections": [
+        "Hero",
+        "AboutUs",
+        "Achievement",
+        "BestFeatured",
+        "Footer",
+        "Question",
+        "PricingSection",
+        "Group2",
+        "Navbar",
+        "Idioma",
+        "Header",
+        "IntelligenceForYourEcommerce",
+        "Section",
+        "TwoFrontsOneIntelligence",
+        "WhatDvOracleDoes",
+        "OurProducts",
+        "Proof",
+        "HowItWorks",
+        "WhyDvOracle",
+        "FrequentlyAskedQuestions",
+        "UnlockTheFullIntelligence",
+        "GetAccessToDvOracle",
+        "Footer"
+      ],
+      "pricingTiers": "Pricing table detected (see Content → prices); model tiers as data, not markup.",
+      "embeddedData": [
+        {
+          "name": "__dvoFAQ",
+          "shape": "array(3) of string"
+        },
+        {
+          "name": "__dvoAnual",
+          "shape": "array(3) of string"
+        },
+        {
+          "name": "__dvoPlanos",
+          "shape": "array(3) of array(5) of string"
+        },
+        {
+          "name": "DVChatConfig",
+          "shape": "{ title, subtitle, welcome, footerText, termsText, termsUrl, headerBg, launcherBg, inputBg, userBg, userText, sendColor, sendActiveColor }"
+        }
+      ],
+      "faq": "FAQ section detected; model as an array of {question, answer}.",
+      "locales": [
+        "en",
+        "pt-BR",
+        "es",
+        "x-default"
+      ]
+    },
+    "checklist": [
+      "Write original copy, imagery and brand assets; do not reuse the target's text, logos, fonts or screenshots.",
+      "Build 23 section components: Hero, AboutUs, Achievement, BestFeatured, Footer, Question, PricingSection, Group2, Navbar, Idioma, Header, IntelligenceForYourEcommerce, Section, TwoFrontsOneIntelligence, WhatDvOracleDoes, OurProducts, Proof, HowItWorks, WhyDvOracle, FrequentlyAskedQuestions, UnlockTheFullIntelligence, GetAccessToDvOracle, Footer.",
+      "Apply the token sheet below and verify contrast (background/foreground ratio 19.08).",
+      "Re-implement: Toggle / switch control (e.g. monthly ↔ yearly pricing).",
+      "Re-implement: Accordion / FAQ expand-collapse.",
+      "Re-implement: Smooth scrolling.",
+      "Re-implement: Scroll-linked parallax / reveal animation.",
+      "Re-implement: Reveal-on-scroll via IntersectionObserver.",
+      "Re-implement: Anchor navigation with programmatic scroll.",
+      "Re-implement: Respects prefers-reduced-motion.",
+      "Re-implement: Responsive scaling computed in JS.",
+      "Re-implement: Multi-language content switching.",
+      "Re-implement: Language switcher for: en, pt-BR, es, x-default.",
+      "Re-implement: Separate mobile layout variant (target ships a distinct mobile DOM).",
+      "Set up your own Google Tag Manager account and ID.",
+      "Set up your own Reddit Pixel account and ID.",
+      "Set up your own OpenAI Pixel (oaiq) account and ID.",
+      "Set up your own Custom embedded AI chat widget (DVChatConfig) account and ID.",
+      "License or substitute the typefaces (self-hosted fonts observed on the target are not yours to redistribute).",
+      "Avoid the target's gap: HSTS header missing. Add Strict-Transport-Security with max-age ≥ 31536000.",
+      "Avoid the target's gap: Content-Security-Policy header missing. Define a CSP; inline scripts will need nonces or hashes.",
+      "Avoid the target's gap: X-Frame-Options / frame-ancestors header missing. Set X-Frame-Options: DENY or CSP frame-ancestors.",
+      "Avoid the target's gap: Permissions-Policy header missing. Set Permissions-Policy to disable unused browser features."
+    ],
+    "legalNote": "This blueprint describes structure, tokens and integrations observed in public HTML for research and competitive analysis. Copying text, images, logos, licensed fonts or code verbatim may infringe copyright or trademark rights; build an original implementation."
+  }
+}
