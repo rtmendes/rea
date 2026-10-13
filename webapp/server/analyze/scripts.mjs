@@ -1,5 +1,7 @@
 // Script inventory: external libraries, inline behaviour, exposed globals, data blobs, endpoints.
 
+import { byteLength } from './util.mjs'
+
 function hostOf(src, pageUrl) { try { return new URL(src, pageUrl).hostname } catch { return null } }
 
 const KNOWN_LIBS = [
@@ -38,7 +40,7 @@ export function analyzeScripts({ $, pageUrl, html }) {
     inlineCodes.push(code)
     inline.push({
       type,
-      bytes: Buffer.byteLength(code),
+      bytes: byteLength(code),
       purpose,
       globals: [...new Set([...code.matchAll(/window\.([A-Za-z_$][\w$]*)\s*=/g)].map((m) => m[1]))].slice(0, 20),
       listeners: [...new Set([...code.matchAll(/addEventListener\(\s*['"]([a-z]+)['"]/g)].map((m) => m[1]))],

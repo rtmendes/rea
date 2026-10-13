@@ -17,9 +17,9 @@ export function OverviewPanel({ report, onOpenTab }) {
       <Lightbox src={zoom} alt={`${thumbKind || 'preview'} of ${host}`} onClose={() => setZoom(null)} />
       <section className="card grid gap-4 md:grid-cols-[minmax(0,360px)_1fr]">
         <div>
-          <Thumbnail src={thumb} kind={thumbKind} host={host} brandColor={v.brandColor} backgroundColor={v.backgroundColor} palette={report.design.colors.palette.slice(0, 6).map((p) => p.hex)} onClick={thumb ? () => setZoom(thumb) : undefined} title={thumb ? 'Click to enlarge' : undefined} />
+          <Thumbnail src={thumb} kind={thumbKind} host={host} brandColor={v.brandColor} backgroundColor={v.backgroundColor} palette={report.design.colors.palette.slice(0, 6).map((p) => p.hex)} onClick={thumb ? () => setZoom(thumb) : undefined} title={thumb ? 'Click to enlarge' : undefined} remoteUrl={v.screenshot?.remoteUrl} />
           <div className="mt-1 text-[11px] text-ink-400">
-            {v.screenshot ? `Screenshot ${v.screenshot.width}×${v.screenshot.height}, captured ${new Date(v.screenshot.capturedAt).toLocaleTimeString()}` : v.ogImage?.dataUrl ? `Social preview image (og:image) — ${v.screenshotError || 'no screenshot'}` : v.screenshotError || 'No preview available'}
+            {v.screenshot?.dataUrl ? `Screenshot ${v.screenshot.width}×${v.screenshot.height}, captured ${new Date(v.screenshot.capturedAt).toLocaleTimeString()}` : v.screenshot?.remoteUrl ? `Screenshot by ${v.screenshot.engine}. ${v.screenshotError || ''}` : v.ogImage?.dataUrl ? `Social preview image (og:image) — ${v.screenshotError || 'no screenshot'}` : v.screenshotError || 'No preview available'}
           </div>
         </div>
         <div className="min-w-0 space-y-3">
@@ -28,13 +28,14 @@ export function OverviewPanel({ report, onOpenTab }) {
             <div className="min-w-0">
               <div className="truncate text-lg font-semibold text-white">{s.title || host}</div>
               <div className="truncate text-sm text-ink-400">{host} · {s.siteType}</div>
-              <div className="mt-1 text-[11px] text-ink-400">{v.icon ? `Logo from ${v.icon.rel} (${v.icon.type}, ${v.icon.bytes} B)` : 'No icon declared or fetchable; monogram generated'}</div>
+              <div className="mt-1 text-[11px] text-ink-400">{v.icon?.dataUrl ? `Logo from ${v.icon.rel} (${v.icon.type}, ${v.icon.bytes} B)` : v.icon?.remote ? <>Icon declared as {v.icon.rel}: <ExternalLink href={v.icon.url}>{v.icon.url.replace(/^https?:\/\//, '')}</ExternalLink></> : 'No icon declared or fetchable; monogram generated'}</div>
+              {v.firecrawlBranding ? <div className="mt-1 text-[11px] text-ink-400">Firecrawl branding: {v.firecrawlBranding.brandName || host} · {v.firecrawlBranding.colorScheme || 'scheme n/a'} · {(v.firecrawlBranding.fonts || []).map((f) => `${f.family} (${f.role})`).join(', ') || 'fonts n/a'}</div> : null}
             </div>
           </div>
           <p className="text-sm text-ink-200">{s.description || s.headline || '—'}</p>
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-[11px] uppercase tracking-wide text-ink-400">Brand</span>
-            {[['background', v.backgroundColor], ['accent', report.design.colors.roles.accent], ['foreground', report.design.colors.roles.foreground], ['theme-color', report.design.colors.themeColor]].filter(([, c]) => c).map(([label, c]) => (
+            {[['background', v.backgroundColor], ['accent', report.design.colors.roles.accent], ['foreground', report.design.colors.roles.foreground], ['theme-color', report.design.colors.themeColor], ...(v.firecrawlBranding?.colors ? Object.entries(v.firecrawlBranding.colors).map(([k, c]) => [`firecrawl ${k}`, c]) : [])].filter(([, c]) => c).map(([label, c]) => (
               <span key={label} className="chip"><span className="inline-block h-3 w-3 rounded-sm border border-white/20" style={{ background: c }} />{label} {c}</span>
             ))}
             <span className="chip">{v.mode || s.colorMode} mode</span>
@@ -48,17 +49,17 @@ export function OverviewPanel({ report, onOpenTab }) {
         <Stat label="Sections" value={s.sections} hint={`${report.structure.outline.length} headings`} />
         <Stat label="Words" value={fmtNum(s.wordCount)} hint={`${s.prices} prices, ${s.forms} forms`} />
         <Stat label="Color mode" value={s.colorMode} hint={report.design.colors.roles.accent ? `accent ${report.design.colors.roles.accent}` : null} />
-        <Stat label="Security headers" value={`${s.securityScore}/100`} hint={report.security.https ? 'HTTPS' : 'no HTTPS'} />
+        <Stat label="Security headers" value={s.securityScore == null ? 'n/a' : `${s.securityScore}/100`} hint={report.security.https ? 'HTTPS' : 'no HTTPS'} />
       </div>
       <div className="grid gap-4 lg:grid-cols-2">
-        <Section title="Target" subtitle={`HTTP ${t.status} · ${fmtNum(t.bytes)} bytes · TTFB ${t.timing.ttfbMs} ms · total ${t.timing.totalMs} ms`}>
+        <Section title="Target" subtitle={`HTTP ${t.status ?? '?'} · ${fmtNum(t.bytes)} bytes${t.timing?.ttfbMs != null ? ` · TTFB ${t.timing.ttfbMs} ms · total ${t.timing.totalMs} ms` : ''} · via ${t.source || 'direct fetch'}`}>
           <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
             <dt className="text-ink-400">Final URL</dt><dd className="break-all"><ExternalLink href={t.finalUrl} /></dd>
             <dt className="text-ink-400">Title</dt><dd>{s.title || '—'}</dd>
             <dt className="text-ink-400">Description</dt><dd className="text-ink-200">{s.description || '—'}</dd>
             <dt className="text-ink-400">Headline</dt><dd>{s.headline || '—'}</dd>
             <dt className="text-ink-400">Server</dt><dd>{report.security.server || 'undisclosed'}{report.security.poweredBy ? ` · ${report.security.poweredBy}` : ''}</dd>
-            <dt className="text-ink-400">Resolved to</dt><dd className="font-mono text-xs">{t.addresses.join(', ')}</dd>
+            <dt className="text-ink-400">Resolved to</dt><dd className="font-mono text-xs">{t.addresses?.length ? t.addresses.join(', ') : 'not observed'}</dd>
             <dt className="text-ink-400">Redirects</dt><dd>{t.redirects.length ? t.redirects.map((r) => `${r.status} → ${r.location}`).join(' ; ') : 'none'}</dd>
             <dt className="text-ink-400">Dev comments</dt><dd>{s.developerCommentLanguage.language} ({report.content.comments.htmlCount + report.content.comments.jsCount} comments)</dd>
           </dl>
@@ -353,7 +354,7 @@ export function SecurityPanel({ report }) {
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <Stat label="Header score" value={`${s.score}/100`} hint={s.https ? 'served over HTTPS' : 'not HTTPS'} />
+        <Stat label="Header score" value={s.score == null ? 'not observed' : `${s.score}/100`} hint={s.https ? 'served over HTTPS' : 'not HTTPS'} />
         <Stat label="Server" value={s.server || 'undisclosed'} hint={s.poweredBy || ''} />
         <Stat label="Cookies set" value={s.cookies.length} hint={s.cookies.map((c) => c.name).join(', ')} />
         <Stat label="Cache-Control" value={s.cacheControl || '—'} />
@@ -366,7 +367,7 @@ export function SecurityPanel({ report }) {
       </Section>
       {s.cookies.length ? <Section title="Cookies"><Table columns={[{ key: 'name', label: 'Name' }, { key: 'secure', label: 'Secure', render: (c) => String(c.secure) }, { key: 'httpOnly', label: 'HttpOnly', render: (c) => String(c.httpOnly) }, { key: 'sameSite', label: 'SameSite' }, { key: 'sessionHint', label: 'Hint' }]} rows={s.cookies} /></Section> : null}
       <Section title="All response headers">
-        <pre className="code">{Object.entries(report.target.headers).map(([k, v]) => `${k}: ${v}`).join('\n')}</pre>
+        <pre className="code">{Object.keys(report.target.headers).length ? Object.entries(report.target.headers).map(([k, v]) => `${k}: ${v}`).join('\n') : 'Not observed in this mode.'}</pre>
       </Section>
     </div>
   )

@@ -17,6 +17,16 @@ Exports: JSON, Markdown report, `tokens.css`, screenshot and icon. Paste many UR
 
 This UI is a companion to the [REA CLI/MCP](../README.md). It performs **static analysis only**: the HTML response is parsed without executing JavaScript, so client-rendered DOM and runtime network traffic are not observed. For runtime observation use REA's `inspect-web-page` / `analyze-web-bundle` against a Chromium CDP endpoint, as documented in [`docs/browser-observation.md`](../docs/browser-observation.md).
 
+## Use it without hosting: the claude.ai artifact (connector mode)
+
+The same UI is published as a claude.ai artifact. There the page cannot fetch pages itself, so it calls your **Firecrawl** connector (added in claude.ai Settings → Connectors) through the artifact's `mcp` capability: Firecrawl returns the rendered DOM, a screenshot link and branding, and the analyzer runs in the browser. Differences from the self-hosted app: response headers, cookies, robots.txt/sitemap and script bodies are not observed, the security header audit reads "not observed", and screenshots/icons are links rather than embedded thumbnails because an artifact cannot display images from other hosts. Build it with:
+
+```bash
+npm run build:artifact   # writes artifact/index.html + artifact/assets/*
+```
+
+and publish `artifact/index.html` with its assets as artifact files, declaring `capabilities: {mcp: {servers: [{server: "Firecrawl", tools: ["firecrawl_scrape"]}]}, downloads: true}`.
+
 ## Run
 
 Requires Node.js ≥ 20. Screenshots need a local Chromium: the app looks for Playwright's browsers (`PLAYWRIGHT_BROWSERS_PATH`, `~/.cache/ms-playwright`, `/opt/pw-browsers`), then system `chromium` / `google-chrome`; set `REA_CHROMIUM_PATH=/path/to/chrome` to point at one, or `REA_DISABLE_SCREENSHOTS=1` to skip. Without a browser the report still completes and says why no screenshot was taken; the `og:image` is used as the preview when present. Install Playwright's browser with `npx playwright install chromium` if you have none.

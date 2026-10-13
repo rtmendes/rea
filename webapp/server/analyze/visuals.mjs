@@ -1,40 +1,12 @@
 // Visual identity: the best icon/logo the page declares, its social preview image and brand colour.
 
 import { fetchAsset } from './fetch.mjs'
+import { selectIcons } from './icons.mjs'
+
+export { selectIcons }
 
 const MAX_ICON_BYTES = 200 * 1024
 const MAX_PREVIEW_BYTES = 600 * 1024
-
-function sizeOf(sizes) {
-  const m = /(\d+)x(\d+)/i.exec(sizes || '')
-  return m ? +m[1] : 0
-}
-
-/** Ranks declared icons: apple-touch-icon and large PNG/SVG first, then any icon, then /favicon.ico. */
-export function selectIcons($, pageUrl) {
-  const found = []
-  $('link[rel]').each((_, el) => {
-    const rel = ($(el).attr('rel') || '').toLowerCase()
-    const href = $(el).attr('href')
-    if (!href) return
-    if (!/\b(icon|apple-touch-icon|apple-touch-icon-precomposed|mask-icon)\b/.test(rel)) return
-    let url
-    try { url = new URL(href, pageUrl).toString() } catch { return }
-    const type = ($(el).attr('type') || '').toLowerCase()
-    const size = sizeOf($(el).attr('sizes'))
-    let score = 0
-    if (rel.includes('apple-touch-icon')) score += 300
-    if (type.includes('svg') || /\.svg(\?|$)/i.test(url)) score += 250
-    if (type.includes('png') || /\.png(\?|$)/i.test(url)) score += 150
-    if (rel.includes('mask-icon')) score -= 100
-    score += Math.min(size, 512) / 4
-    found.push({ url, rel, type: type || null, size: size || null, score })
-  })
-  found.sort((a, b) => b.score - a.score)
-  const fallback = new URL('/favicon.ico', pageUrl).toString()
-  if (!found.some((f) => f.url === fallback)) found.push({ url: fallback, rel: 'fallback', type: null, size: null, score: 0 })
-  return found
-}
 
 function sniffImageType(buffer, headerType) {
   if (buffer.length >= 8 && buffer[0] === 0x89 && buffer[1] === 0x50) return 'image/png'

@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root { min-height: 100vh; background: #0b0f17; color: #e5e9f2; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+/* Single dark look by design: tokens on :root, color-scheme pinned so native controls match. */
+:root { --bg: #0b0f17; --fg: #e5e9f2; --accent: #22d3ee; color-scheme: dark; }
+html, body, #root { min-height: 100vh; background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
 ::selection { background: rgba(34, 211, 238, 0.35); }
 
 .card { @apply rounded-xl border border-ink-700/70 bg-ink-900/70 p-4 shadow-[0_1px_0_rgba(255,255,255,0.03)_inset]; }

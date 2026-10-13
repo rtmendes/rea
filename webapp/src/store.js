@@ -55,6 +55,7 @@ export function entryFromReport(report) {
     palette: (report.design?.colors?.palette || []).slice(0, 5).map((p) => p.hex),
     icon: v.icon?.dataUrl || null,
     thumb: v.screenshot?.dataUrl || v.ogImage?.dataUrl || null,
+    thumbRemoteUrl: v.screenshot?.remoteUrl || null,
     thumbKind: v.screenshot ? 'screenshot' : v.ogImage?.dataUrl ? 'og:image' : null,
     frameworks: (report.technologies || []).filter((t) => ['framework', 'ssg', 'ecommerce'].includes(t.category)).map((t) => t.name).slice(0, 3),
   }

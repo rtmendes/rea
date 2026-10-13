@@ -1,5 +1,7 @@
 // Design-system extraction: colors, typography, radii, shadows, breakpoints, CSS variables.
 
+import { byteLength } from './util.mjs'
+
 const HEX_RE = /#(?:[0-9a-f]{8}|[0-9a-f]{6}|[0-9a-f]{3,4})\b/gi
 const RGB_RE = /rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*([0-9.]+)\s*)?\)/gi
 const HSL_RE = /hsla?\(\s*([0-9.]+)\s*,\s*([0-9.]+)%\s*,\s*([0-9.]+)%\s*(?:,\s*([0-9.]+)\s*)?\)/gi
@@ -200,7 +202,7 @@ export function analyzeDesign({ $, html }) {
   const css = [...styleBlocks, ...inlineStyles].join('\n')
   const external = $('link[rel~="stylesheet"]').map((_, el) => $(el).attr('href')).get().filter(Boolean)
   return {
-    stylesheetBytesInline: Buffer.byteLength(styleBlocks.join('\n')),
+    stylesheetBytesInline: byteLength(styleBlocks.join('\n')),
     inlineStyleAttributes: inlineStyles.length,
     externalStylesheets: external,
     colors: extractColors(css, html),

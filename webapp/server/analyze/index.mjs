@@ -2,19 +2,13 @@
 
 import * as cheerio from 'cheerio'
 import { guardedFetch, normalizeTargetUrl, fetchAsset } from './fetch.mjs'
-import { detectTechnologies } from './fingerprints.mjs'
-import { analyzeDesign } from './design.mjs'
-import { analyzeStructure } from './structure.mjs'
-import { analyzeContent } from './content.mjs'
-import { analyzeScripts } from './scripts.mjs'
-import { analyzeNetwork } from './network.mjs'
-import { analyzeSecurity } from './security.mjs'
 import { discoverSiteFiles } from './discovery.mjs'
 import { buildBlueprint } from './blueprint.mjs'
 import { collectVisuals } from './visuals.mjs'
 import { captureScreenshot } from '../screenshot.mjs'
+import { analyzeDocument, summarize } from './core.mjs'
 
-export const REPORT_VERSION = 2
+export { REPORT_VERSION } from './core.mjs'
 
 /**
  * @param {string} input   URL typed by the user
@@ -26,52 +20,14 @@ export async function analyzeUrl(input, options = {}) {
   const url = normalizeTargetUrl(input)
   const page = await guardedFetch(url, { accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8' })
   const html = page.text
-  const $ = cheerio.load(html)
   const pageUrl = page.finalUrl
   const limitations = ['Static analysis of the HTML response only; JavaScript was not executed, so client-rendered DOM, XHR/fetch traffic and runtime state are not observed.']
   if (page.truncated) limitations.push(`Response body was truncated at ${page.body.length} bytes.`)
-  if (!/text\/html|application\/xhtml/i.test(page.headers['content-type'] || '')) limitations.push(`Content-Type is ${page.headers['content-type'] || 'unknown'}; HTML heuristics may not apply.`)
 
-  const scriptSrcs = $('script[src]').map((_, el) => $(el).attr('src')).get()
-  const inlineJs = $('script:not([src])').map((_, el) => $(el).html() || '').get().join('\n')
-  const metas = {}
-  $('meta[name]').each((_, el) => { metas[($(el).attr('name') || '').toLowerCase()] = $(el).attr('content') || '' })
-  const cookies = (page.headers['set-cookie'] || '').split(/,(?=\s*[A-Za-z0-9_-]+=)/).filter(Boolean)
-
-  const technologies = detectTechnologies({ html, scriptSrcs, inlineJs, headers: page.headers, cookies, metas })
-  const design = analyzeDesign({ $, html })
-  const structure = analyzeStructure({ $, pageUrl })
-  const content = analyzeContent({ $, html, pageUrl })
-  const scripts = analyzeScripts({ $, pageUrl, html })
-  const network = analyzeNetwork({ $, pageUrl, html })
-  const security = analyzeSecurity({ headers: page.headers, finalUrl: pageUrl, scripts, network })
-
-  const [discovery, fetchedScripts, visualAssets, shot] = await Promise.all([
-    discover ? discoverSiteFiles(pageUrl) : Promise.resolve(null),
-    fetchFirstPartyScripts ? inspectScripts(selectScriptsToFetch(scripts.external), pageUrl) : Promise.resolve([]),
-    collectVisuals({ $, pageUrl, ogImageUrl: content.openGraph.image }),
-    screenshot ? captureScreenshot(pageUrl) : Promise.resolve({ error: 'Screenshot disabled for this run.' }),
-  ])
-  const visuals = {
-    icon: visualAssets.icon,
-    iconAttempts: visualAssets.iconAttempts,
-    ogImage: visualAssets.ogImage,
-    screenshot: shot.dataUrl ? shot : null,
-    screenshotError: shot.error || null,
-    brandColor: design.colors.roles.accent || design.colors.themeColor || design.colors.roles.background || null,
-    backgroundColor: design.colors.roles.background || null,
-    mode: design.colors.mode,
-  }
-  if (shot.error) limitations.push(shot.error)
-  if (shot.partial) limitations.push(shot.partial)
-  if (!discover) limitations.push('Well-known file discovery was skipped.')
-  if (!fetchFirstPartyScripts) limitations.push('External script bodies were not fetched.')
-  scripts.fetchedScripts = fetchedScripts
-
-  const report = {
-    reportVersion: REPORT_VERSION,
-    generatedAt: new Date().toISOString(),
-    durationMs: Date.now() - started,
+  const { report, $ } = analyzeDocument({
+    load: cheerio.load,
+    html,
+    limitations,
     target: {
       input,
       url: page.url,
@@ -85,21 +41,35 @@ export async function analyzeUrl(input, options = {}) {
       truncated: page.truncated,
       timing: page.timing,
       contentType: page.headers['content-type'] || null,
+      source: 'direct fetch',
     },
-    summary: null,
-    technologies,
-    design,
-    structure,
-    content,
-    scripts,
-    network,
-    security,
-    discovery,
-    visuals,
-    limitations,
+  })
+  const { scripts, content, design } = report
+
+  const [discovery, fetchedScripts, visualAssets, shot] = await Promise.all([
+    discover ? discoverSiteFiles(pageUrl) : Promise.resolve(null),
+    fetchFirstPartyScripts ? inspectScripts(selectScriptsToFetch(scripts.external), pageUrl) : Promise.resolve([]),
+    collectVisuals({ $, pageUrl, ogImageUrl: content.openGraph.image }),
+    screenshot ? captureScreenshot(pageUrl) : Promise.resolve({ error: 'Screenshot disabled for this run.' }),
+  ])
+  if (!discover) limitations.push('Well-known file discovery was skipped.')
+  if (!fetchFirstPartyScripts) limitations.push('External script bodies were not fetched.')
+  scripts.fetchedScripts = fetchedScripts
+  report.discovery = discovery
+  report.visuals = {
+    ...report.visuals,
+    icon: visualAssets.icon,
+    iconAttempts: visualAssets.iconAttempts,
+    ogImage: visualAssets.ogImage,
+    screenshot: shot.dataUrl ? shot : null,
+    screenshotError: shot.error || null,
+    brandColor: design.colors.roles.accent || design.colors.themeColor || design.colors.roles.background || null,
   }
+  if (shot.error) limitations.push(shot.error)
+  if (shot.partial) limitations.push(shot.partial)
   report.blueprint = buildBlueprint(report)
   report.summary = summarize(report)
+  report.durationMs = Date.now() - started
   return report
 }
 
@@ -136,45 +106,4 @@ async function inspectScripts(list, pageUrl) {
       usesWebSocket: /new WebSocket\(/.test(code),
     }
   }))
-}
-
-function summarize(report) {
-  const { technologies, structure, content, scripts, network, security, design } = report
-  const byCat = {}
-  for (const t of technologies) (byCat[t.categoryLabel] ||= []).push(t.name + (t.version ? ` ${t.version}` : ''))
-  return {
-    title: content.title,
-    description: content.description,
-    language: content.lang || content.languageHint.language,
-    siteType: inferSiteType(report),
-    technologyCount: technologies.length,
-    technologiesByCategory: byCat,
-    thirdPartyHosts: network.thirdPartyCount,
-    sections: report.blueprint.components.length,
-    ctas: structure.ctas.slice(0, 5).map((c) => c.text),
-    forms: structure.forms.length,
-    wordCount: content.wordCount,
-    prices: content.prices.filter((p) => p.context !== 'inline script literal').length,
-    colorMode: design.colors.mode,
-    primaryFonts: [...new Set([...design.typography.fontFaces.map((f) => f.family), ...design.typography.googleFonts.map((g) => g.family)].filter(Boolean))].slice(0, 5),
-    securityScore: security.score,
-    trackingIds: scripts.trackingIds,
-    developerCommentLanguage: content.comments.languageHint,
-    headline: content.headlines[0] || content.textBlocks[0]?.text || null,
-    hasScreenshot: Boolean(report.visuals.screenshot),
-    hasIcon: Boolean(report.visuals.icon),
-  }
-}
-
-function inferSiteType(report) {
-  const { content, structure, technologies } = report
-  const text = `${content.title} ${content.description} ${content.headlines.join(' ')}`.toLowerCase()
-  const names = technologies.map((t) => t.name)
-  if (names.includes('Shopify') || /add to cart|checkout/.test(text)) return 'e-commerce storefront'
-  if (content.prices.length >= 3 && /plan|pricing|month|yearly|subscri/.test(text)) return 'SaaS marketing / pricing page'
-  if (structure.forms.some((f) => f.fields.some((x) => x.type === 'password'))) return 'authentication / login page'
-  if (/blog|article|posted|read more/.test(text)) return 'blog / editorial'
-  if (/docs|documentation|api reference/.test(text)) return 'documentation'
-  if (structure.ctas.length && content.wordCount < 3000) return 'landing page'
-  return 'web page'
 }

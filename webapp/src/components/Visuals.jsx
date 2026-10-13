@@ -29,15 +29,24 @@ export function SiteIcon({ icon, host, brandColor, size = 32, className = '' }) 
 }
 
 /** Screenshot / og:image thumbnail with a brand-coloured placeholder when neither exists. */
-export function Thumbnail({ src, kind, host, brandColor, backgroundColor, palette = [], className = '', onClick, title }) {
+export function Thumbnail({ src, kind, host, brandColor, backgroundColor, palette = [], className = '', onClick, title, remoteUrl }) {
   const content = src ? (
     <img src={src} alt={`${kind === 'screenshot' ? 'Screenshot' : 'Preview image'} of ${host}`} className="h-full w-full object-cover object-top" loading="lazy" />
   ) : (
     <div className="flex h-full w-full flex-col items-center justify-center gap-2" style={{ background: backgroundColor || '#111827' }}>
       <span className="text-2xl font-bold" style={{ color: brandColor || '#8b97ad' }}>{initials(host)}</span>
-      <span className="text-[10px] uppercase tracking-wide text-ink-400">no preview</span>
+      <span className="text-[10px] uppercase tracking-wide text-ink-400">{remoteUrl ? 'screenshot opens in a new tab' : 'no preview'}</span>
     </div>
   )
+  if (!src && remoteUrl) {
+    return (
+      <a href={remoteUrl} target="_blank" rel="noopener noreferrer" title={`Open screenshot of ${host}`} className={`relative block aspect-[8/5] w-full overflow-hidden rounded-lg border border-ink-700/70 bg-ink-950 hover:border-accent-500 ${className}`}>
+        {content}
+        {palette.length ? <span className="absolute bottom-0 left-0 flex h-1.5 w-full">{palette.map((hex) => <span key={hex} className="flex-1" style={{ background: hex }} />)}</span> : null}
+        <span className="absolute right-1.5 top-1.5 rounded bg-black/60 px-1.5 py-0.5 text-[10px] text-white">screenshot ↗</span>
+      </a>
+    )
+  }
   const Tag = onClick ? 'button' : 'div'
   return (
     <Tag type={onClick ? 'button' : undefined} onClick={onClick} title={title} className={`relative block aspect-[8/5] w-full overflow-hidden rounded-lg border border-ink-700/70 bg-ink-950 text-left ${onClick ? 'cursor-zoom-in hover:border-accent-500' : ''} ${className}`}>
@@ -106,7 +115,7 @@ export function LibraryGrid({ entries, activeUrl, onOpen, onRemove, onReanalyze 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {rows.map((e) => (
             <article key={e.url} className={`card !p-2 ${activeUrl === e.url ? 'ring-1 ring-accent-500' : ''}`}>
-              <Thumbnail src={e.thumb} kind={e.thumbKind} host={e.host} brandColor={e.brandColor} backgroundColor={e.backgroundColor} palette={e.palette} onClick={() => onOpen(e)} title={`Open ${e.host}`} />
+              <Thumbnail src={e.thumb} kind={e.thumbKind} host={e.host} brandColor={e.brandColor} backgroundColor={e.backgroundColor} palette={e.palette} onClick={() => onOpen(e)} title={`Open ${e.host}`} remoteUrl={e.thumbRemoteUrl} />
               <div className="mt-2 flex items-start justify-between gap-2">
                 <button type="button" className="min-w-0 flex-1 text-left" onClick={() => onOpen(e)}><Identity entry={e} /></button>
                 <span className="mt-0.5 flex items-center gap-1 text-[11px]">
