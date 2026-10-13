@@ -28,8 +28,8 @@ export function OverviewPanel({ report, onOpenTab }) {
             <div className="min-w-0">
               <div className="truncate text-lg font-semibold text-white">{s.title || host}</div>
               <div className="truncate text-sm text-ink-400">{host} · {s.siteType}</div>
-              <div className="mt-1 text-[11px] text-ink-400">{v.icon?.dataUrl ? `Logo from ${v.icon.rel} (${v.icon.type}, ${v.icon.bytes} B)` : v.icon?.remote ? <>Icon declared as {v.icon.rel}: <ExternalLink href={v.icon.url}>{v.icon.url.replace(/^https?:\/\//, '')}</ExternalLink></> : 'No icon declared or fetchable; monogram generated'}</div>
-              {v.firecrawlBranding ? <div className="mt-1 text-[11px] text-ink-400">Firecrawl branding: {v.firecrawlBranding.brandName || host} · {v.firecrawlBranding.colorScheme || 'scheme n/a'} · {(v.firecrawlBranding.fonts || []).map((f) => `${f.family} (${f.role})`).join(', ') || 'fonts n/a'}</div> : null}
+              <div className="mt-1 text-[11px] text-ink-400">{v.icon?.remote ? <>Icon declared as {v.icon.rel}: <ExternalLink href={v.icon.url}>{v.icon.url.replace(/^https?:\/\//, '')}</ExternalLink></> : v.icon?.dataUrl ? `Logo from ${v.icon.rel} (${v.icon.type}, ${v.icon.bytes} B)` : 'No icon declared or fetchable; monogram generated'}</div>
+              {v.firecrawlBranding ? <div className="mt-1 text-[11px] text-ink-400">Firecrawl branding: {v.firecrawlBranding.brandName || host} · {v.firecrawlBranding.colorScheme || 'scheme n/a'} · {(v.firecrawlBranding.fonts || []).map((f) => f.role ? `${f.family} (${f.role})` : f.family).join(', ') || 'fonts n/a'}</div> : null}
             </div>
           </div>
           <p className="text-sm text-ink-200">{s.description || s.headline || '—'}</p>
