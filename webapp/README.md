@@ -17,6 +17,20 @@ Exports: JSON, Markdown report, `tokens.css`, screenshot and icon. Paste many UR
 
 This UI is a companion to the [REA CLI/MCP](../README.md). It performs **static analysis only**: the HTML response is parsed without executing JavaScript, so client-rendered DOM and runtime network traffic are not observed. For runtime observation use REA's `inspect-web-page` / `analyze-web-bundle` against a Chromium CDP endpoint, as documented in [`docs/browser-observation.md`](../docs/browser-observation.md).
 
+## Three ways to run it
+
+| Mode | Where | How pages are fetched | Screenshots / logos |
+| --- | --- | --- | --- |
+| **API** | `npm start`, `npm run dev`, Vercel | the app's own server (direct fetch, SSRF-guarded) | local Chromium, or Firecrawl's API when `FIRECRAWL_API_KEY` is set / keyless |
+| **Static** | GitHub Pages or any static host | the browser calls Firecrawl's REST API directly (keyless free tier, or your own key kept in the browser) | Firecrawl screenshot, downloaded and resized into the library |
+| **Connector** | claude.ai artifact | the viewer's Firecrawl connector via the artifact `mcp` capability | links only (artifact sandbox cannot embed remote images) |
+
+The page detects its mode at load: an artifact runtime → connector; `api/health` answers → API; otherwise static.
+
+### GitHub Pages (static mode)
+
+[`.github/workflows/webapp-pages.yml`](../.github/workflows/webapp-pages.yml) builds `webapp/` with `VITE_BASE=/<repo>/`, enables Pages on first run and deploys on every push to `main` or the feature branch that touches `webapp/`. GitHub Actions must be enabled on the repository (a fork starts with workflows disabled: open the repository's **Actions** tab once and enable them). The site is then at `https://<owner>.github.io/<repo>/`.
+
 ## Use it without hosting: the claude.ai artifact (connector mode)
 
 The same UI is published as a claude.ai artifact. There the page cannot fetch pages itself, so it calls your **Firecrawl** connector (added in claude.ai Settings → Connectors) through the artifact's `mcp` capability: Firecrawl returns the rendered DOM, a screenshot link and branding, and the analyzer runs in the browser. Differences from the self-hosted app: response headers, cookies, robots.txt/sitemap and script bodies are not observed, the security header audit reads "not observed", and screenshots/icons are links rather than embedded thumbnails because an artifact cannot display images from other hosts. Build it with:
@@ -29,7 +43,7 @@ and publish `artifact/index.html` with its assets as artifact files, declaring `
 
 ## Run
 
-Requires Node.js ≥ 20. Screenshots need a local Chromium: the app looks for Playwright's browsers (`PLAYWRIGHT_BROWSERS_PATH`, `~/.cache/ms-playwright`, `/opt/pw-browsers`), then system `chromium` / `google-chrome`; set `REA_CHROMIUM_PATH=/path/to/chrome` to point at one, or `REA_DISABLE_SCREENSHOTS=1` to skip. Without a browser the report still completes and says why no screenshot was taken; the `og:image` is used as the preview when present. Install Playwright's browser with `npx playwright install chromium` if you have none.
+Requires Node.js ≥ 20. Screenshots use a local Chromium when present, else Firecrawl's API (`FIRECRAWL_API_KEY` recommended; keyless calls are rate limited). Chromium lookup: the app looks for Playwright's browsers (`PLAYWRIGHT_BROWSERS_PATH`, `~/.cache/ms-playwright`, `/opt/pw-browsers`), then system `chromium` / `google-chrome`; set `REA_CHROMIUM_PATH=/path/to/chrome` to point at one, or `REA_DISABLE_SCREENSHOTS=1` to skip. Without a browser the report still completes and says why no screenshot was taken; the `og:image` is used as the preview when present. Install Playwright's browser with `npx playwright install chromium` if you have none.
 
 ```bash
 cd webapp

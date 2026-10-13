@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  // VITE_BASE=/rea/ for GitHub Pages project sites; default root for local, Vercel and Node hosting.
+  base: process.env.VITE_BASE || '/',
   build: { outDir: 'dist' },
   server: {
     port: 5173,

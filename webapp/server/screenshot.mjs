@@ -5,7 +5,7 @@
 
 import { existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { assertPublicHost } from './analyze/fetch.mjs'
+import { assertPublicHost, fetchAsset } from './analyze/fetch.mjs'
 
 const IDLE_CLOSE_MS = 60_000
 const NAV_TIMEOUT_MS = 15_000
@@ -66,7 +66,7 @@ async function hostAllowed(hostname) {
  */
 export async function captureScreenshot(url, { fullPage = false } = {}) {
   const executablePath = findChromium()
-  if (!executablePath) return { error: 'No local Chromium found. Set REA_CHROMIUM_PATH or install Playwright browsers.' }
+  if (!executablePath) return captureViaFirecrawl(url)
   let context
   try {
     const browser = await getBrowser(executablePath)
@@ -104,4 +104,46 @@ export async function closeBrowser() {
   const p = browserPromise
   browserPromise = null
   try { (await p)?.close() } catch { /* ignore */ }
+}
+
+const FIRECRAWL_API = 'https://api.firecrawl.dev/v2/scrape'
+const MAX_REMOTE_SCREENSHOT_BYTES = 1024 * 1024
+
+/**
+ * Fallback for hosts without Chromium (Vercel, containers): ask Firecrawl for a screenshot.
+ * Uses FIRECRAWL_API_KEY when set, otherwise Firecrawl's rate-limited keyless free tier.
+ * The image is embedded when it is at most 1 MB; otherwise only its time-limited URL is kept.
+ */
+export async function captureViaFirecrawl(url) {
+  if (process.env.REA_DISABLE_SCREENSHOTS === '1') return { error: 'Screenshots disabled (REA_DISABLE_SCREENSHOTS=1).' }
+  const apiKey = process.env.FIRECRAWL_API_KEY || ''
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 60_000)
+  try {
+    const res = await fetch(FIRECRAWL_API, {
+      method: 'POST',
+      signal: controller.signal,
+      headers: { 'content-type': 'application/json', ...(apiKey ? { authorization: `Bearer ${apiKey}` } : {}) },
+      body: JSON.stringify({ url, formats: ['screenshot'], onlyMainContent: false, maxAge: 0 }),
+    })
+    const body = await res.json().catch(() => null)
+    if (!res.ok || !body?.success) return { error: `No local Chromium; Firecrawl screenshot failed (${res.status}): ${(body?.error || '').toString().slice(0, 160) || 'unknown error'}` }
+    const remoteUrl = body.data?.screenshot
+    if (typeof remoteUrl !== 'string' || !/^https?:\/\//.test(remoteUrl)) return { error: 'No local Chromium; Firecrawl returned no screenshot.' }
+    const img = await fetchAsset(remoteUrl, { accept: 'image/*', maxBytes: MAX_REMOTE_SCREENSHOT_BYTES })
+    const type = img.ok ? (img.headers?.['content-type'] || 'image/png').split(';')[0] : null
+    return {
+      dataUrl: img.ok && !img.truncated ? `data:${type};base64,${img.body.toString('base64')}` : null,
+      remoteUrl,
+      width: null,
+      height: null,
+      capturedAt: new Date().toISOString(),
+      engine: apiKey ? 'Firecrawl API (key)' : 'Firecrawl API (keyless)',
+      partial: img.ok && !img.truncated ? null : 'Screenshot larger than 1 MB kept as a time-limited link only.',
+    }
+  } catch (error) {
+    return { error: `No local Chromium; Firecrawl screenshot failed: ${error.message.split('\n')[0]}` }
+  } finally {
+    clearTimeout(timer)
+  }
 }

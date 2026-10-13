@@ -112,3 +112,104 @@ export async function analyzeViaFirecrawl(url, mcp, options = {}) {
   report.durationMs = Math.round(performance.now() - started)
   return report
 }
+
+// ---------------------------------------------------------------------------------------------
+// Static mode: the page is served from a static host (GitHub Pages) with no API of its own, so
+// the browser calls Firecrawl's REST API directly. Keyless calls use Firecrawl's free tier and
+// are rate limited; a personal API key (stored only in this browser) lifts that.
+
+export const FIRECRAWL_API = 'https://api.firecrawl.dev/v2/scrape'
+export const API_KEY_STORAGE = 'rea-webapp:firecrawl-key'
+
+export function readApiKey() { try { return localStorage.getItem(API_KEY_STORAGE) || '' } catch { return '' } }
+export function writeApiKey(key) { try { if (key) localStorage.setItem(API_KEY_STORAGE, key.trim()); else localStorage.removeItem(API_KEY_STORAGE) } catch { /* storage blocked */ } }
+
+/** Is the app's own API reachable? (false on static hosts) */
+export async function detectApi() {
+  try {
+    const res = await fetch('api/health', { cache: 'no-store' })
+    if (!res.ok) return false
+    const data = await res.json().catch(() => null)
+    return Boolean(data && data.ok === true)
+  } catch { return false }
+}
+
+/** Downloads an image URL (needs CORS) and returns a resized JPEG data URL, or null. */
+export async function imageUrlToThumbnail(url, { width = 640, height = 400, quality = 0.74 } = {}) {
+  try {
+    const res = await fetch(url, { mode: 'cors' })
+    if (!res.ok) return null
+    const blob = await res.blob()
+    const bitmap = await createImageBitmap(blob)
+    const scale = width / bitmap.width
+    const canvas = document.createElement('canvas')
+    canvas.width = width
+    canvas.height = Math.min(height, Math.round(bitmap.height * scale))
+    const ctx = canvas.getContext('2d')
+    ctx.drawImage(bitmap, 0, 0, bitmap.width, canvas.height / scale, 0, 0, width, canvas.height)
+    bitmap.close?.()
+    return { dataUrl: canvas.toDataURL('image/jpeg', quality), width, height: canvas.height }
+  } catch { return null }
+}
+
+export function describeFirecrawlHttpError(status, body) {
+  const msg = typeof body === 'string' ? body : body?.error || body?.message || ''
+  if (status === 401 || status === 403) return `Firecrawl rejected the API key (${status}). Check it at https://www.firecrawl.dev/app/api-keys.`
+  if (status === 402) return 'Firecrawl says this account is out of credits (402).'
+  if (status === 429) return msg.includes('keyless') ? 'Firecrawl\'s keyless free tier is rate limited right now. Add a free API key (Settings → Firecrawl key) or wait a minute.' : 'Firecrawl rate limit reached (429). Wait a minute and retry.'
+  return `Firecrawl error ${status}: ${msg.slice(0, 200) || 'unknown'}`
+}
+
+/** Fetches the page through Firecrawl's REST API from the browser and analyzes it locally. */
+export async function analyzeViaFirecrawlApi(url, options = {}) {
+  const started = performance.now()
+  const target = normalize(url)
+  const apiKey = options.apiKey || readApiKey()
+  const formats = options.screenshot === false ? ['rawHtml', 'branding'] : ['rawHtml', 'screenshot', 'branding']
+  let res
+  try {
+    res = await fetch(FIRECRAWL_API, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', ...(apiKey ? { authorization: `Bearer ${apiKey}` } : {}) },
+      body: JSON.stringify({ url: target, formats, onlyMainContent: false, maxAge: 0 }),
+    })
+  } catch (e) {
+    throw new Error(`Could not reach Firecrawl from this browser: ${e.message}`)
+  }
+  const body = await res.json().catch(() => null)
+  if (!res.ok || !body?.success) throw new Error(describeFirecrawlHttpError(res.status, body))
+  const data = body.data || {}
+  const html = data.rawHtml || data.html
+  if (!html) throw new Error(`Firecrawl returned no HTML for ${target}`)
+  const meta = data.metadata || {}
+  const finalUrl = meta.url || meta.sourceURL || target
+  const limitations = [
+    'Fetched through Firecrawl\'s API from your browser: the HTML is the DOM after JavaScript ran, so client-rendered content is included.',
+    'Response headers, cookies, redirects, resolved addresses, robots.txt/sitemap and script bodies were not observed in this mode.',
+  ]
+  const { report } = analyzeDocument({
+    load,
+    html,
+    limitations,
+    target: { input: url, url: target, finalUrl, status: meta.statusCode ?? null, statusText: '', redirects: [], addresses: [], headers: {}, bytes: new TextEncoder().encode(html).length, truncated: false, timing: { ttfbMs: null, totalMs: null }, contentType: meta.contentType || 'text/html', source: apiKey ? 'Firecrawl API (your key)' : 'Firecrawl API (keyless free tier)' },
+  })
+  const branding = data.branding || null
+  const iconCandidate = report.visuals.iconCandidates[0] || null
+  const iconUrl = iconCandidate?.url || (meta.favicon && meta.favicon !== 'data:,' ? meta.favicon : null)
+  const screenshotUrl = typeof data.screenshot === 'string' && /^https?:\/\//.test(data.screenshot) ? data.screenshot : null
+  const thumb = screenshotUrl ? await imageUrlToThumbnail(screenshotUrl) : null
+  report.visuals = {
+    ...report.visuals,
+    icon: iconUrl ? { ok: true, url: iconUrl, type: null, bytes: null, dataUrl: iconUrl, rel: iconCandidate?.rel || 'favicon', remote: true } : null,
+    screenshot: screenshotUrl ? { dataUrl: thumb?.dataUrl || screenshotUrl, remoteUrl: screenshotUrl, width: thumb?.width || null, height: thumb?.height || null, capturedAt: new Date().toISOString(), engine: 'Firecrawl', partial: null, embedded: Boolean(thumb) } : null,
+    screenshotError: screenshotUrl ? null : 'Firecrawl returned no screenshot.',
+    firecrawlBranding: branding ? { colorScheme: branding.colorScheme || null, colors: branding.colors || null, fonts: branding.fonts || null, brandName: branding.brandName || null, designSystem: branding.designSystem || null } : null,
+    brandColor: report.design.colors.roles.accent || branding?.colors?.accent?.toLowerCase() || branding?.colors?.primary?.toLowerCase() || report.design.colors.themeColor || report.design.colors.roles.background || null,
+    creditsUsed: meta.creditsUsed ?? null,
+  }
+  if (screenshotUrl && !thumb) limitations.push('The screenshot could not be downloaded into the library; it is shown from Firecrawl\'s time-limited link.')
+  report.blueprint = buildBlueprint(report)
+  report.summary = summarize(report)
+  report.durationMs = Math.round(performance.now() - started)
+  return report
+}

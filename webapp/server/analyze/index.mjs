@@ -61,7 +61,7 @@ export async function analyzeUrl(input, options = {}) {
     icon: visualAssets.icon,
     iconAttempts: visualAssets.iconAttempts,
     ogImage: visualAssets.ogImage,
-    screenshot: shot.dataUrl ? shot : null,
+    screenshot: shot.dataUrl || shot.remoteUrl ? shot : null,
     screenshotError: shot.error || null,
     brandColor: design.colors.roles.accent || design.colors.themeColor || design.colors.roles.background || null,
   }

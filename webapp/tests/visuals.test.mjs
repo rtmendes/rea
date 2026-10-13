@@ -31,7 +31,7 @@ test('captureScreenshot reports a reason instead of throwing when screenshots ar
   try {
     assert.equal(findChromium(), null)
     const r = await captureScreenshot('https://example-target.test/')
-    assert.match(r.error, /No local Chromium/)
+    assert.match(r.error, /disabled|No local Chromium/)
     assert.equal(r.dataUrl, undefined)
   } finally {
     if (prev === undefined) delete process.env.REA_DISABLE_SCREENSHOTS; else process.env.REA_DISABLE_SCREENSHOTS = prev

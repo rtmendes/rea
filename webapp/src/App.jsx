@@ -4,7 +4,7 @@ import { BlueprintPanel, ContentPanel, DesignPanel, DiscoveryPanel, NetworkPanel
 import { Identity, LibraryGrid, SiteIcon } from './components/Visuals.jsx'
 import { Toggle, download } from './components/ui.jsx'
 import { clearAll, entryFromReport, listEntries, loadReport, parseUrlList, removeEntry, saveReport } from './store.js'
-import { analyzeViaApi, analyzeViaFirecrawl, describeMcpError, detectDownloads, detectMcp } from './transport.js'
+import { analyzeViaApi, analyzeViaFirecrawl, analyzeViaFirecrawlApi, describeMcpError, detectApi, detectDownloads, detectMcp, readApiKey, writeApiKey } from './transport.js'
 
 const TABS = [
   ['overview', 'Overview'], ['tech', 'Tech stack'], ['design', 'Design system'], ['structure', 'Structure'], ['content', 'Content'],
@@ -35,14 +35,20 @@ export default function App() {
   const [entries, setEntries] = useState([])
   const [queue, setQueue] = useState({ running: false, done: 0, total: 0, current: null, errors: [] })
   const cancelRef = useRef(false)
-  const [runtime, setRuntime] = useState({ mode: IN_ARTIFACT ? 'detecting' : 'api', mcp: null, downloads: null })
+  const [runtime, setRuntime] = useState({ mode: 'detecting', mcp: null, downloads: null })
   const [confirmClear, setConfirmClear] = useState(false)
+  const [apiKey, setApiKey] = useState(readApiKey)
+  const [showKey, setShowKey] = useState(false)
 
   useEffect(() => {
-    if (!IN_ARTIFACT) return
     ;(async () => {
-      const [mcp, downloads] = await Promise.all([detectMcp(), detectDownloads()])
-      setRuntime({ mode: mcp ? 'connector' : 'unavailable', mcp, downloads })
+      if (IN_ARTIFACT) {
+        const [mcp, downloads] = await Promise.all([detectMcp(), detectDownloads()])
+        setRuntime({ mode: mcp ? 'connector' : 'unavailable', mcp, downloads })
+        return
+      }
+      const hasApi = await detectApi()
+      setRuntime({ mode: hasApi ? 'api' : 'static', mcp: null, downloads: null })
     })()
   }, [])
 
@@ -63,7 +69,9 @@ export default function App() {
     const options = { discover, scripts: fetchScripts, screenshot }
     const analyze = runtime.mode === 'connector'
       ? (u) => analyzeViaFirecrawl(u, runtime.mcp, options).catch((e) => { throw new Error(describeMcpError(e)) })
-      : (u) => analyzeViaApi(u, options)
+      : runtime.mode === 'static'
+        ? (u) => analyzeViaFirecrawlApi(u, { ...options, apiKey })
+        : (u) => analyzeViaApi(u, options)
     const errors = []
     setQueue({ running: true, done: 0, total: urls.length, current: urls[0], errors })
     let last = null
@@ -84,7 +92,7 @@ export default function App() {
     setQueue((q) => ({ ...q, running: false, current: null }))
     if (urls.length > 1) setView('library')
     else if (!last && errors.length) setView('library')
-  }, [discover, fetchScripts, screenshot, queue.running, refreshEntries, showReport, runtime])
+  }, [discover, fetchScripts, screenshot, queue.running, refreshEntries, showReport, runtime, apiKey])
 
   const submit = (e) => { e.preventDefault(); runBatch(parseUrlList(input)) }
 
@@ -118,7 +126,7 @@ export default function App() {
           <h1 className="text-xl font-bold tracking-tight text-white">Reverse Engineer Any App</h1>
           <p className="text-sm text-ink-400">Paste one URL or a list. Get the stack, design tokens, structure, scripts, third parties, security posture and a rebuild blueprint, with a screenshot and logo for every site.</p>
         </div>
-        <a className="text-xs text-ink-400 hover:text-white" href="https://github.com/rtmendes/rea/tree/ccr-6ab83666-664d68/webapp" target="_blank" rel="noopener noreferrer">rtmendes/rea · webapp{runtime.mode === 'connector' ? ' · connector mode' : ''}</a>
+        <a className="text-xs text-ink-400 hover:text-white" href="https://github.com/rtmendes/rea/tree/ccr-6ab83666-664d68/webapp" target="_blank" rel="noopener noreferrer">rtmendes/rea · webapp{runtime.mode === 'connector' ? ' · connector mode' : runtime.mode === 'static' ? ' · static mode' : ''}</a>
       </header>
 
       <form className="card mb-4 space-y-3" onSubmit={submit}>
@@ -142,11 +150,22 @@ export default function App() {
         </div>
         {runtime.mode === 'connector' ? <div className="rounded-lg border border-accent-500/30 bg-accent-500/10 p-2 text-xs text-ink-200">Connector mode: pages are fetched through your Firecrawl connector (rendered DOM, screenshot link, branding). claude.ai will ask once to allow Firecrawl for this page. Response headers, robots.txt and embedded thumbnails need the self-hosted version.</div> : null}
         {runtime.mode === 'unavailable' ? <div className="rounded-lg border border-rose-500/40 bg-rose-500/10 p-2 text-xs text-rose-200">This page cannot reach a connector in this view. Open it inside claude.ai with the Firecrawl connector added (Settings → Connectors), or run the app locally with <code>npm run dev</code>.</div> : null}
-        {runtime.mode === 'detecting' ? <div className="text-xs text-ink-400">Checking connectors…</div> : null}
+        {runtime.mode === 'static' ? (
+          <div className="space-y-2 rounded-lg border border-accent-500/30 bg-accent-500/10 p-2 text-xs text-ink-200">
+            <div>Static mode: this page has no server, so your browser calls Firecrawl's API directly (rendered DOM, screenshot, branding) and analyzes the page locally. Without a key Firecrawl's keyless free tier applies and is rate limited; a free key from <a className="text-accent-400 underline" href="https://www.firecrawl.dev/app/api-keys" target="_blank" rel="noopener noreferrer">firecrawl.dev/app/api-keys</a> lifts that. The key is kept only in this browser.</div>
+            <div className="flex flex-wrap items-center gap-2">
+              <label htmlFor="fc-key" className="text-ink-400">Firecrawl API key</label>
+              <input id="fc-key" type={showKey ? 'text' : 'password'} value={apiKey} onChange={(e) => { setApiKey(e.target.value); writeApiKey(e.target.value) }} placeholder="fc-… (optional)" autoComplete="off" spellCheck={false} className="w-72 max-w-full rounded-md border border-ink-700 bg-ink-950 px-2 py-1 font-mono text-xs text-white" />
+              <button type="button" className="chip" onClick={() => setShowKey((v) => !v)}>{showKey ? 'Hide' : 'Show'}</button>
+              <span className="text-ink-400">{apiKey ? 'Using your key.' : 'Using the keyless free tier.'}</span>
+            </div>
+          </div>
+        ) : null}
+        {runtime.mode === 'detecting' ? <div className="text-xs text-ink-400">Checking how this page can fetch targets…</div> : null}
         <div className="flex flex-wrap items-center gap-4">
-          <Toggle checked={screenshot} onChange={setScreenshot} label={runtime.mode === 'connector' ? 'Request screenshot (Firecrawl)' : 'Capture screenshot (local Chromium)'} />
-          {runtime.mode !== 'connector' ? <Toggle checked={discover} onChange={setDiscover} label="Probe robots, sitemap, manifest, security.txt" /> : null}
-          {runtime.mode !== 'connector' ? <Toggle checked={fetchScripts} onChange={setFetchScripts} label="Fetch first-party and widget scripts" /> : null}
+          <Toggle checked={screenshot} onChange={setScreenshot} label={runtime.mode === 'api' ? 'Capture screenshot' : 'Request screenshot (Firecrawl)'} />
+          {runtime.mode === 'api' ? <Toggle checked={discover} onChange={setDiscover} label="Probe robots, sitemap, manifest, security.txt" /> : null}
+          {runtime.mode === 'api' ? <Toggle checked={fetchScripts} onChange={setFetchScripts} label="Fetch first-party and widget scripts" /> : null}
           <span className="text-xs text-ink-400">Try:</span>
           {EXAMPLES.map((ex) => <button key={ex} type="button" className="chip hover:border-accent-500" onClick={() => { setInput(ex); runBatch([ex]) }}>{ex}</button>)}
         </div>
