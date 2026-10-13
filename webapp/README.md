@@ -1,35 +1,62 @@
 # Reverse Engineer Any App (web UI)
 
-An interactive web app that reverse engineers any public web app or site from a URL. Paste a URL and get, with the exact evidence for each claim:
+An interactive web app that reverse engineers any public web app or site from a URL and reads the result as a numbered workflow, from "who it sells to" to "does this add value to our offers". Every claim carries the evidence that produced it; nothing about visitors, revenue or rankings is guessed.
 
-- **Tech stack**: frameworks, site builders, animation libraries, tag managers, ad pixels, chat widgets, CDNs, servers, backend hints (120+ fingerprint rules in [`server/analyze/fingerprints.mjs`](server/analyze/fingerprints.mjs)).
-- **Design system**: palette with inferred roles and WCAG contrast, Google/self-hosted fonts, type scale, weights, radii, shadows, gradients, easings, breakpoints, keyframes, CSS variables.
-- **Structure**: landmarks, heading outline, sections (from `data-sec`/semantic tags), CTAs, navigation, forms, media.
-- **Content inventory**: metadata, Open Graph, hreflang, JSON-LD, copy blocks, prices, contacts, social links, developer comments and the language they were written in.
-- **Scripts and data**: external libraries with versions, inline script purposes, exposed `window` globals, embedded data blobs with their shape, tracking IDs, fetched first-party/custom-widget script bodies with endpoints and storage keys.
-- **Third-party surface** grouped by purpose, plus subdomains of the target that reveal separate apps/APIs.
-- **Security posture**: header audit with score, cookie flags, SRI coverage, mixed content.
-- **Site discovery**: `robots.txt`, `sitemap.xml`, `manifest.json`, `security.txt`, `humans.txt`.
-- **Rebuild blueprint**: component tree, `tokens.css`, interactions to re-implement, integrations to recreate with your own IDs, content model, build checklist.
-- **Visual identity**: a rendered screenshot thumbnail (local Chromium, 640×400 JPEG), the site's logo/icon (apple-touch-icon, SVG/PNG favicon or `/favicon.ico`), the `og:image` preview and the brand colours. Every analyzed site gets a card in the library grid, so a long list stays scannable.
+Live: **https://rtmendes.github.io/rea/** (static mode) · claude.ai artifact (connector mode, see below).
 
-Exports: JSON, Markdown report, `tokens.css`, screenshot and icon. Paste many URLs (one per line or comma separated) to queue a batch. Reports and thumbnails are kept in the browser (IndexedDB) and open instantly from the library; `?url=` deep links open the stored report or run a new analysis.
+## The 11-step workflow
 
-This UI is a companion to the [REA CLI/MCP](../README.md). It performs **static analysis only**: the HTML response is parsed without executing JavaScript, so client-rendered DOM and runtime network traffic are not observed. For runtime observation use REA's `inspect-web-page` / `analyze-web-bundle` against a Chromium CDP endpoint, as documented in [`docs/browser-observation.md`](../docs/browser-observation.md).
+| # | Step | What you see |
+| --- | --- | --- |
+| 1 | **Snapshot** | identity, brand palette, the **full-page render** in a scrollable browser frame, mobile render, live iframe, KPI tiles that jump to each step |
+| 2 | **Who it sells to** | customer avatar inferred from the copy: who the page names, wants, struggles, hesitations answered, proof devices, budget, channels, tone, with the sentences behind each field and a confidence label |
+| 3 | **What it sells** | offer ladder with prices in context, CTAs grouped by intent, conversion path (forms, sign-up/login pages, app origins, payment tech) |
+| 4 | **Messaging & keywords** | focus keyword, placement-weighted term cloud, top phrases, where the weight comes from, headline hierarchy |
+| 5 | **Reach & traffic signals** | analytics, ad pixels, tag managers, email/CRM, social profiles, app stores, content footprint, indexing signals, plus live links to Similarweb, Semrush, Ahrefs, Wayback, BuiltWith, PageSpeed, the Facebook Ad Library (their estimates, not ours) |
+| 6 | **Pages & flows** | site map (sections, page types, nav vs footer), in-page anchors, **rendered key pages** gallery (pricing, signup, about…), one click to analyze any page |
+| 7 | **Look & feel** | design board: specimen rendered with the observed fonts/colours/radius/shadow, colour roles, type scale, radii, shadows, motion, `tokens.css` |
+| 8 | **How it is built** | tech stack with evidence, structure, content inventory, scripts & data blobs, third parties, security posture |
+| 9 | **Rebuild blueprint** | component tree, tokens, interactions, integrations to recreate, content model, checklist |
+| 10 | **Value check & hand-off** | the agent judges whether the site adds new value to **your portfolio** (brands, offers, projects), proposes an original offer, sets the pipeline stage, and produces a hand-off brief (Markdown/JSON) or POSTs it to your pipeline webhook |
+| 11 | **Evidence & raw data** | well-known files, full report JSON |
+
+Views: **Library** (cards with thumbnail, logo, audience, budget, focus keyword, verdict, stage), **Offer pipeline** (board: Inbox → Evaluate → New offer / Enrich existing → In build → Archive, plus the portfolio editor), **Settings**.
+
+## Where the data is saved
+
+| Store | Scope | Set-up |
+| --- | --- | --- |
+| Browser (IndexedDB) | always; instant, offline | none |
+| **Supabase cloud sync** | across browsers and devices, per signed-in user (email magic link); reports as JSON, renders in a private bucket | [`supabase/README.md`](supabase/README.md): run the migration, set the site URL, paste project URL + anon key in Settings (or build with `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY`) |
+| **claude.ai artifact database** | connector mode; private per claude.ai account | none (declared as the artifact's `db` + `user` capabilities) |
+| Library export / import | manual move between devices, backups | Settings → Export / Import |
+
+Pipeline stage, value-check result and the portfolio travel with the same stores.
+
+## The value-check agent
+
+Step 10 compares the analysis with your portfolio and returns a fixed JSON shape (verdict `new_offer` / `enrich_existing` / `brand_angle` / `archive`, score, reasons, portfolio matches, an original offer idea with ladder, hooks, objections, proof to gather, channels, brand learnings, next steps). Providers, tried in order:
+
+1. **claude.ai artifact** (`sample` capability): no key needed when the app runs as an artifact.
+2. **Supabase edge function `offer-agent`** with the `ANTHROPIC_API_KEY` secret, for signed-in cloud users.
+3. **Anthropic SDK from the browser** with a key kept only in that browser (Settings → Value-check agent; default model `claude-opus-5-5`).
+4. **Built-in heuristic** (keyword/audience overlap, price band, evidence count), always available and labelled as such.
+
+The hand-off brief (`<site>.handoff.md` / `.json`) carries the verdict, the offer idea, the evidence digest, the design tokens and a ready prompt for an offer-creation assistant. Set a webhook URL in Settings to POST the JSON hand-off to Make, n8n, Zapier or your own API.
 
 ## Three ways to run it
 
 | Mode | Where | How pages are fetched | Screenshots / logos |
 | --- | --- | --- | --- |
 | **API** | `npm start`, `npm run dev`, Vercel | the app's own server (direct fetch, SSRF-guarded) | local Chromium, or Firecrawl's API when `FIRECRAWL_API_KEY` is set / keyless |
-| **Static** | GitHub Pages or any static host | the browser calls Firecrawl's REST API directly (keyless free tier, or your own key kept in the browser) | Firecrawl screenshot, downloaded and resized into the library |
+| **Static** | GitHub Pages or any static host | the browser calls Firecrawl's REST API directly (keyless free tier, your own key kept in the browser, or the Supabase `firecrawl-proxy` function with a server-side key) | Firecrawl full-page screenshot and per-page renders, downloaded and resized into the library |
 | **Connector** | claude.ai artifact | the viewer's Firecrawl connector via the artifact `mcp` capability | links only (artifact sandbox cannot embed remote images) |
 
 The page detects its mode at load: an artifact runtime → connector; `api/health` answers → API; otherwise static.
 
 ### GitHub Pages (static mode)
 
-[`.github/workflows/webapp-pages.yml`](../.github/workflows/webapp-pages.yml) builds `webapp/` with `VITE_BASE=/<repo>/` and pushes the result to the `gh-pages` branch on every push to `main` or the feature branch that touches `webapp/`. GitHub serves that branch at `https://<owner>.github.io/<repo>/` (live: https://rtmendes.github.io/rea/).
+[`.github/workflows/webapp-pages.yml`](../.github/workflows/webapp-pages.yml) builds `webapp/` with `VITE_BASE=/<repo>/` and pushes the result to the `gh-pages` branch on every push to `main` or the feature branch that touches `webapp/`. GitHub serves that branch at `https://<owner>.github.io/<repo>/` (live: https://rtmendes.github.io/rea/). The page ships a web app manifest, so it can be added to a phone's home screen. For a custom domain, add `cname: your.domain` to the `peaceiris/actions-gh-pages` step and point the domain's DNS at GitHub Pages. Repository *Variables* named `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` bake cloud sync into the build.
 
 ## Use it without hosting: the claude.ai artifact (connector mode)
 
@@ -39,7 +66,7 @@ The same UI is published as a claude.ai artifact. There the page cannot fetch pa
 npm run build:artifact   # writes artifact/index.html + artifact/assets/*
 ```
 
-and publish `artifact/index.html` with its assets as artifact files, declaring `capabilities: {mcp: {servers: [{server: "Firecrawl", tools: ["firecrawl_scrape"]}]}, downloads: true}`.
+and publish `artifact/index.html` with its assets as artifact files, declaring `capabilities: {mcp: {servers: [{server: "Firecrawl", tools: ["firecrawl_scrape"]}]}, downloads: true, db: {}, user: {}, sample: {}}` (connector fetching, file downloads, the private per-viewer library database, and the on-platform value-check agent).
 
 ## Run
 

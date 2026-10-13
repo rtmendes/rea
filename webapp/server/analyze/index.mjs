@@ -6,7 +6,7 @@ import { discoverSiteFiles } from './discovery.mjs'
 import { buildBlueprint } from './blueprint.mjs'
 import { collectVisuals } from './visuals.mjs'
 import { captureScreenshot } from '../screenshot.mjs'
-import { analyzeDocument, summarize } from './core.mjs'
+import { analyzeDocument, applyDiscovery, summarize } from './core.mjs'
 
 export { REPORT_VERSION } from './core.mjs'
 
@@ -46,16 +46,17 @@ export async function analyzeUrl(input, options = {}) {
   })
   const { scripts, content, design } = report
 
-  const [discovery, fetchedScripts, visualAssets, shot] = await Promise.all([
+  const [discovery, fetchedScripts, visualAssets, shot, fullShot] = await Promise.all([
     discover ? discoverSiteFiles(pageUrl) : Promise.resolve(null),
     fetchFirstPartyScripts ? inspectScripts(selectScriptsToFetch(scripts.external), pageUrl) : Promise.resolve([]),
     collectVisuals({ $, pageUrl, ogImageUrl: content.openGraph.image }),
     screenshot ? captureScreenshot(pageUrl) : Promise.resolve({ error: 'Screenshot disabled for this run.' }),
+    screenshot && options.fullPage !== false ? captureScreenshot(pageUrl, { fullPage: true }) : Promise.resolve({ error: 'Full-page render disabled for this run.' }),
   ])
   if (!discover) limitations.push('Well-known file discovery was skipped.')
   if (!fetchFirstPartyScripts) limitations.push('External script bodies were not fetched.')
   scripts.fetchedScripts = fetchedScripts
-  report.discovery = discovery
+  applyDiscovery(report, $, discovery)
   report.visuals = {
     ...report.visuals,
     icon: visualAssets.icon,
@@ -63,6 +64,9 @@ export async function analyzeUrl(input, options = {}) {
     ogImage: visualAssets.ogImage,
     screenshot: shot.dataUrl || shot.remoteUrl ? shot : null,
     screenshotError: shot.error || null,
+    fullPage: fullShot.dataUrl || fullShot.remoteUrl ? fullShot : null,
+    fullPageError: fullShot.error || null,
+    mobile: null,
     brandColor: design.colors.roles.accent || design.colors.themeColor || design.colors.roles.background || null,
   }
   if (shot.error) limitations.push(shot.error)

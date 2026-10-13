@@ -98,16 +98,17 @@ function scoreTone(score) {
 export function LibraryGrid({ entries, activeUrl, onOpen, onRemove, onReanalyze }) {
   const [q, setQ] = useState('')
   const [sort, setSort] = useState('recent')
-  let rows = entries.filter((e) => !q || `${e.host} ${e.title} ${e.siteType} ${e.frameworks.join(' ')}`.toLowerCase().includes(q.toLowerCase()))
+  let rows = entries.filter((e) => !q || `${e.host} ${e.title} ${e.siteType} ${e.frameworks.join(' ')} ${e.audience || ''} ${e.focusKeyword || ''} ${(e.keywords || []).join(' ')} ${e.pipeline?.stage || ''}`.toLowerCase().includes(q.toLowerCase()))
   if (sort === 'host') rows = [...rows].sort((a, b) => a.host.localeCompare(b.host))
   if (sort === 'tech') rows = [...rows].sort((a, b) => b.tech - a.tech)
   if (sort === 'security') rows = [...rows].sort((a, b) => (b.securityScore ?? -1) - (a.securityScore ?? -1))
+  if (sort === 'value') rows = [...rows].sort((a, b) => (b.evaluation?.score ?? -1) - (a.evaluation?.score ?? -1))
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap items-center gap-2">
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Filter sites…" aria-label="Filter library" className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-xs" />
         <select value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort library" className="rounded-md border border-ink-700 bg-ink-950 px-2 py-1 text-xs text-ink-200">
-          <option value="recent">Most recent</option><option value="host">Host A–Z</option><option value="tech">Most technologies</option><option value="security">Best security score</option>
+          <option value="recent">Most recent</option><option value="host">Host A–Z</option><option value="tech">Most technologies</option><option value="security">Best security score</option><option value="value">Highest value score</option>
         </select>
         <span className="text-xs text-ink-400">{rows.length} of {entries.length} sites</span>
       </div>
@@ -124,9 +125,16 @@ export function LibraryGrid({ entries, activeUrl, onOpen, onRemove, onReanalyze 
               </div>
               <div className="mt-2 flex flex-wrap items-center gap-1 text-[11px] text-ink-400">
                 <span className="chip">{e.siteType}</span>
+                {e.audience ? <span className="chip" title="audience (inferred)">{e.audience}</span> : null}
+                {e.budget && e.budget !== 'no prices on this page' ? <span className="chip" title="budget observed">{e.budget}</span> : null}
+                {e.focusKeyword ? <span className="chip" title="focus keyword">“{e.focusKeyword}”</span> : null}
                 {e.frameworks.map((f) => <span key={f} className="chip">{f}</span>)}
                 <span className="chip">{e.tech} tech</span>
                 <span className={`chip ${scoreTone(e.securityScore)}`}>sec {e.securityScore ?? '—'}</span>
+                {e.pageCount != null ? <span className="chip">{e.pageCount} pages</span> : null}
+                {e.evaluation ? <span className={`chip ${e.evaluation.addsValue ? 'border-emerald-500/40 text-emerald-200' : 'border-rose-500/40 text-rose-200'}`} title={`value check by ${e.evaluation.agent}`}>{e.evaluation.verdict.replace('_', ' ')} · {e.evaluation.score}</span> : null}
+                {e.pipeline?.stage && e.pipeline.stage !== 'inbox' ? <span className="chip border-accent-500/40 text-accent-400">{e.pipeline.stage}</span> : null}
+                {e.where === 'remote' ? <span className="chip" title="only in the cloud; opens on demand">☁ cloud</span> : e.synced ? <span className="chip" title="synced">☁</span> : null}
               </div>
               <div className="mt-2 flex items-center justify-between text-[11px] text-ink-400">
                 <span>{new Date(e.at).toLocaleString()}</span>

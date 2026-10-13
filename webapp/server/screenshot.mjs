@@ -11,7 +11,10 @@ const IDLE_CLOSE_MS = 60_000
 const NAV_TIMEOUT_MS = 15_000
 const SETTLE_MS = 900
 const VIEWPORT = { width: 1280, height: 800 }
+const MOBILE_VIEWPORT = { width: 390, height: 844 }
 const SCALE = 0.5 // 640×400 JPEG thumbnail: small enough for browser history, sharp enough for cards
+const FULL_PAGE_SCALE = 0.625 // 800px-wide full-page render
+const MAX_FULL_PAGE_PX = 12_000 // tallest full-page render kept (in rendered pixels)
 
 let browserPromise = null
 let idleTimer = null
@@ -64,13 +67,18 @@ async function hostAllowed(hostname) {
  * Captures a viewport screenshot. Returns { dataUrl, width, height, capturedAt, engine } or
  * { error } when no Chromium is available or the page could not be rendered in time.
  */
-export async function captureScreenshot(url, { fullPage = false } = {}) {
+export async function captureScreenshot(url, { fullPage = false, mobile = false } = {}) {
   const executablePath = findChromium()
-  if (!executablePath) return captureViaFirecrawl(url)
+  if (!executablePath) return captureViaFirecrawl(url, { fullPage, mobile })
   let context
+  const viewport = mobile ? MOBILE_VIEWPORT : VIEWPORT
+  const scale = mobile ? 1 : fullPage ? FULL_PAGE_SCALE : SCALE
   try {
     const browser = await getBrowser(executablePath)
-    context = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: SCALE, ignoreHTTPSErrors: true, javaScriptEnabled: true, userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36 rea-webapp/0.1', acceptDownloads: false, reducedMotion: 'reduce' })
+    context = await browser.newContext({
+      viewport, deviceScaleFactor: scale, isMobile: mobile, hasTouch: mobile, ignoreHTTPSErrors: true, javaScriptEnabled: true, acceptDownloads: false, reducedMotion: 'reduce',
+      userAgent: mobile ? 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1 rea-webapp/0.1' : 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36 rea-webapp/0.1',
+    })
     await context.route('**/*', async (route) => {
       const req = route.request()
       let host
@@ -83,14 +91,27 @@ export async function captureScreenshot(url, { fullPage = false } = {}) {
     let navError = null
     try { await page.goto(url, { waitUntil: 'load', timeout: NAV_TIMEOUT_MS }) } catch (e) { navError = e.message }
     await page.waitForTimeout(SETTLE_MS).catch(() => {})
-    const buffer = await page.screenshot({ type: 'jpeg', quality: 72, fullPage, timeout: 8000 })
+    let pageHeight = viewport.height
+    if (fullPage || mobile) {
+      // Scroll through the page once so lazy-loaded media and reveal animations have run.
+      pageHeight = await page.evaluate(async () => {
+        const h = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0)
+        for (let y = 0; y < h; y += 700) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)) }
+        window.scrollTo(0, 0)
+        return Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0)
+      }).catch(() => viewport.height)
+      await page.waitForTimeout(300).catch(() => {})
+    }
+    const clipHeight = fullPage ? Math.min(pageHeight, Math.round(MAX_FULL_PAGE_PX / scale)) : viewport.height
+    const buffer = await page.screenshot({ type: 'jpeg', quality: fullPage ? 68 : 72, fullPage: false, clip: { x: 0, y: 0, width: viewport.width, height: clipHeight }, timeout: 12000 })
     return {
       dataUrl: `data:image/jpeg;base64,${buffer.toString('base64')}`,
-      width: Math.round(VIEWPORT.width * SCALE),
-      height: Math.round(VIEWPORT.height * SCALE),
+      width: Math.round(viewport.width * scale),
+      height: Math.round(clipHeight * scale),
       capturedAt: new Date().toISOString(),
       engine: executablePath,
-      partial: navError ? `Page did not finish loading: ${navError.split('\n')[0]}` : null,
+      kind: mobile ? 'mobile' : fullPage ? 'fullPage' : 'viewport',
+      partial: navError ? `Page did not finish loading: ${navError.split('\n')[0]}` : fullPage && pageHeight > clipHeight ? `Full-page render cut at ${clipHeight}px of ${pageHeight}px.` : null,
     }
   } catch (error) {
     return { error: `Screenshot failed: ${error.message.split('\n')[0]}` }
@@ -114,7 +135,7 @@ const MAX_REMOTE_SCREENSHOT_BYTES = 1024 * 1024
  * Uses FIRECRAWL_API_KEY when set, otherwise Firecrawl's rate-limited keyless free tier.
  * The image is embedded when it is at most 1 MB; otherwise only its time-limited URL is kept.
  */
-export async function captureViaFirecrawl(url) {
+export async function captureViaFirecrawl(url, { fullPage = false, mobile = false } = {}) {
   if (process.env.REA_DISABLE_SCREENSHOTS === '1') return { error: 'Screenshots disabled (REA_DISABLE_SCREENSHOTS=1).' }
   const apiKey = process.env.FIRECRAWL_API_KEY || ''
   const controller = new AbortController()
@@ -124,7 +145,7 @@ export async function captureViaFirecrawl(url) {
       method: 'POST',
       signal: controller.signal,
       headers: { 'content-type': 'application/json', ...(apiKey ? { authorization: `Bearer ${apiKey}` } : {}) },
-      body: JSON.stringify({ url, formats: ['screenshot'], onlyMainContent: false, maxAge: 0 }),
+      body: JSON.stringify({ url, formats: [fullPage ? { type: 'screenshot', fullPage: true } : 'screenshot'], mobile, onlyMainContent: false, maxAge: 0 }),
     })
     const body = await res.json().catch(() => null)
     if (!res.ok || !body?.success) return { error: `No local Chromium; Firecrawl screenshot failed (${res.status}): ${(body?.error || '').toString().slice(0, 160) || 'unknown error'}` }
@@ -139,6 +160,7 @@ export async function captureViaFirecrawl(url) {
       height: null,
       capturedAt: new Date().toISOString(),
       engine: apiKey ? 'Firecrawl API (key)' : 'Firecrawl API (keyless)',
+      kind: mobile ? 'mobile' : fullPage ? 'fullPage' : 'viewport',
       partial: img.ok && !img.truncated ? null : 'Screenshot larger than 1 MB kept as a time-limited link only.',
     }
   } catch (error) {

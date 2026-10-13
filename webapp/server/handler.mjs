@@ -1,7 +1,8 @@
 // Framework-agnostic request handler shared by the Node server and the Vercel function.
 
 import { analyzeUrl } from './analyze/index.mjs'
-import { FetchBlockedError } from './analyze/fetch.mjs'
+import { FetchBlockedError, assertPublicHost, normalizeTargetUrl } from './analyze/fetch.mjs'
+import { captureScreenshot } from './screenshot.mjs'
 
 const inflight = new Map()
 
@@ -54,5 +55,30 @@ export async function handleAnalyze(req, res) {
     if (error instanceof FetchBlockedError) return send(res, 400, { error: error.message, details: error.details })
     console.error('analyze failed', error)
     return send(res, 500, { error: `Analysis failed: ${error.message}` })
+  }
+}
+
+/** POST /api/capture {url, fullPage?, mobile?} → one rendered screenshot of a public page. */
+export async function handleCapture(req, res) {
+  if (req.method === 'OPTIONS') { res.statusCode = 204; res.end(); return }
+  let params = {}
+  try {
+    if (req.method === 'POST') params = await readJson(req)
+    else if (req.method === 'GET') params = Object.fromEntries(new URL(req.url, 'http://localhost').searchParams)
+    else return send(res, 405, { error: 'Use GET ?url= or POST {"url": ...}' })
+  } catch (error) {
+    return send(res, 400, { error: `Invalid request body: ${error.message}` })
+  }
+  const raw = typeof params.url === 'string' ? params.url.trim() : ''
+  if (!raw) return send(res, 400, { error: 'Missing "url" parameter.' })
+  try {
+    const url = normalizeTargetUrl(raw)
+    await assertPublicHost(new URL(url))
+    const shot = await captureScreenshot(url, { fullPage: params.fullPage === true || params.fullPage === 'true', mobile: params.mobile === true || params.mobile === 'true' })
+    if (shot.error && !shot.dataUrl && !shot.remoteUrl) return send(res, 502, { error: shot.error })
+    return send(res, 200, { url, ...shot })
+  } catch (error) {
+    if (error instanceof FetchBlockedError) return send(res, 400, { error: error.message, details: error.details })
+    return send(res, 500, { error: `Capture failed: ${error.message}` })
   }
 }

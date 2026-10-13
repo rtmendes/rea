@@ -4,14 +4,14 @@ import http from 'node:http'
 import { createReadStream, existsSync, statSync } from 'node:fs'
 import { extname, join, normalize, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { handleAnalyze } from './handler.mjs'
+import { handleAnalyze, handleCapture } from './handler.mjs'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const dist = join(root, 'dist')
 const port = Number(process.env.PORT || 8787)
 const host = process.env.HOST || '127.0.0.1'
 
-const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json', '.png': 'image/png', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.map': 'application/json' }
+const MIME = { '.webmanifest': 'application/manifest+json', '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json', '.png': 'image/png', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.map': 'application/json' }
 
 function serveStatic(req, res) {
   if (!existsSync(dist)) {
@@ -33,6 +33,7 @@ function serveStatic(req, res) {
 export const server = http.createServer((req, res) => {
   const pathname = new URL(req.url, 'http://localhost').pathname
   if (pathname === '/api/analyze') return handleAnalyze(req, res)
+  if (pathname === '/api/capture') return handleCapture(req, res)
   if (pathname === '/api/health') { res.setHeader('content-type', 'application/json'); return res.end(JSON.stringify({ ok: true })) }
   return serveStatic(req, res)
 })

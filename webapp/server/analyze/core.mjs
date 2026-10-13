@@ -10,8 +10,12 @@ import { analyzeNetwork } from './network.mjs'
 import { analyzeSecurity } from './security.mjs'
 import { buildBlueprint } from './blueprint.mjs'
 import { selectIcons } from './icons.mjs'
+import { analyzeKeywords } from './keywords.mjs'
+import { analyzeAudience } from './audience.mjs'
+import { analyzePages } from './pages.mjs'
+import { analyzeReach } from './reach.mjs'
 
-export const REPORT_VERSION = 2
+export const REPORT_VERSION = 3
 
 /**
  * @param {object} input
@@ -41,6 +45,9 @@ export function analyzeDocument({ load, html, target, limitations = [] }) {
   const network = analyzeNetwork({ $, pageUrl, html })
   const security = analyzeSecurity({ headers, finalUrl: pageUrl, scripts, network })
   if (!headersObserved) { security.score = null; security.headerChecks = []; security.findings = security.findings.filter((f) => !/header missing|Cookie|Server header|X-Powered-By/.test(f.text)) }
+  const pages = analyzePages({ $, pageUrl })
+  const keywords = analyzeKeywords({ $, content, structure, pageUrl })
+  const audience = analyzeAudience({ $, content, structure, technologies })
   const report = {
     reportVersion: REPORT_VERSION,
     generatedAt: new Date().toISOString(),
@@ -54,6 +61,10 @@ export function analyzeDocument({ load, html, target, limitations = [] }) {
     scripts,
     network,
     security,
+    pages,
+    keywords,
+    audience,
+    reach: null,
     discovery: null,
     visuals: {
       icon: null,
@@ -68,9 +79,23 @@ export function analyzeDocument({ load, html, target, limitations = [] }) {
     },
     limitations,
   }
+  report.reach = analyzeReach({ technologies, content, structure, scripts, network, pages, discovery: null, pageUrl })
   report.blueprint = buildBlueprint(report)
   report.summary = summarize(report)
   return { report, $ }
+}
+
+/** Re-derives the parts that depend on well-known discovery (sitemap) once it has run. */
+export function applyDiscovery(report, $, discovery) {
+  report.discovery = discovery
+  const sitemapUrls = discovery?.sitemap?.urls || []
+  if (sitemapUrls.length) {
+    const captures = report.pages?.captures || []
+    report.pages = analyzePages({ $, pageUrl: report.target.finalUrl, sitemapUrls })
+    report.pages.captures = captures
+  }
+  report.reach = analyzeReach({ technologies: report.technologies, content: report.content, structure: report.structure, scripts: report.scripts, network: report.network, pages: report.pages, discovery, pageUrl: report.target.finalUrl })
+  return report
 }
 
 export function summarize(report) {
@@ -98,6 +123,13 @@ export function summarize(report) {
     headline: content.headlines[0] || content.textBlocks[0]?.text || null,
     hasScreenshot: Boolean(report.visuals?.screenshot),
     hasIcon: Boolean(report.visuals?.icon),
+    focusKeyword: report.keywords?.focus?.term || null,
+    topKeywords: (report.keywords?.terms || []).slice(0, 6).map((t) => t.term),
+    audience: report.audience?.summary?.who || null,
+    businessModel: report.audience?.model?.label || null,
+    pageCount: report.pages?.internalCount ?? null,
+    pageSections: report.pages?.sections?.length ?? null,
+    paidAcquisitionLikely: report.reach?.paidAcquisitionLikely ?? null,
   }
 }
 

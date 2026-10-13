@@ -2,11 +2,11 @@
 // so a long list of analyzed sites opens instantly without re-fetching the target.
 
 const DB_NAME = 'rea-webapp'
-const DB_VERSION = 1
+const DB_VERSION = 2
 const MAX_ENTRIES = 200
 
 let dbPromise = null
-const memory = { reports: new Map(), entries: new Map() }
+const memory = { reports: new Map(), entries: new Map(), meta: new Map() }
 
 function open() {
   if (dbPromise) return dbPromise
@@ -17,6 +17,7 @@ function open() {
         const db = req.result
         if (!db.objectStoreNames.contains('reports')) db.createObjectStore('reports', { keyPath: 'url' })
         if (!db.objectStoreNames.contains('entries')) db.createObjectStore('entries', { keyPath: 'url' })
+        if (!db.objectStoreNames.contains('meta')) db.createObjectStore('meta', { keyPath: 'key' })
       }
       req.onsuccess = () => resolve(req.result)
       req.onerror = () => resolve(null)
@@ -58,6 +59,17 @@ export function entryFromReport(report) {
     thumbRemoteUrl: v.screenshot?.remoteUrl || null,
     thumbKind: v.screenshot ? 'screenshot' : v.ogImage?.dataUrl ? 'og:image' : null,
     frameworks: (report.technologies || []).filter((t) => ['framework', 'ssg', 'ecommerce'].includes(t.category)).map((t) => t.name).slice(0, 3),
+    reportVersion: report.reportVersion || 1,
+    pageCount: report.pages?.internalCount ?? null,
+    focusKeyword: report.keywords?.focus?.term || null,
+    keywords: (report.keywords?.terms || []).slice(0, 5).map((t) => t.term),
+    audience: report.audience?.summary?.who || null,
+    businessModel: report.audience?.model?.label || null,
+    budget: report.audience?.summary?.budget || null,
+    hasFullPage: Boolean(v.fullPage?.dataUrl),
+    captures: (report.pages?.captures || []).filter((c) => c?.ok !== false).length,
+    pipeline: report.pipeline || null,
+    evaluation: report.evaluation ? { verdict: report.evaluation.verdict, score: report.evaluation.score, addsValue: report.evaluation.addsValue, agent: report.evaluation.agent, mapsTo: (report.evaluation.mapsTo || []).slice(0, 2), evaluatedAt: report.evaluation.evaluatedAt } : null,
   }
 }
 
@@ -74,6 +86,30 @@ export async function saveReport(report) {
     }
   } catch { memory.reports.set(entry.url, report); memory.entries.set(entry.url, entry) }
   return entry
+}
+
+/** Every report with its entry, for backups and moving the library between devices. */
+export async function exportLibrary() {
+  const entries = await listEntries()
+  const items = []
+  for (const e of entries) { const report = await loadReport(e.url); if (report) items.push({ entry: e, report }) }
+  return { format: 'rea-webapp-library', version: 1, exportedAt: new Date().toISOString(), count: items.length, items }
+}
+
+/** Merges a backup produced by exportLibrary(); newer reports win. Returns counts. */
+export async function importLibrary(data) {
+  if (!data || data.format !== 'rea-webapp-library' || !Array.isArray(data.items)) throw new Error('Not a rea-webapp library file.')
+  const existing = new Map((await listEntries()).map((e) => [e.url, e]))
+  let added = 0, updated = 0, skipped = 0
+  for (const item of data.items) {
+    const report = item?.report
+    if (!report?.target?.finalUrl || !report.summary) { skipped++; continue }
+    const current = existing.get(report.target.finalUrl)
+    if (current && (current.at || '') >= (report.generatedAt || '')) { skipped++; continue }
+    await saveReport(report)
+    if (current) updated++; else added++
+  }
+  return { added, updated, skipped }
 }
 
 export async function loadReport(url) {
@@ -96,6 +132,19 @@ export async function removeEntry(url) {
   const db = await open()
   if (!db) return
   try { await tx(db, 'reports', 'readwrite', (s) => s.delete(url)); await tx(db, 'entries', 'readwrite', (s) => s.delete(url)) } catch { /* ignore */ }
+}
+
+export async function getMeta(key) {
+  const db = await open()
+  if (!db) return memory.meta.get(key) ?? null
+  try { const row = await tx(db, 'meta', 'readonly', (s) => s.get(key)); return row?.value ?? memory.meta.get(key) ?? null } catch { return memory.meta.get(key) ?? null }
+}
+
+export async function setMeta(key, value) {
+  memory.meta.set(key, value)
+  const db = await open()
+  if (!db) return
+  try { await tx(db, 'meta', 'readwrite', (s) => s.put({ key, value })) } catch { /* ignore */ }
 }
 
 export async function clearAll() {

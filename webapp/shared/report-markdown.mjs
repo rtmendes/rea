@@ -12,7 +12,7 @@ export function reportToMarkdown(r) {
   lines.push(`Generated ${r.generatedAt} in ${r.durationMs} ms. HTTP ${r.target.status}, ${r.target.bytes} bytes, TTFB ${r.target.timing.ttfbMs} ms.`)
   lines.push('')
   if (r.visuals) {
-    lines.push(`Visuals: ${r.visuals.screenshot ? `screenshot ${r.visuals.screenshot.width}×${r.visuals.screenshot.height} captured ${r.visuals.screenshot.capturedAt}` : `no screenshot (${r.visuals.screenshotError || 'disabled'})`}; icon ${r.visuals.icon ? `${r.visuals.icon.url} (${r.visuals.icon.type}, ${r.visuals.icon.bytes} B)` : 'not fetched'}; og:image ${r.visuals.ogImage?.ok ? r.visuals.ogImage.url : 'none'}; brand colour ${r.visuals.brandColor || 'n/a'} (${r.visuals.mode}).`)
+    lines.push(`Visuals: ${r.visuals.screenshot ? `screenshot ${r.visuals.screenshot.width}×${r.visuals.screenshot.height} captured ${r.visuals.screenshot.capturedAt}` : `no screenshot (${r.visuals.screenshotError || 'disabled'})`}; full page ${r.visuals.fullPage ? `${r.visuals.fullPage.width}×${r.visuals.fullPage.height}` : 'none'}; mobile ${r.visuals.mobile ? `${r.visuals.mobile.width}×${r.visuals.mobile.height}` : 'none'}; icon ${r.visuals.icon ? `${r.visuals.icon.url} (${r.visuals.icon.type}, ${r.visuals.icon.bytes} B)` : 'not fetched'}; og:image ${r.visuals.ogImage?.ok ? r.visuals.ogImage.url : 'none'}; brand colour ${r.visuals.brandColor || 'n/a'} (${r.visuals.mode}).`)
     lines.push('')
   }
   lines.push('## Summary')
@@ -24,6 +24,66 @@ export function reportToMarkdown(r) {
     ['Developer comment language', `${s.developerCommentLanguage.language} (${s.developerCommentLanguage.confidence})`],
   ]))
   lines.push('')
+  if (r.audience) {
+    const a = r.audience
+    lines.push('## Customer avatar (inferred from the copy)')
+    lines.push('')
+    lines.push(`> ${a.disclaimer} Confidence: ${a.confidence} (${a.evidenceCount} evidence items).`)
+    lines.push('')
+    lines.push(table(['Field', 'Value'], [
+      ['Who', a.summary.who], ['Model', a.summary.model], ['Wants', a.summary.wants.join(' / ')], ['Struggles', a.summary.struggles.join(' / ')],
+      ['Hesitations answered', a.summary.hesitations.join(', ')], ['Convinced by', a.summary.convincedBy.join(', ')], ['Budget', a.summary.budget], ['Reached through', a.summary.reaches.join(', ')], ['Tone', a.summary.tone],
+    ]))
+    lines.push('')
+    lines.push(table(['Who the copy names', 'Count', 'Kind', 'Evidence'], a.who.map((w) => [w.label, w.count, w.kind, (w.evidence || [])[0] || ''])))
+    lines.push('')
+    lines.push(list([...a.wants.map((x) => `Wants: ${x.text}`), ...a.struggles.map((x) => `Struggles: ${x.text}`), ...a.hesitations.map((x) => `Hesitation handled: ${x.text}`), ...a.proof.map((x) => `Proof (${x.kind}): ${x.text}`)]))
+    lines.push('')
+  }
+  if (r.keywords) {
+    const k = r.keywords
+    lines.push('## Messaging and keywords')
+    lines.push('')
+    lines.push(`Focus keyword: **${k.focus?.term || 'n/a'}**. ${k.method}`)
+    lines.push('')
+    lines.push(table(['Term', 'Score', 'Count', 'Placements'], k.terms.slice(0, 25).map((t) => [t.term, t.score, t.count, Object.entries(t.where).map(([a, b]) => `${a} ${b}`).join(', ')])))
+    lines.push('')
+    lines.push(table(['Phrase', 'Score', 'Count'], k.phrases.slice(0, 20).map((t) => [t.term, t.score, t.count])))
+    lines.push('')
+    lines.push(table(['CTA intent', 'Count', 'Examples'], k.intents.map((i) => [i.intent, i.count, i.examples.join(' / ')])))
+    lines.push('')
+  }
+  if (r.reach) {
+    lines.push('## Reach and traffic signals')
+    lines.push('')
+    lines.push(`> ${r.reach.disclaimer}`)
+    lines.push('')
+    lines.push(table(['Group', 'Signal', 'Observed', 'Note'], r.reach.signals.map((s) => [s.group, s.label, s.value.join(', ') || 'none', s.note || ''])))
+    lines.push('')
+    lines.push(list(r.reach.lookups.map((l) => `[${l.name}](${l.url})`)))
+    lines.push('')
+  }
+  if (r.pages) {
+    const p = r.pages
+    lines.push('## Pages and flows')
+    lines.push('')
+    lines.push(`${p.internalCount} internal pages linked (${p.source}); sections: ${p.sections.map((s) => `${s.name} (${s.count})`).join(', ') || 'none'}; by type: ${Object.entries(p.byType).map(([t, n]) => `${t} ${n}`).join(', ') || 'none'}.`)
+    lines.push('')
+    lines.push(table(['Path', 'Type', 'Link text', 'From'], p.pages.slice(0, 80).map((x) => [`${x.subdomain ? x.host : ''}${x.path}`, x.type, x.labels.join(' / '), [x.inNav && 'nav', x.inBody && 'body', x.inFooter && 'footer', x.fromSitemap && 'sitemap'].filter(Boolean).join(', ')])))
+    lines.push('')
+    if (p.captures?.length) { lines.push(table(['Rendered page', 'Type', 'Status'], p.captures.map((c) => [c.url, c.type || '', c.ok ? `rendered ${c.capturedAt}` : c.error || 'failed']))); lines.push('') }
+  }
+  if (r.evaluation) {
+    const e = r.evaluation
+    lines.push('## Value check (offer pipeline)')
+    lines.push('')
+    lines.push(`Verdict **${e.verdict}**, adds value: ${e.addsValue ? 'yes' : 'no'}, score ${e.score}/100, judged by ${e.agent}${e.model ? ` (${e.model})` : ''} at ${e.evaluatedAt}. Pipeline stage: ${r.pipeline?.stage || 'inbox'}.`)
+    lines.push('')
+    lines.push(list(e.reasons))
+    lines.push('')
+    lines.push(table(['Offer idea field', 'Value'], [['Name', e.offerIdea.name], ['Promise', e.offerIdea.promise], ['Audience', e.offerIdea.audience], ['Problem', e.offerIdea.problem], ['Mechanism', e.offerIdea.mechanism], ['Price anchor', e.offerIdea.priceAnchor]]))
+    lines.push('')
+  }
   lines.push('## Technology stack')
   lines.push('')
   lines.push(table(['Technology', 'Category', 'Version / ID', 'Confidence', 'Evidence', 'Reference'], r.technologies.map((t) => [t.name, t.categoryLabel, t.version || '', t.confidence, t.evidence.map((e) => `${e.where}: \`${e.match}\``).join('; '), t.website])))
