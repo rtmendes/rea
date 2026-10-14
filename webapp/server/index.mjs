@@ -4,7 +4,7 @@ import http from 'node:http'
 import { createReadStream, existsSync, statSync } from 'node:fs'
 import { extname, join, normalize, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { handleAnalyze, handleCapture } from './handler.mjs'
+import { handleAnalyze, handleCapture, handleOmniCanvas } from './handler.mjs'
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const dist = join(root, 'dist')
@@ -34,6 +34,7 @@ export const server = http.createServer((req, res) => {
   const pathname = new URL(req.url, 'http://localhost').pathname
   if (pathname === '/api/analyze') return handleAnalyze(req, res)
   if (pathname === '/api/capture') return handleCapture(req, res)
+  if (pathname === '/api/omnicanvas') return handleOmniCanvas(req, res)
   if (pathname === '/api/health') { res.setHeader('content-type', 'application/json'); return res.end(JSON.stringify({ ok: true })) }
   return serveStatic(req, res)
 })

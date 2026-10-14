@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { reportToMarkdown } from '../shared/report-markdown.mjs'
 import { BlueprintPanel, ContentPanel, DiscoveryPanel, NetworkPanel, RawPanel, ScriptsPanel, SecurityPanel, StructurePanel, TechPanel } from './components/Panels.jsx'
+import { OmniCanvasCard } from './components/OmniCanvas.jsx'
 import { AudiencePanel, DesignBoard, KeywordsPanel, OfferPanel, PagesPanel, ReachPanel, SnapshotPanel, ValuePanel } from './components/Insights.jsx'
 import { PipelineBoard, PortfolioEditor, SettingsPanel } from './components/Pipeline.jsx'
 import { STEPS, StepNav, Stepper } from './components/Workflow.jsx'
@@ -343,6 +344,7 @@ export default function App() {
             {step === 'value' && <ValuePanel report={report} portfolio={portfolio} onEvaluate={() => runEvaluate()} evaluating={evaluating} onStage={(s) => setStageFor(report, s)} agentLabel={agentLabel}
               onExportBrief={(kind) => (kind === 'md' ? exportFile(`${slugName}.handoff.md`, handoffMarkdown(report, report.evaluation, portfolio)) : exportFile(`${slugName}.handoff.json`, JSON.stringify(handoffPayload(report, report.evaluation, portfolio), null, 2)))}
               onSendWebhook={() => sendToWebhook(webhook, handoffPayload(report, report.evaluation, portfolio))} webhook={webhook} onOpenSettings={() => goView('settings')} onOpenPortfolio={() => goView('pipeline')} />}
+            {step === 'value' && <OmniCanvasCard report={report} mode={runtime.mode} onDownload={(text) => exportFile(`${slugName}.omnicanvas.json`, text)} />}
             {step === 'raw' && <div className="space-y-4"><DiscoveryPanel report={report} /><RawPanel report={report} /></div>}
             <StepNav current={step} onPick={(k) => { setStep(k); syncUrl({ step: k === 'snapshot' ? null : k }); window.scrollTo({ top: 0 }) }} />
           </main>

@@ -44,6 +44,26 @@ Step 10 compares the analysis with your portfolio and returns a fixed JSON shape
 
 The hand-off brief (`<site>.handoff.md` / `.json`) carries the verdict, the offer idea, the evidence digest, the design tokens and a ready prompt for an offer-creation assistant. Set a webhook URL in Settings to POST the JSON hand-off to Make, n8n, Zapier or your own API.
 
+## Open the research in OmniCanvas
+
+Step 10 also turns the report into a board for [OmniCanvas](https://canvas.insightprofit.live), the team's AI canvas ([rtmendes/omnicanvas](https://github.com/rtmendes/omnicanvas)). The board follows OmniCanvas's node contract (`docs/TECH-REFERENCE.md` §1 in that repo):
+
+| Lane | Cards | Why this card type |
+| --- | --- | --- |
+| Research | Snapshot, customer avatar, offer & pricing, messaging & keywords, pages & funnel, reach signals, design & stack, value check | `source` cards: never re-run, and their text feeds every card wired after them |
+| Live views | The live site and this report | `embed` cards |
+| Ask | A chat card wired to every research card | Answers from the research only |
+| Strategy chain | Play → Persona → Desires → Angles (five awareness levels) → Hooks → Briefs → Final briefs, plus "Our original offer" | `editor` cards that run on the board owner's own keys and model routing |
+
+To push: create a board in OmniCanvas, open Share, turn on API access, copy the token, paste it in step 10 and press **Push to OmniCanvas**. This replaces that board's cards. From a server or the command line:
+
+```bash
+npm run omnicanvas -- research/fullyloopy.com/site.report.json --token <board token>   # or a downloaded board.json
+npm run omnicanvas -- report.json --out board.json                                     # just write the graph
+```
+
+The server route `POST /api/omnicanvas {token, name, graph}` validates the graph (ids, endpoints, parents, no cycles) and writes it through `PATCH /api/v1/boards/{token}` on `OMNICANVAS_API` (default `https://canvas-api.insightprofit.live`). The OmniCanvas API only accepts browser requests from its own sites, so the GitHub Pages build can push only after that origin is added to the API's `CORS_ORIGINS`; until then use the download and the command line.
+
 ## Three ways to run it
 
 | Mode | Where | How pages are fetched | Screenshots / logos |
@@ -101,6 +121,8 @@ npm test
 ## API
 
 `POST /api/analyze` with `{"url": "...", "discover": true, "scripts": true, "screenshot": true}` or `GET /api/analyze?url=...`. Returns the full report (`reportVersion: 2`); `visuals.screenshot.dataUrl` and `visuals.icon.dataUrl` carry the images inline. Errors are `400` for blocked/invalid targets and `500` for analysis failures.
+
+`POST /api/omnicanvas` with `{"token": "...", "name": "...", "graph": {"nodes": [], "edges": []}}` writes a board to OmniCanvas (see above).
 
 Deployable to Vercel as-is: [`vercel.json`](vercel.json) builds the Vite UI and [`api/analyze.js`](api/analyze.js) wraps the same handler as a serverless function. Vercel functions have no Chromium, so screenshots are skipped there (the `og:image` fallback still works); run `npm start` on a machine with Chromium for full visuals.
 

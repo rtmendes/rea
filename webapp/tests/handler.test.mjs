@@ -29,3 +29,16 @@ test('analyze rejects missing, invalid and local URLs with 400', async () => {
     assert.equal(res.status, 405)
   })
 })
+
+test('omnicanvas route validates the board before forwarding and rejects other methods', async () => {
+  await withServer(async (base) => {
+    let res = await fetch(`${base}/api/omnicanvas`)
+    assert.equal(res.status, 405)
+    res = await fetch(`${base}/api/omnicanvas`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ token: 'tok_12345678' }) })
+    assert.equal(res.status, 400)
+    const bad = { nodes: [{ id: 'a', type: 'editor', position: { x: 0, y: 0 }, data: { title: 'a', category: 'generator', content: {} } }], edges: [{ id: 'e', source: 'a', target: 'a' }] }
+    res = await fetch(`${base}/api/omnicanvas`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ token: 'tok_12345678', graph: bad }) })
+    assert.equal(res.status, 400)
+    assert.match((await res.json()).error, /self-loop/)
+  })
+})

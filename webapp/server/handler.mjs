@@ -3,6 +3,7 @@
 import { analyzeUrl } from './analyze/index.mjs'
 import { FetchBlockedError, assertPublicHost, normalizeTargetUrl } from './analyze/fetch.mjs'
 import { captureScreenshot } from './screenshot.mjs'
+import { OMNICANVAS_API, pushBoard, validateBoard } from '../shared/omnicanvas.mjs'
 
 const inflight = new Map()
 
@@ -14,12 +15,14 @@ function send(res, status, payload) {
   res.end(body)
 }
 
-async function readJson(req) {
+async function readJson(req, limit = 64 * 1024) {
   if (req.body && typeof req.body === 'object') return req.body
   const chunks = []
+  let size = 0
   for await (const chunk of req) {
     chunks.push(chunk)
-    if (Buffer.concat(chunks).length > 64 * 1024) throw new Error('Request body too large')
+    size += chunk.length
+    if (size > limit) throw new Error('Request body too large')
   }
   const text = Buffer.concat(chunks).toString('utf8')
   return text ? JSON.parse(text) : {}
@@ -80,5 +83,27 @@ export async function handleCapture(req, res) {
   } catch (error) {
     if (error instanceof FetchBlockedError) return send(res, 400, { error: error.message, details: error.details })
     return send(res, 500, { error: `Capture failed: ${error.message}` })
+  }
+}
+
+/**
+ * POST /api/omnicanvas {token, name, graph} → writes the board through OmniCanvas's public
+ * board API from the server, which avoids the browser CORS restriction on that API.
+ * The destination host is fixed (OMNICANVAS_API env or the default); only the token varies.
+ */
+export async function handleOmniCanvas(req, res) {
+  if (req.method === 'OPTIONS') { res.statusCode = 204; res.end(); return }
+  if (req.method !== 'POST') return send(res, 405, { error: 'Use POST.' })
+  let body
+  try { body = await readJson(req, 1024 * 1024) } catch (e) { return send(res, 400, { error: e.message }) }
+  const { token, name, graph } = body || {}
+  if (!graph || !Array.isArray(graph.nodes) || !Array.isArray(graph.edges)) return send(res, 400, { error: 'graph {nodes, edges} is required.' })
+  const problems = validateBoard(graph)
+  if (problems.length) return send(res, 400, { error: `Board graph is invalid: ${problems.slice(0, 3).join('; ')}` })
+  try {
+    const result = await pushBoard({ token, name: String(name || 'REA board').slice(0, 200), graph, apiBase: process.env.OMNICANVAS_API || OMNICANVAS_API, signal: AbortSignal.timeout(30000) })
+    return send(res, 200, result)
+  } catch (e) {
+    return send(res, e.status && e.status < 500 ? 400 : 502, { error: e.message })
   }
 }

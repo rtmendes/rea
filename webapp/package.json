@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "start": "node server/index.mjs",
     "analyze": "node server/cli.mjs",
+    "omnicanvas": "node server/omnicanvas-cli.mjs",
     "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
