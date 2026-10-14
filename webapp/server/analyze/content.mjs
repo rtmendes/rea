@@ -2,7 +2,7 @@
 
 function clean(text) { return (text || '').replace(/\s+/g, ' ').trim() }
 
-const CURRENCY_RE = /(?:US\$|R\$|USD|EUR|GBP|BRL|CAD|AUD|[$€£¥₹])\s?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{1,2})?(?:\s?(?:\/|per)\s?(?:mo|month|mês|mes|yr|year|ano|seat|user))?/gi
+const CURRENCY_RE = /(?:\b(?:US\$|R\$|USD|EUR|GBP|BRL|CAD|AUD)|[$€£¥₹])\s?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{1,2})?(?:\s?(?:\/|per)\s?(?:mo|month|mês|mes|yr|year|ano|seat|user))?/gi
 const EMAIL_RE = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi
 const PHONE_RE = /(?:\+\d{1,3}[\s.-]?)?\(?\d{2,4}\)?[\s.-]?\d{3,4}[\s.-]?\d{3,4}\b/g
 const SOCIAL_HOSTS = ['instagram.com', 'facebook.com', 'twitter.com', 'x.com', 'linkedin.com', 'youtube.com', 'tiktok.com', 'github.com', 'discord.gg', 'discord.com', 't.me', 'wa.me', 'whatsapp.com', 'threads.net', 'pinterest.com', 'reddit.com', 'medium.com', 'substack.com']

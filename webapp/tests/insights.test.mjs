@@ -3,6 +3,8 @@ import assert from 'node:assert/strict'
 import * as cheerio from 'cheerio'
 import { analyzeDocument, applyDiscovery, REPORT_VERSION } from '../server/analyze/core.mjs'
 import { classifyPage } from '../server/analyze/pages.mjs'
+import { analyzeContent } from '../server/analyze/content.mjs'
+import { analyzeAudience } from '../server/analyze/audience.mjs'
 import { FIXTURE_HTML, FIXTURE_HEADERS, FIXTURE_URL } from './fixture.mjs'
 
 function run() {
@@ -70,6 +72,21 @@ test('pages map groups internal links, classifies types and picks key pages', ()
   assert.equal(classifyPage('/privacy', ''), 'legal')
   assert.equal(classifyPage('/', 'Home'), 'home')
   assert.equal(classifyPage('/x', 'Random'), 'other')
+  assert.equal(classifyPage('/contact', 'Contact'), 'contact', '"contact" is not the Portuguese "conta"')
+  assert.equal(classifyPage('/minha-conta', ''), 'login')
+  assert.equal(classifyPage('/terms-of-service', 'Terms'), 'legal', 'legal wins over the "service" product cue')
+})
+
+test('prices ignore currency codes inside words and cadence follows each price', () => {
+  const html = '<main><h3>Entrepreneur</h3><p>Entrepreneur10 Workspaces$397One-time · lifetime access</p><p>Business $297 One-time · lifetime access</p><p>Typical tool $99/mo</p></main>'
+  const $ = cheerio.load(html)
+  const content = analyzeContent({ $, html, pageUrl: 'https://example.test/' })
+  const amounts = content.prices.map((p) => p.amount.replace(/\s/g, ''))
+  assert.ok(!amounts.some((a) => /^eur/i.test(a)), `no EUR match inside "Entrepreneur10": ${amounts}`)
+  assert.ok(amounts.includes('$397') && amounts.includes('$297') && amounts.includes('$99/mo'))
+  const structure = { sections: [], forms: [], ctas: [], outline: [] }
+  const audience = analyzeAudience({ $, content, structure, technologies: [] })
+  assert.equal(audience.pricing.cadence, 'one-time / lifetime')
 })
 
 test('reach lists observed acquisition signals and public lookup links, never traffic numbers', () => {

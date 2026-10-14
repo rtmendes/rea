@@ -129,7 +129,20 @@ export function analyzeAudience({ $, content, structure, technologies }) {
   // Pricing from observed amounts.
   const visiblePrices = (content.prices || []).filter((p) => p.context !== 'inline script literal')
   const amounts = visiblePrices.map((p) => ({ raw: p.amount, value: parseAmount(p.amount), context: p.context })).filter((p) => p.value != null && p.value > 0)
-  const cadence = /\/\s?(mo|month|mês|mes)|per month|por mês|mensal|monthly/i.test(visiblePrices.map((p) => `${p.amount} ${p.context}`).join(' ')) ? 'monthly' : /\/\s?(yr|year|ano)|annual|anual|yearly/i.test(visiblePrices.map((p) => p.context).join(' ')) ? 'yearly' : visiblePrices.length ? 'one-off / unspecified' : null
+  // Cadence per price: the amount's own suffix wins, then the words right after it ("$297 One-time"). Majority decides.
+  const cadenceOf = (p) => {
+    if (/\/\s?(mo|month|mês|mes)/i.test(p.amount)) return 'monthly'
+    if (/\/\s?(yr|year|ano)/i.test(p.amount)) return 'yearly'
+    const at = (p.context || '').indexOf(p.amount)
+    const after = at >= 0 ? p.context.slice(at + p.amount.length, at + p.amount.length + 40) : ''
+    if (/one-?time|lifetime|pay once|vital[ií]cio|pagamento [uú]nico|pago [uú]nico/i.test(after)) return 'one-time / lifetime'
+    if (/per month|\bmonthly|por m[eê]s|mensal/i.test(after)) return 'monthly'
+    if (/per year|annual|yearly|anual/i.test(after)) return 'yearly'
+    return null
+  }
+  const votes = new Map()
+  for (const p of visiblePrices) { const c = cadenceOf(p); if (c) votes.set(c, (votes.get(c) || 0) + 1) }
+  const cadence = votes.size ? [...votes].sort((a, b) => b[1] - a[1])[0][0] : visiblePrices.length ? 'one-off / unspecified' : null
   const currency = (visiblePrices[0]?.amount || '').match(/US\$|R\$|USD|EUR|GBP|BRL|CAD|AUD|[$€£¥₹]/)?.[0] || null
   const freePlan = /\b(free plan|free forever|plano gr[aá]tis|gr[aá]tis para sempre|plan gratis|freemium|\$0|r\$ ?0)\b/i.test(lower)
   const pricing = {

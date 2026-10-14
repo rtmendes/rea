@@ -1,0 +1,1697 @@
+{
+  "reportVersion": 3,
+  "generatedAt": "2026-10-14T00:43:51.168Z",
+  "durationMs": 7881,
+  "target": {
+    "input": "https://app.fullyloopy.com",
+    "url": "https://app.fullyloopy.com/",
+    "finalUrl": "https://app.fullyloopy.com/",
+    "status": 200,
+    "statusText": "OK",
+    "redirects": [],
+    "addresses": [
+      "216.150.16.1",
+      "216.150.1.1"
+    ],
+    "headers": {
+      "access-control-allow-origin": "*",
+      "age": "56972",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-disposition": "inline",
+      "content-encoding": "br",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Wed, 14 Oct 2026 00:43:51 GMT",
+      "etag": "W/\"07bb2ef55053ef2a416b543a95724fc3\"",
+      "server": "Vercel",
+      "strict-transport-security": "max-age=63072000",
+      "transfer-encoding": "chunked",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-matched-path": "/",
+      "x-nextjs-prerender": "1",
+      "x-nextjs-stale-time": "300",
+      "x-vercel-cache": "HIT",
+      "x-vercel-id": "cle1::xkhdj-1791938630541-74bb2f191fe5"
+    },
+    "bytes": 20308,
+    "truncated": false,
+    "timing": {
+      "ttfbMs": 1024,
+      "totalMs": 1117
+    },
+    "contentType": "text/html; charset=utf-8",
+    "source": "direct fetch"
+  },
+  "summary": {
+    "title": "Fully Loopy",
+    "description": "Fully Loopy - Ad Management Platform",
+    "language": "en",
+    "siteType": "web page",
+    "technologyCount": 3,
+    "technologiesByCategory": {
+      "JavaScript framework": [
+        "Next.js"
+      ],
+      "Tag manager": [
+        "Google Tag Manager GTM-TWPFVJW"
+      ],
+      "CDN / hosting": [
+        "Vercel"
+      ]
+    },
+    "thirdPartyHosts": 2,
+    "sections": 0,
+    "ctas": [],
+    "forms": 0,
+    "wordCount": 0,
+    "prices": 0,
+    "colorMode": "unknown",
+    "primaryFonts": [],
+    "securityScore": 33,
+    "trackingIds": {
+      "gtm": [
+        "GTM-TWPFVJW"
+      ]
+    },
+    "developerCommentLanguage": {
+      "language": "unknown",
+      "confidence": 0
+    },
+    "headline": null,
+    "hasScreenshot": true,
+    "hasIcon": true,
+    "focusKeyword": "fully loopy",
+    "topKeywords": [
+      "fully",
+      "loopy",
+      "management",
+      "platform"
+    ],
+    "audience": "not stated on this page",
+    "businessModel": "unclear",
+    "pageCount": 0,
+    "pageSections": 0,
+    "paidAcquisitionLikely": false
+  },
+  "technologies": [
+    {
+      "name": "Next.js",
+      "category": "framework",
+      "categoryLabel": "JavaScript framework",
+      "website": "https://nextjs.org/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "/_next/static/"
+        }
+      ]
+    },
+    {
+      "name": "Google Tag Manager",
+      "category": "tagmanager",
+      "categoryLabel": "Tag manager",
+      "website": "https://tagmanager.google.com/",
+      "version": "GTM-TWPFVJW",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "googletagmanager.com/gtm.js"
+        }
+      ]
+    },
+    {
+      "name": "Vercel",
+      "category": "cdn",
+      "categoryLabel": "CDN / hosting",
+      "website": "https://vercel.com/",
+      "version": null,
+      "confidence": "high",
+      "evidence": [
+        {
+          "where": "response header server",
+          "match": "Vercel"
+        },
+        {
+          "where": "response header x-vercel-id",
+          "match": "cle1::xkhdj-1791938630541-74bb2f191fe5"
+        }
+      ]
+    }
+  ],
+  "design": {
+    "stylesheetBytesInline": 0,
+    "inlineStyleAttributes": 0,
+    "externalStylesheets": [
+      "/_next/static/chunks/cb68a86413e49395.css?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+      "/_next/static/chunks/8bbf55d54384d7e3.css?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN"
+    ],
+    "colors": {
+      "themeColor": null,
+      "palette": [],
+      "roles": {
+        "background": null,
+        "foreground": null,
+        "accent": null,
+        "contrastBackgroundForeground": null,
+        "contrastAccentOnBackground": null
+      },
+      "mode": "unknown"
+    },
+    "typography": {
+      "families": [],
+      "fontFaces": [],
+      "googleFonts": [],
+      "typeScalePx": [],
+      "weights": [],
+      "lineHeights": [],
+      "letterSpacing": []
+    },
+    "shape": {
+      "borderRadius": [],
+      "boxShadow": [],
+      "gradients": [],
+      "backdropFilter": [],
+      "transitions": [],
+      "easings": [],
+      "breakpoints": [],
+      "cssVariables": [],
+      "keyframes": [],
+      "usesPrefersReducedMotion": false,
+      "usesPrefersColorScheme": false,
+      "usesContainerQueries": false,
+      "usesCustomProperties": false
+    }
+  },
+  "structure": {
+    "landmarks": {
+      "header": 0,
+      "nav": 0,
+      "main": 0,
+      "footer": 0,
+      "section": 0,
+      "article": 0,
+      "aside": 0,
+      "form": 0,
+      "dialog": 0
+    },
+    "outline": [],
+    "sections": [],
+    "navLinks": [],
+    "ctas": [],
+    "forms": [],
+    "images": {
+      "count": 0,
+      "withAlt": 0,
+      "lazy": 0,
+      "formats": {},
+      "sources": [],
+      "inlineSvg": 0
+    },
+    "media": {
+      "video": 0,
+      "audio": 0,
+      "iframes": [],
+      "canvas": 0
+    },
+    "dom": {
+      "totalElements": 5,
+      "maxDepth": 2,
+      "topTags": [
+        {
+          "tag": "template",
+          "count": 2
+        },
+        {
+          "tag": "body",
+          "count": 1
+        },
+        {
+          "tag": "div",
+          "count": 1
+        },
+        {
+          "tag": "noscript",
+          "count": 1
+        }
+      ]
+    },
+    "interactive": {
+      "withId": 1,
+      "ariaAttributes": 0,
+      "tabindex": 0,
+      "details": 0,
+      "dialogs": 0
+    },
+    "hasSkipLink": false,
+    "hasMobileVariant": false
+  },
+  "content": {
+    "title": "Fully Loopy",
+    "description": "Fully Loopy - Ad Management Platform",
+    "lang": "en",
+    "canonical": null,
+    "robotsMeta": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "themeColor": null,
+    "generator": null,
+    "openGraph": {
+      "title": null,
+      "description": null,
+      "type": null,
+      "url": null,
+      "image": null,
+      "locale": null,
+      "siteName": null
+    },
+    "twitter": {
+      "card": null,
+      "site": null,
+      "image": null
+    },
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/favicon.ico?favicon.0b3bf435.ico",
+        "sizes": "256x256"
+      },
+      {
+        "rel": "icon",
+        "href": "/icon.png?icon.8da179fe.png",
+        "sizes": "512x512"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-icon.png?apple-icon.87a42323.png",
+        "sizes": "180x180"
+      }
+    ],
+    "hreflang": [],
+    "jsonLd": [],
+    "metas": {
+      "viewport": "width=device-width, initial-scale=1",
+      "next-size-adjust": "",
+      "description": "Fully Loopy - Ad Management Platform"
+    },
+    "wordCount": 0,
+    "textBlocks": [],
+    "headlines": [],
+    "prices": [
+      {
+        "amount": "$1",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "$6",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "$18",
+        "context": "inline script literal"
+      }
+    ],
+    "emails": [],
+    "phones": [],
+    "socialLinks": [],
+    "externalLinkHosts": [],
+    "comments": {
+      "htmlCount": 7,
+      "jsCount": 0,
+      "sample": [
+        "sNWJ8QoSXhZUOljvHvy_h",
+        "$",
+        "/$",
+        "$!",
+        "/$",
+        "$!",
+        "/$"
+      ],
+      "languageHint": {
+        "language": "unknown",
+        "confidence": 0
+      }
+    },
+    "languageHint": {
+      "language": "unknown",
+      "confidence": 0
+    }
+  },
+  "scripts": {
+    "external": [
+      {
+        "src": "/_next/static/chunks/35db4dae993f9f1e.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/4fa395d360c87cc3.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/65e208d403c0677f.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/turbopack-7dcb6032bf9ccff3.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/2cf67125d290cac7.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/d96012bcfc98706a.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/af4242658347a8d6.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/8256dbc75fd86a13.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/4aa9ae7859d2a374.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/0af60ee4e260249e.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/f1ef9ccd9f5631e8.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/f112b6c1602e6c81.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/4c0b6b68fe1d80e1.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/4d4f23644a2bef7d.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/c3bc2f390757f25c.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/c6f057e2a1b9529a.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/145ee61bfb04fd9b.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/7b5829b23d677714.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/55b322b39a1cce4e.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/077b41df2256ad82.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/499d4936c2600e67.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/258b1ee8e6e64b57.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/fec54f932950f6e9.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/8a21002ac0239c18.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/9934b10f94811a6d.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/986915688cb58658.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/10b12003d7677fa1.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/1801af6a335a59a1.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/25d8c67e784f2a2b.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/3c20222563788c13.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/27142dba6a9dd18d.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/5eca441be648cc09.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/b64ec8dc519930d7.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/a6dad97d9634a72d.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": false,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      },
+      {
+        "src": "/_next/static/chunks/cb9ea2c9e137663d.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "host": "app.fullyloopy.com",
+        "firstParty": true,
+        "async": true,
+        "defer": false,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": null,
+        "version": null
+      }
+    ],
+    "inline": [
+      {
+        "type": "text/javascript",
+        "bytes": 419,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": true,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": true,
+        "usesRequestAnimationFrame": false,
+        "preview": "!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.medi"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 43,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "(self.__next_f=self.__next_f||[]).push([0])"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 1061,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[705830,[\\\"/_next/static/chunks/2cf67125d290cac7.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\"],\\\"RouteAnalytics\\\"]\\n3:I[672111,[\\\"/_next/static/chunks/2cf67125d290cac7.js?dp"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 2191,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "self.__next_f.push([1,\"8:I[593531,[\\\"/_next/static/chunks/2cf67125d290cac7.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\",\\\"/_next/static/chunks/0af60ee4e260249e.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\",\\\"/_next/static/chunk"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 726,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "self.__next_f.push([1,\"18:I[168027,[],\\\"default\\\"]\\n:HL[\\\"/_next/static/chunks/cb68a86413e49395.css?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\",\\\"style\\\"]\\n:HL[\\\"/_next/static/chunks/8bbf55d54384d7e3.css?dpl=dpl_8i3Df8uK9VW7f"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 5511,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"b\\\":\\\"sNWJ8QoSXhZUOljvHvy_h\\\",\\\"c\\\":[\\\"\\\",\\\"\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{}]},\\\"$undefined\\\",\\\"$undefined\\\",true],[[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"chi"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 3286,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "self.__next_f.push([1,\"19:I[897367,[\\\"/_next/static/chunks/d96012bcfc98706a.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\",\\\"/_next/static/chunks/af4242658347a8d6.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\"],\\\"OutletBoundary\\\"]"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 178,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "self.__next_f.push([1,\"1d:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\n\"])"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 834,
+        "purpose": "other",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "self.__next_f.push([1,\"20:I[27201,[\\\"/_next/static/chunks/d96012bcfc98706a.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\",\\\"/_next/static/chunks/af4242658347a8d6.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN\\\"],\\\"IconMark\\\"]\\n1b:nu"
+      }
+    ],
+    "totals": {
+      "external": 35,
+      "thirdPartyExternal": 0,
+      "inline": 9,
+      "inlineBytes": 14249,
+      "withIntegrity": 0
+    },
+    "dataBlobs": [],
+    "trackingIds": {
+      "gtm": [
+        "GTM-TWPFVJW"
+      ]
+    },
+    "behaviours": [
+      "Browser storage (localStorage/sessionStorage)"
+    ],
+    "fetchedScripts": [
+      {
+        "src": "/_next/static/chunks/35db4dae993f9f1e.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "ok": true,
+        "firstParty": true,
+        "bytes": 54240,
+        "truncated": false,
+        "contentType": "application/javascript; charset=utf-8",
+        "lastModified": "Tue, 13 Oct 2026 18:37:24 GMT",
+        "minified": true,
+        "sourceMap": null,
+        "endpoints": [
+          "https://react.dev/errors/",
+          "http://n"
+        ],
+        "relativeEndpoints": [],
+        "globals": [
+          "next"
+        ],
+        "storageKeys": [],
+        "headerComment": null,
+        "usesFetch": false,
+        "usesWebSocket": false
+      },
+      {
+        "src": "/_next/static/chunks/4fa395d360c87cc3.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "ok": true,
+        "firstParty": true,
+        "bytes": 202015,
+        "truncated": false,
+        "contentType": "application/javascript; charset=utf-8",
+        "lastModified": "Tue, 13 Oct 2026 13:45:01 GMT",
+        "minified": true,
+        "sourceMap": null,
+        "endpoints": [
+          "https://react.dev/errors/",
+          "http://www.w3.org/2000/svg",
+          "http://www.w3.org/1998/Math/MathML",
+          "http://www.w3.org/1999/xlink",
+          "http://www.w3.org/XML/1998/namespace"
+        ],
+        "relativeEndpoints": [],
+        "globals": [],
+        "storageKeys": [],
+        "headerComment": null,
+        "usesFetch": false,
+        "usesWebSocket": false
+      },
+      {
+        "src": "/_next/static/chunks/65e208d403c0677f.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "ok": true,
+        "firstParty": true,
+        "bytes": 111301,
+        "truncated": false,
+        "contentType": "application/javascript; charset=utf-8",
+        "lastModified": "Tue, 13 Oct 2026 13:45:01 GMT",
+        "minified": true,
+        "sourceMap": null,
+        "endpoints": [
+          "https://nextjs.org/docs/messages/failed-to-find-server-action"
+        ],
+        "relativeEndpoints": [],
+        "globals": [],
+        "storageKeys": [],
+        "headerComment": null,
+        "usesFetch": true,
+        "usesWebSocket": false
+      },
+      {
+        "src": "/_next/static/chunks/turbopack-7dcb6032bf9ccff3.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "ok": true,
+        "firstParty": true,
+        "bytes": 10694,
+        "truncated": false,
+        "contentType": "application/javascript; charset=utf-8",
+        "lastModified": "Tue, 13 Oct 2026 13:45:01 GMT",
+        "minified": true,
+        "sourceMap": null,
+        "endpoints": [
+          "https://vercel.live/_next-live/feedback/feedback.js"
+        ],
+        "relativeEndpoints": [],
+        "globals": [],
+        "storageKeys": [],
+        "headerComment": null,
+        "usesFetch": true,
+        "usesWebSocket": false
+      }
+    ]
+  },
+  "network": {
+    "hosts": [
+      {
+        "host": "www.googletagmanager.com",
+        "kinds": [
+          "link:preload",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Tag manager",
+        "insecure": false
+      },
+      {
+        "host": "www.facebook.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 1,
+        "firstParty": false,
+        "category": "Social profile",
+        "insecure": false
+      },
+      {
+        "host": "app.fullyloopy.com",
+        "kinds": [
+          "script",
+          "link:preload",
+          "link:stylesheet",
+          "link:icon",
+          "link:apple-touch-icon"
+        ],
+        "count": 45,
+        "firstParty": true,
+        "category": "Other",
+        "insecure": false
+      }
+    ],
+    "thirdPartyCount": 2,
+    "byCategory": {
+      "Tag manager": [
+        "www.googletagmanager.com"
+      ],
+      "Social profile": [
+        "www.facebook.com"
+      ]
+    },
+    "preconnects": [],
+    "preloads": [
+      {
+        "href": "/_next/static/media/Inter_Bold-s.p.22649d40.woff2",
+        "as": "font"
+      },
+      {
+        "href": "/_next/static/media/Inter_Medium-s.p.42e1f953.woff2",
+        "as": "font"
+      },
+      {
+        "href": "/_next/static/media/Inter_Regular-s.p.93ebfa45.woff2",
+        "as": "font"
+      },
+      {
+        "href": "/_next/static/media/Inter_SemiBold-s.p.5559a703.woff2",
+        "as": "font"
+      },
+      {
+        "href": "/_next/static/chunks/cb9ea2c9e137663d.js?dpl=dpl_8i3Df8uK9VW7fF1zkWQASAJJxRaN",
+        "as": "script"
+      },
+      {
+        "href": "https://www.googletagmanager.com/gtm.js?id=GTM-TWPFVJW",
+        "as": "script"
+      }
+    ],
+    "mixedContent": [],
+    "subdomainsOfTarget": []
+  },
+  "security": {
+    "https": true,
+    "score": 33,
+    "headerChecks": [
+      {
+        "header": "strict-transport-security",
+        "label": "HSTS",
+        "weight": 2,
+        "advice": "Add Strict-Transport-Security with max-age ≥ 31536000.",
+        "present": true,
+        "value": "max-age=63072000"
+      },
+      {
+        "header": "content-security-policy",
+        "label": "Content-Security-Policy",
+        "weight": 3,
+        "advice": "Define a CSP; inline scripts will need nonces or hashes.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "x-content-type-options",
+        "label": "X-Content-Type-Options",
+        "weight": 1,
+        "advice": "Set X-Content-Type-Options: nosniff.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "x-frame-options",
+        "label": "X-Frame-Options / frame-ancestors",
+        "weight": 1,
+        "advice": "Set X-Frame-Options: DENY or CSP frame-ancestors.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "referrer-policy",
+        "label": "Referrer-Policy",
+        "weight": 1,
+        "advice": "Set Referrer-Policy (strict-origin-when-cross-origin is a safe default).",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "permissions-policy",
+        "label": "Permissions-Policy",
+        "weight": 1,
+        "advice": "Set Permissions-Policy to disable unused browser features.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "cross-origin-opener-policy",
+        "label": "Cross-Origin-Opener-Policy",
+        "weight": 1,
+        "advice": "Consider COOP: same-origin.",
+        "present": false,
+        "value": null
+      }
+    ],
+    "cookies": [],
+    "cacheControl": "public, max-age=0, must-revalidate",
+    "server": "Vercel",
+    "poweredBy": null,
+    "findings": [
+      {
+        "severity": "medium",
+        "text": "Content-Security-Policy header missing. Define a CSP; inline scripts will need nonces or hashes."
+      },
+      {
+        "severity": "low",
+        "text": "X-Content-Type-Options header missing. Set X-Content-Type-Options: nosniff."
+      },
+      {
+        "severity": "low",
+        "text": "X-Frame-Options / frame-ancestors header missing. Set X-Frame-Options: DENY or CSP frame-ancestors."
+      },
+      {
+        "severity": "low",
+        "text": "Referrer-Policy header missing. Set Referrer-Policy (strict-origin-when-cross-origin is a safe default)."
+      },
+      {
+        "severity": "low",
+        "text": "Permissions-Policy header missing. Set Permissions-Policy to disable unused browser features."
+      },
+      {
+        "severity": "low",
+        "text": "Cross-Origin-Opener-Policy header missing. Consider COOP: same-origin."
+      },
+      {
+        "severity": "info",
+        "text": "9 inline script block(s); a strict CSP would need nonces/hashes."
+      }
+    ]
+  },
+  "pages": {
+    "source": "links on this page",
+    "internalCount": 0,
+    "externalHostCount": 0,
+    "maxDepth": 0,
+    "navCount": 0,
+    "footerOnlyCount": 0,
+    "subdomains": [],
+    "sections": [],
+    "byType": {},
+    "pages": [],
+    "anchors": [],
+    "keyPages": [],
+    "captures": []
+  },
+  "keywords": {
+    "focus": {
+      "term": "fully loopy",
+      "score": 10,
+      "where": {
+        "title": 1,
+        "description": 1
+      }
+    },
+    "terms": [
+      {
+        "term": "fully",
+        "score": 10,
+        "count": 2,
+        "where": {
+          "title": 1,
+          "description": 1
+        },
+        "sample": "Fully Loopy",
+        "share": 33.3
+      },
+      {
+        "term": "loopy",
+        "score": 10,
+        "count": 2,
+        "where": {
+          "title": 1,
+          "description": 1
+        },
+        "sample": "Fully Loopy",
+        "share": 33.3
+      },
+      {
+        "term": "management",
+        "score": 4,
+        "count": 1,
+        "where": {
+          "description": 1
+        },
+        "sample": "Fully Loopy - Ad Management Platform",
+        "share": 16.7
+      },
+      {
+        "term": "platform",
+        "score": 4,
+        "count": 1,
+        "where": {
+          "description": 1
+        },
+        "sample": "Fully Loopy - Ad Management Platform",
+        "share": 16.7
+      }
+    ],
+    "phrases": [
+      {
+        "term": "fully loopy",
+        "score": 10,
+        "count": 2,
+        "where": {
+          "title": 1,
+          "description": 1
+        },
+        "sample": "Fully Loopy"
+      },
+      {
+        "term": "loopy ad management",
+        "score": 4.6,
+        "count": 1,
+        "where": {
+          "description": 1
+        },
+        "sample": "Fully Loopy - Ad Management Platform"
+      },
+      {
+        "term": "management platform",
+        "score": 4,
+        "count": 1,
+        "where": {
+          "description": 1
+        },
+        "sample": "Fully Loopy - Ad Management Platform"
+      }
+    ],
+    "metaKeywords": [],
+    "intents": [],
+    "totals": {
+      "distinctTerms": 4,
+      "termHits": 6,
+      "distinctPhrases": 3
+    },
+    "method": "Terms weighted by placement (title 6, h1 5, meta description 4, h2 3, h3/nav/CTA 2, alt 1.5, body 1). Stop words removed for en/pt/es/fr/de. No external search data."
+  },
+  "audience": {
+    "disclaimer": "Inferred from the page's own copy and markup. It describes who the page is written for, not measured visitors. Verify with real customer data before acting on it.",
+    "confidence": "very low",
+    "evidenceCount": 0,
+    "model": {
+      "label": "unclear",
+      "b2bHits": 0,
+      "b2cHits": 0
+    },
+    "who": [],
+    "wants": [],
+    "struggles": [],
+    "hesitations": [],
+    "proof": [],
+    "pricing": {
+      "observed": 0,
+      "min": null,
+      "max": null,
+      "currency": null,
+      "cadence": null,
+      "freePlan": false,
+      "tiers": [],
+      "band": null
+    },
+    "tone": {
+      "avgSentenceWords": 8,
+      "avgWordChars": 5.1,
+      "exclamations": 0,
+      "questions": 0,
+      "secondPersonHits": 0,
+      "firstPersonPluralHits": 0,
+      "emoji": 0,
+      "allCapsBlocks": 0,
+      "register": "plain / conversational",
+      "voice": "balanced you/we",
+      "urgency": "no urgency cues observed"
+    },
+    "channels": {
+      "social": [],
+      "emailCaptureForms": 0,
+      "appStores": [],
+      "chatWidgets": [],
+      "phones": [],
+      "emails": [],
+      "whatsapp": false
+    },
+    "locale": {
+      "lang": "en",
+      "hreflang": [],
+      "currency": null,
+      "textLanguage": "unknown"
+    },
+    "summary": {
+      "who": "not stated on this page",
+      "model": "unclear",
+      "wants": [],
+      "struggles": [],
+      "hesitations": [],
+      "convincedBy": [],
+      "budget": "no prices on this page",
+      "reaches": [],
+      "tone": "plain / conversational; balanced you/we; no urgency cues observed"
+    }
+  },
+  "reach": {
+    "disclaimer": "No visitor numbers are measured or estimated by this app. The signals below are observed in the page; the links open public tools that publish their own estimates.",
+    "trackingIdCount": 1,
+    "analytics": [],
+    "ads": [],
+    "tagManagers": [
+      {
+        "name": "Google Tag Manager",
+        "id": "GTM-TWPFVJW",
+        "website": "https://tagmanager.google.com/"
+      }
+    ],
+    "chat": [],
+    "marketing": [],
+    "socialByPlatform": {},
+    "signals": [
+      {
+        "group": "Measurement",
+        "label": "Analytics tools",
+        "value": [],
+        "note": "No analytics script observed in the HTML."
+      },
+      {
+        "group": "Measurement",
+        "label": "Tag managers",
+        "value": [
+          "Google Tag Manager"
+        ]
+      },
+      {
+        "group": "Acquisition",
+        "label": "Ad / retargeting pixels",
+        "value": [],
+        "note": "No ad pixels observed: no sign of paid campaigns from this page."
+      },
+      {
+        "group": "Acquisition",
+        "label": "Social profiles linked",
+        "value": []
+      },
+      {
+        "group": "Acquisition",
+        "label": "Email marketing / CRM",
+        "value": []
+      },
+      {
+        "group": "Acquisition",
+        "label": "Email capture forms",
+        "value": []
+      },
+      {
+        "group": "Acquisition",
+        "label": "Mobile app stores",
+        "value": []
+      },
+      {
+        "group": "Acquisition",
+        "label": "Chat / support widgets",
+        "value": []
+      },
+      {
+        "group": "Content footprint",
+        "label": "Internal pages linked",
+        "value": [
+          "0 pages across 0 sections"
+        ]
+      },
+      {
+        "group": "Content footprint",
+        "label": "Blog / articles",
+        "value": [],
+        "note": "No blog links from this page."
+      },
+      {
+        "group": "Content footprint",
+        "label": "Sitemap URLs",
+        "value": [],
+        "note": null
+      },
+      {
+        "group": "Content footprint",
+        "label": "Languages (hreflang)",
+        "value": []
+      },
+      {
+        "group": "Indexing",
+        "label": "robots meta",
+        "value": [],
+        "note": null
+      },
+      {
+        "group": "Indexing",
+        "label": "canonical",
+        "value": []
+      },
+      {
+        "group": "Indexing",
+        "label": "Structured data (JSON-LD)",
+        "value": []
+      },
+      {
+        "group": "Indexing",
+        "label": "Social cards",
+        "value": []
+      },
+      {
+        "group": "Indexing",
+        "label": "RSS feed link",
+        "value": []
+      }
+    ],
+    "lookups": [
+      {
+        "name": "Similarweb (traffic estimate)",
+        "url": "https://www.similarweb.com/website/app.fullyloopy.com/"
+      },
+      {
+        "name": "Semrush domain overview",
+        "url": "https://www.semrush.com/analytics/overview/?q=app.fullyloopy.com&searchType=domain"
+      },
+      {
+        "name": "Ahrefs website authority checker",
+        "url": "https://ahrefs.com/website-authority-checker?input=app.fullyloopy.com"
+      },
+      {
+        "name": "Google indexed pages (site:)",
+        "url": "https://www.google.com/search?q=site%3Aapp.fullyloopy.com"
+      },
+      {
+        "name": "Wayback Machine history",
+        "url": "https://web.archive.org/web/*/app.fullyloopy.com"
+      },
+      {
+        "name": "BuiltWith profile",
+        "url": "https://builtwith.com/app.fullyloopy.com"
+      },
+      {
+        "name": "Certificate log (subdomains)",
+        "url": "https://crt.sh/?q=%25.app.fullyloopy.com"
+      },
+      {
+        "name": "PageSpeed Insights",
+        "url": "https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fapp.fullyloopy.com%2F"
+      },
+      {
+        "name": "Facebook Ad Library",
+        "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=ALL&q=app.fullyloopy.com&search_type=keyword_unordered"
+      }
+    ],
+    "paidAcquisitionLikely": false,
+    "organicContentLikely": false
+  },
+  "discovery": {
+    "robots": {
+      "url": "https://app.fullyloopy.com/robots.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 11978,
+      "error": null
+    },
+    "sitemap": {
+      "url": "https://app.fullyloopy.com/sitemap.xml",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 11978,
+      "error": null
+    },
+    "securityTxt": {
+      "url": "https://app.fullyloopy.com/.well-known/security.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 11978,
+      "error": null
+    },
+    "humans": {
+      "url": "https://app.fullyloopy.com/humans.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 11978,
+      "error": null
+    },
+    "manifest": {
+      "url": "https://app.fullyloopy.com/manifest.json",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 11978,
+      "error": null
+    }
+  },
+  "visuals": {
+    "icon": {
+      "ok": true,
+      "url": "https://app.fullyloopy.com/apple-icon.png?apple-icon.87a42323.png",
+      "type": "image/png",
+      "bytes": 12528,
+      "dataUrl": "data:image/png;base64,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",
+      "rel": "apple-touch-icon",
+      "declaredSize": 180
+    },
+    "iconCandidates": [
+      {
+        "url": "https://app.fullyloopy.com/apple-icon.png?apple-icon.87a42323.png",
+        "rel": "apple-touch-icon",
+        "type": "image/png",
+        "size": 180,
+        "score": 495
+      },
+      {
+        "url": "https://app.fullyloopy.com/icon.png?icon.8da179fe.png",
+        "rel": "icon",
+        "type": "image/png",
+        "size": 512,
+        "score": 278
+      },
+      {
+        "url": "https://app.fullyloopy.com/favicon.ico?favicon.0b3bf435.ico",
+        "rel": "icon",
+        "type": "image/x-icon",
+        "size": 256,
+        "score": 64
+      },
+      {
+        "url": "https://app.fullyloopy.com/favicon.ico",
+        "rel": "fallback",
+        "type": null,
+        "size": null,
+        "score": 0
+      }
+    ],
+    "iconAttempts": [
+      {
+        "url": "https://app.fullyloopy.com/apple-icon.png?apple-icon.87a42323.png",
+        "rel": "apple-touch-icon",
+        "ok": true,
+        "error": null
+      }
+    ],
+    "ogImage": null,
+    "screenshot": {
+      "dataUrl": "data:image/jpeg;base64,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",
+      "width": 640,
+      "height": 400,
+      "capturedAt": "2026-10-14T00:43:57.806Z",
+      "engine": "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
+      "kind": "viewport",
+      "partial": null
+    },
+    "screenshotError": null,
+    "brandColor": null,
+    "backgroundColor": null,
+    "mode": "unknown",
+    "fullPage": {
+      "dataUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAoHCAkIBgoJCAkMCwoMDxoRDw4ODx8WGBMaJSEnJiQhJCMpLjsyKSw4LCMkM0Y0OD0/QkNCKDFITUhATTtBQj//2wBDAQsMDA8NDx4RER4/KiQqPz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz//wAARCAH0AyADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AK8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==",
+      "width": 800,
+      "height": 500,
+      "capturedAt": "2026-10-14T00:43:57.852Z",
+      "engine": "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
+      "kind": "fullPage",
+      "partial": null
+    },
+    "fullPageError": null,
+    "mobile": null
+  },
+  "limitations": [
+    "Static analysis of the HTML response only; JavaScript was not executed, so client-rendered DOM, XHR/fetch traffic and runtime state are not observed."
+  ],
+  "blueprint": {
+    "components": [],
+    "tokensCss": ":root {\n}",
+    "integrations": [
+      {
+        "name": "Google Tag Manager",
+        "category": "Tag manager",
+        "website": "https://tagmanager.google.com/",
+        "observedId": "GTM-TWPFVJW",
+        "note": "Observed identifier belongs to the target; create your own account/ID."
+      }
+    ],
+    "interactions": [
+      "Browser storage (localStorage/sessionStorage)"
+    ],
+    "recommendedStack": {
+      "frontend": "Match the observed framework family (Next.js)",
+      "animation": [
+        "CSS transitions + IntersectionObserver reveals"
+      ],
+      "hosting": "Vercel",
+      "backend": "No separate app origin observed from this page",
+      "analytics": [
+        "Google Tag Manager"
+      ]
+    },
+    "contentModel": {
+      "pages": [
+        "https://app.fullyloopy.com/"
+      ],
+      "sections": [],
+      "pricingTiers": null,
+      "embeddedData": [],
+      "faq": null,
+      "locales": []
+    },
+    "checklist": [
+      "Write original copy, imagery and brand assets; do not reuse the target's text, logos, fonts or screenshots.",
+      "Build 0 section components: none detected.",
+      "Apply the token sheet below and verify contrast (background/foreground ratio n/a).",
+      "Re-implement: Browser storage (localStorage/sessionStorage).",
+      "Set up your own Google Tag Manager account and ID.",
+      "Avoid the target's gap: Content-Security-Policy header missing. Define a CSP; inline scripts will need nonces or hashes.",
+      "Avoid the target's gap: X-Content-Type-Options header missing. Set X-Content-Type-Options: nosniff.",
+      "Avoid the target's gap: X-Frame-Options / frame-ancestors header missing. Set X-Frame-Options: DENY or CSP frame-ancestors.",
+      "Avoid the target's gap: Referrer-Policy header missing. Set Referrer-Policy (strict-origin-when-cross-origin is a safe default)."
+    ],
+    "legalNote": "This blueprint describes structure, tokens and integrations observed in public HTML for research and competitive analysis. Copying text, images, logos, licensed fonts or code verbatim may infringe copyright or trademark rights; build an original implementation."
+  }
+}
