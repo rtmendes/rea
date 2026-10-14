@@ -1,0 +1,6 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": { "api/analyze.js": { "maxDuration": 60 }, "api/capture.js": { "maxDuration": 60 }, "api/omnicanvas.js": { "maxDuration": 30 } }
+}

@@ -1,0 +1,46 @@
+name: Publish webapp to GitHub Pages
+
+# Builds webapp/ in static mode (the browser calls Firecrawl's API directly) and pushes the
+# result to the gh-pages branch, which GitHub Pages serves at https://<owner>.github.io/<repo>/.
+on:
+  push:
+    branches: [main, ccr-6ab83666-664d68]
+    paths: ["webapp/**", ".github/workflows/webapp-pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: webapp-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: webapp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: webapp/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+      - run: cp dist/index.html dist/404.html
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: webapp/dist
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "deploy: webapp static build ${{ github.sha }}"

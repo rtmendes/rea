@@ -1,0 +1,3775 @@
+{
+  "reportVersion": 2,
+  "generatedAt": "2026-10-13T11:15:34.281Z",
+  "durationMs": 8818,
+  "target": {
+    "input": "https://dvoracle.com",
+    "url": "https://dvoracle.com/",
+    "finalUrl": "https://dvoracle.com/",
+    "status": 200,
+    "statusText": "OK",
+    "redirects": [],
+    "addresses": [
+      "217.196.61.135"
+    ],
+    "headers": {
+      "cache-control": "public, max-age=300, must-revalidate",
+      "content-encoding": "br",
+      "content-type": "text/html; charset=UTF-8",
+      "date": "Tue, 13 Oct 2026 11:15:26 GMT",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "nginx",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff"
+    },
+    "bytes": 137286,
+    "truncated": false,
+    "timing": {
+      "ttfbMs": 699,
+      "totalMs": 895
+    },
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "summary": {
+    "title": "dvoracle.com",
+    "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+    "language": "en",
+    "siteType": "landing page",
+    "technologyCount": 15,
+    "technologiesByCategory": {
+      "Site builder / CMS": [
+        "Figma-exported fixed canvas"
+      ],
+      "Animation / scrolling": [
+        "GSAP 3.12.5",
+        "GSAP ScrollTrigger",
+        "Lenis smooth scroll 1.1.14"
+      ],
+      "Web fonts": [
+        "Google Fonts",
+        "Self-hosted @font-face"
+      ],
+      "Tag manager": [
+        "Google Tag Manager GTM-N7TLPBPF"
+      ],
+      "Ad / marketing pixel": [
+        "Reddit Pixel a2_jpe9ofbt2021",
+        "OpenAI Pixel (oaiq) Jf2xESMk6VRh9ovoBDsAv5"
+      ],
+      "Chat / support": [
+        "Custom embedded AI chat widget (DVChatConfig)"
+      ],
+      "CDN / hosting": [
+        "cdnjs (Cloudflare)",
+        "unpkg"
+      ],
+      "Server / backend": [
+        "nginx"
+      ],
+      "Other": [
+        "Open Graph metadata",
+        "hreflang multi-language"
+      ]
+    },
+    "thirdPartyHosts": 11,
+    "sections": 23,
+    "ctas": [
+      "DV Shipping",
+      "Start now",
+      "Instagram",
+      "Get access to DV Oracle",
+      "See how it works"
+    ],
+    "forms": 0,
+    "wordCount": 1467,
+    "prices": 3,
+    "colorMode": "dark",
+    "primaryFonts": [
+      "Prometo",
+      "Plus Jakarta Sans",
+      "Inter",
+      "Poppins",
+      "Space Grotesk"
+    ],
+    "securityScore": 33,
+    "trackingIds": {
+      "gtm": [
+        "GTM-N7TLPBPF"
+      ],
+      "redditPixel": [
+        "a2_jpe9ofbt2021"
+      ],
+      "openaiPixel": [
+        "Jf2xESMk6VRh9ovoBDsAv5"
+      ]
+    },
+    "developerCommentLanguage": {
+      "language": "portuguese",
+      "confidence": 0.5
+    },
+    "headline": "Intelligence for your ecommerce",
+    "hasScreenshot": true,
+    "hasIcon": true
+  },
+  "technologies": [
+    {
+      "name": "Figma-exported fixed canvas",
+      "category": "ssg",
+      "categoryLabel": "Site builder / CMS",
+      "website": "https://www.figma.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "width:1920px;height:10202px"
+        }
+      ]
+    },
+    {
+      "name": "GSAP",
+      "category": "animation",
+      "categoryLabel": "Animation / scrolling",
+      "website": "https://gsap.com/",
+      "version": "3.12.5",
+      "confidence": "high",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        },
+        {
+          "where": "inline script",
+          "match": "gsap.registerPlugin("
+        }
+      ]
+    },
+    {
+      "name": "GSAP ScrollTrigger",
+      "category": "animation",
+      "categoryLabel": "Animation / scrolling",
+      "website": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/",
+      "version": null,
+      "confidence": "high",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        },
+        {
+          "where": "inline script",
+          "match": "ScrollTrigger.update"
+        }
+      ]
+    },
+    {
+      "name": "Lenis smooth scroll",
+      "category": "animation",
+      "categoryLabel": "Animation / scrolling",
+      "website": "https://lenis.darkroom.engineering/",
+      "version": "1.1.14",
+      "confidence": "high",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"
+        },
+        {
+          "where": "inline script",
+          "match": "new Lenis("
+        }
+      ]
+    },
+    {
+      "name": "Google Fonts",
+      "category": "fonts",
+      "categoryLabel": "Web fonts",
+      "website": "https://fonts.google.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "fonts.gstatic.com"
+        }
+      ]
+    },
+    {
+      "name": "Self-hosted @font-face",
+      "category": "fonts",
+      "categoryLabel": "Web fonts",
+      "website": "https://developer.mozilla.org/docs/Web/CSS/@font-face",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "@font-face{font-family:'Prometo';src:url('"
+        }
+      ]
+    },
+    {
+      "name": "Google Tag Manager",
+      "category": "tagmanager",
+      "categoryLabel": "Tag manager",
+      "website": "https://tagmanager.google.com/",
+      "version": "GTM-N7TLPBPF",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "googletagmanager.com/gtm.js"
+        }
+      ]
+    },
+    {
+      "name": "Reddit Pixel",
+      "category": "ads",
+      "categoryLabel": "Ad / marketing pixel",
+      "website": "https://advertising.reddithelp.com/",
+      "version": "a2_jpe9ofbt2021",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "redditstatic.com/ads/pixel.js"
+        }
+      ]
+    },
+    {
+      "name": "OpenAI Pixel (oaiq)",
+      "category": "ads",
+      "categoryLabel": "Ad / marketing pixel",
+      "website": "https://openai.com/",
+      "version": "Jf2xESMk6VRh9ovoBDsAv5",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "bzrcdn.openai.com/sdk/oaiq"
+        }
+      ]
+    },
+    {
+      "name": "Custom embedded AI chat widget (DVChatConfig)",
+      "category": "chat",
+      "categoryLabel": "Chat / support",
+      "website": "https://chat.dvshipping.com/widget.js",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "window.DVChatConfig"
+        }
+      ]
+    },
+    {
+      "name": "cdnjs (Cloudflare)",
+      "category": "cdn",
+      "categoryLabel": "CDN / hosting",
+      "website": "https://cdnjs.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        }
+      ]
+    },
+    {
+      "name": "unpkg",
+      "category": "cdn",
+      "categoryLabel": "CDN / hosting",
+      "website": "https://unpkg.com/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "script src",
+          "match": "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"
+        }
+      ]
+    },
+    {
+      "name": "nginx",
+      "category": "server",
+      "categoryLabel": "Server / backend",
+      "website": "https://nginx.org/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "response header server",
+          "match": "nginx"
+        }
+      ]
+    },
+    {
+      "name": "Open Graph metadata",
+      "category": "misc",
+      "categoryLabel": "Other",
+      "website": "https://ogp.me/",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "<meta property=\"og:"
+        }
+      ]
+    },
+    {
+      "name": "hreflang multi-language",
+      "category": "misc",
+      "categoryLabel": "Other",
+      "website": "https://developers.google.com/search/docs/specialty/international/localized-versions",
+      "version": null,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "where": "html",
+          "match": "<link rel=\"alternate\" hreflang="
+        }
+      ]
+    }
+  ],
+  "design": {
+    "stylesheetBytesInline": 19986,
+    "inlineStyleAttributes": 351,
+    "externalStylesheets": [
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    ],
+    "colors": {
+      "themeColor": "#09101A",
+      "palette": [
+        {
+          "hex": "#ffffff",
+          "count": 140,
+          "asBackground": 39,
+          "asText": 100,
+          "alphas": [
+            0,
+            0.082,
+            0.09,
+            0.1,
+            0.12,
+            0.14,
+            0.16,
+            0.55,
+            0.7,
+            0.72,
+            0.76,
+            0.82,
+            1
+          ],
+          "role": "text (light)",
+          "luminance": 1
+        },
+        {
+          "hex": "#00b3dd",
+          "count": 52,
+          "asBackground": 47,
+          "asText": 3,
+          "alphas": [
+            0,
+            0.18,
+            0.22,
+            0.24,
+            0.28,
+            0.3,
+            0.31,
+            0.32,
+            0.35,
+            0.38,
+            0.4,
+            0.45,
+            0.5,
+            0.558,
+            0.58,
+            0.62,
+            0.684,
+            0.76,
+            0.9,
+            1
+          ],
+          "role": "accent / surface",
+          "luminance": 0.375
+        },
+        {
+          "hex": "#000000",
+          "count": 48,
+          "asBackground": 43,
+          "asText": 5,
+          "alphas": [
+            0,
+            0.05,
+            0.2,
+            0.3,
+            0.34,
+            0.38,
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0
+        },
+        {
+          "hex": "#181818",
+          "count": 22,
+          "asBackground": 22,
+          "asText": 0,
+          "alphas": [
+            0.09
+          ],
+          "role": "overlay / border",
+          "luminance": 0.009
+        },
+        {
+          "hex": "#00b7e1",
+          "count": 18,
+          "asBackground": 18,
+          "asText": 0,
+          "alphas": [
+            0.08,
+            0.26
+          ],
+          "role": "overlay / border",
+          "luminance": 0.393
+        },
+        {
+          "hex": "#1a1a1a",
+          "count": 12,
+          "asBackground": 0,
+          "asText": 12,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.01
+        },
+        {
+          "hex": "#09101a",
+          "count": 8,
+          "asBackground": 7,
+          "asText": 0,
+          "alphas": [
+            0.34,
+            0.42,
+            0.62,
+            0.86,
+            0.88,
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.005
+        },
+        {
+          "hex": "#888888",
+          "count": 6,
+          "asBackground": 0,
+          "asText": 6,
+          "alphas": [
+            1
+          ],
+          "role": "text (accent)",
+          "luminance": 0.246
+        },
+        {
+          "hex": "#eef3f8",
+          "count": 5,
+          "asBackground": 0,
+          "asText": 3,
+          "alphas": [
+            0.62,
+            0.7,
+            1
+          ],
+          "role": "text (light)",
+          "luminance": 0.891
+        },
+        {
+          "hex": "#06222c",
+          "count": 3,
+          "asBackground": 0,
+          "asText": 3,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.014
+        },
+        {
+          "hex": "#1f1f1f",
+          "count": 3,
+          "asBackground": 3,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.014
+        },
+        {
+          "hex": "#f8f9fb",
+          "count": 3,
+          "asBackground": 0,
+          "asText": 3,
+          "alphas": [
+            0.314,
+            0.502
+          ],
+          "role": "text (light)",
+          "luminance": 0.947
+        },
+        {
+          "hex": "#064456",
+          "count": 2,
+          "asBackground": 2,
+          "asText": 0,
+          "alphas": [
+            0.92
+          ],
+          "role": "background (dark)",
+          "luminance": 0.048
+        },
+        {
+          "hex": "#0c121c",
+          "count": 2,
+          "asBackground": 2,
+          "asText": 0,
+          "alphas": [
+            0,
+            0.72
+          ],
+          "role": "background (dark)",
+          "luminance": 0.006
+        },
+        {
+          "hex": "#d9d9d9",
+          "count": 2,
+          "asBackground": 2,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "accent / surface",
+          "luminance": 0.694
+        },
+        {
+          "hex": "#111a26",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.01
+        },
+        {
+          "hex": "#040a12",
+          "count": 1,
+          "asBackground": 1,
+          "asText": 0,
+          "alphas": [
+            0.88
+          ],
+          "role": "background (dark)",
+          "luminance": 0.003
+        },
+        {
+          "hex": "#4aa9d4",
+          "count": 1,
+          "asBackground": 1,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "accent / surface",
+          "luminance": 0.346
+        },
+        {
+          "hex": "#0b1b24",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 1,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.01
+        },
+        {
+          "hex": "#112233",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 1,
+          "alphas": [
+            1
+          ],
+          "role": "text (dark)",
+          "luminance": 0.015
+        },
+        {
+          "hex": "#111111",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.006
+        },
+        {
+          "hex": "#222222",
+          "count": 1,
+          "asBackground": 0,
+          "asText": 0,
+          "alphas": [
+            1
+          ],
+          "role": "background (dark)",
+          "luminance": 0.016
+        }
+      ],
+      "roles": {
+        "background": "#09101a",
+        "foreground": "#ffffff",
+        "accent": "#00b3dd",
+        "contrastBackgroundForeground": 19.08,
+        "contrastAccentOnBackground": 7.72
+      },
+      "mode": "dark"
+    },
+    "typography": {
+      "families": [
+        {
+          "family": "Plus Jakarta Sans",
+          "count": 54,
+          "fallbacks": [
+            "-apple-system",
+            "BlinkMacSystemFont",
+            "sans-serif"
+          ]
+        },
+        {
+          "family": "Prometo",
+          "count": 40,
+          "fallbacks": [
+            "Space Grotesk",
+            "sans-serif"
+          ]
+        },
+        {
+          "family": "Inter",
+          "count": 33,
+          "fallbacks": [
+            "sans-serif"
+          ]
+        },
+        {
+          "family": "Poppins",
+          "count": 5,
+          "fallbacks": [
+            "sans-serif"
+          ]
+        }
+      ],
+      "fontFaces": [
+        {
+          "family": "Prometo",
+          "weight": "400",
+          "style": "normal",
+          "src": "assets/fonts/Prometo-Regular.woff2",
+          "display": "swap"
+        },
+        {
+          "family": "Prometo",
+          "weight": "700",
+          "style": "normal",
+          "src": "assets/fonts/Prometo-Bold.woff2",
+          "display": "swap"
+        }
+      ],
+      "googleFonts": [
+        {
+          "family": "Plus Jakarta Sans",
+          "axes": "wght@400;500;600;700;800"
+        },
+        {
+          "family": "Inter",
+          "axes": "wght@400;500;600;700"
+        },
+        {
+          "family": "Poppins",
+          "axes": "wght@400;500;600"
+        },
+        {
+          "family": "Space Grotesk",
+          "axes": "wght@400;500;600;700"
+        }
+      ],
+      "typeScalePx": [
+        {
+          "px": 11,
+          "count": 2
+        },
+        {
+          "px": 12,
+          "count": 3
+        },
+        {
+          "px": 13,
+          "count": 3
+        },
+        {
+          "px": 14,
+          "count": 16
+        },
+        {
+          "px": 15,
+          "count": 6
+        },
+        {
+          "px": 16,
+          "count": 25
+        },
+        {
+          "px": 19,
+          "count": 2
+        },
+        {
+          "px": 20,
+          "count": 30
+        },
+        {
+          "px": 21,
+          "count": 1
+        },
+        {
+          "px": 22,
+          "count": 2
+        },
+        {
+          "px": 24,
+          "count": 21
+        },
+        {
+          "px": 30,
+          "count": 1
+        },
+        {
+          "px": 32,
+          "count": 16
+        },
+        {
+          "px": 34,
+          "count": 2
+        },
+        {
+          "px": 40,
+          "count": 10
+        },
+        {
+          "px": 48,
+          "count": 2
+        },
+        {
+          "px": 64,
+          "count": 11
+        },
+        {
+          "px": 96,
+          "count": 1
+        }
+      ],
+      "weights": [
+        {
+          "weight": "400",
+          "count": 75
+        },
+        {
+          "weight": "500",
+          "count": 38
+        },
+        {
+          "weight": "600",
+          "count": 1
+        },
+        {
+          "weight": "700",
+          "count": 19
+        }
+      ],
+      "lineHeights": [
+        {
+          "value": "26.0px",
+          "count": 30
+        },
+        {
+          "value": "19.4px",
+          "count": 23
+        },
+        {
+          "value": "33.6px",
+          "count": 18
+        },
+        {
+          "value": "44.8px",
+          "count": 16
+        },
+        {
+          "value": "83.2px",
+          "count": 11
+        },
+        {
+          "value": "56.0px",
+          "count": 7
+        },
+        {
+          "value": "16.9px",
+          "count": 4
+        },
+        {
+          "value": "30.2px",
+          "count": 3
+        }
+      ],
+      "letterSpacing": [
+        {
+          "value": "-0.96px",
+          "count": 13
+        },
+        {
+          "value": "-0.72px",
+          "count": 9
+        },
+        {
+          "value": "-1.92px",
+          "count": 4
+        },
+        {
+          "value": "1.2px",
+          "count": 1
+        },
+        {
+          "value": "1px",
+          "count": 1
+        },
+        {
+          "value": "2.4px",
+          "count": 1
+        },
+        {
+          "value": "0.48px",
+          "count": 1
+        }
+      ]
+    },
+    "shape": {
+      "borderRadius": [
+        {
+          "value": "25.0px 0.0px 25.0px 0.0px",
+          "count": 16
+        },
+        {
+          "value": "25.0px",
+          "count": 10
+        },
+        {
+          "value": "50%",
+          "count": 7
+        },
+        {
+          "value": "999px",
+          "count": 6
+        },
+        {
+          "value": "15.0px 0.0px 15.0px 0.0px",
+          "count": 5
+        },
+        {
+          "value": "14px",
+          "count": 4
+        },
+        {
+          "value": "20.0px",
+          "count": 4
+        },
+        {
+          "value": "10.0px",
+          "count": 3
+        },
+        {
+          "value": "999.0px",
+          "count": 3
+        },
+        {
+          "value": "100.0px",
+          "count": 3
+        },
+        {
+          "value": "10px",
+          "count": 2
+        },
+        {
+          "value": "12px",
+          "count": 2
+        }
+      ],
+      "boxShadow": [
+        {
+          "value": "0 8px 26px rgba(0,0,0,.34)",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.35)",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 rgba(0,0,0,0)",
+          "count": 1
+        },
+        {
+          "value": "0 14px 44px rgba(0,0,0,.38)",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.28),\n                     0 0 18px rgba(0,179,221,.45),\n                     0 0 44px rgba(0,1",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.45),\n                            0 0 26px rgba(0,179,221,.62),\n                            0 0",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.24),\n                       0 0 16px rgba(0,179,221,.38),\n                       0 0 40px rgba",
+          "count": 1
+        },
+        {
+          "value": "0 0 0 1px rgba(0,179,221,.40),\n                       0 0 26px rgba(0,179,221,.58),\n                       0 0 60px rgba",
+          "count": 1
+        },
+        {
+          "value": "none !important",
+          "count": 1
+        }
+      ],
+      "gradients": [
+        {
+          "value": "linear-gradient(rgba(24,24,24,0.09),rgba(24,24,24,0.09))",
+          "count": 11
+        },
+        {
+          "value": "linear-gradient(rgba(0,179,221,1.0),rgba(0,179,221,1.0))",
+          "count": 6
+        },
+        {
+          "value": "linear-gradient(rgba(0,183,225,0.08),rgba(0,183,225,0.08))",
+          "count": 6
+        },
+        {
+          "value": "linear-gradient(rgba(255,255,255,1.0),rgba(255,255,255,1.0))",
+          "count": 3
+        },
+        {
+          "value": "radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,179,221,1.0) 0%,rgba(0,179,221,0.9) 25%,rgba(0,179,221,0.5) 50%,rgba(0,179,221,0) 100%)",
+          "count": 3
+        },
+        {
+          "value": "linear-gradient(rgba(0,0,0,1.0),rgba(0,0,0,1.0))",
+          "count": 3
+        },
+        {
+          "value": "linear-gradient(rgba(0,183,225,0.26),rgba(0,183,225,0.26))",
+          "count": 3
+        },
+        {
+          "value": "linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0))",
+          "count": 2
+        },
+        {
+          "value": "linear-gradient(180deg,rgba(9,16,26,.42) 0%,rgba(9,16,26,.34) 38%,\n                                          rgba(9,16,26,.62) 74%,rgba(9,16,26,.88) 100%)",
+          "count": 1
+        },
+        {
+          "value": "linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(4,10,18,.88) 100%)",
+          "count": 1
+        },
+        {
+          "value": "linear-gradient(rgba(217,217,217,1.0),rgba(217,217,217,1.0))",
+          "count": 1
+        },
+        {
+          "value": "linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('assets/hero-bg.webp')",
+          "count": 1
+        }
+      ],
+      "backdropFilter": [
+        {
+          "value": "blur(7px)",
+          "count": 40
+        },
+        {
+          "value": "blur(14px)",
+          "count": 2
+        },
+        {
+          "value": "blur(12px)",
+          "count": 2
+        },
+        {
+          "value": "blur(0px)",
+          "count": 2
+        },
+        {
+          "value": "blur(18px) saturate(140%)",
+          "count": 2
+        }
+      ],
+      "transitions": [
+        {
+          "value": "none",
+          "count": 2
+        },
+        {
+          "value": "opacity .2s,outline-color .2s",
+          "count": 1
+        },
+        {
+          "value": "transform .25s ease,background-color .25s ease",
+          "count": 1
+        },
+        {
+          "value": "left .26s cubic-bezier(.2,.8,.2,1)",
+          "count": 1
+        },
+        {
+          "value": "left .28s cubic-bezier(.2,.8,.2,1)",
+          "count": 1
+        },
+        {
+          "value": "color .22s ease",
+          "count": 1
+        },
+        {
+          "value": "opacity .18s ease",
+          "count": 1
+        },
+        {
+          "value": "opacity .22s ease",
+          "count": 1
+        },
+        {
+          "value": "top .32s cubic-bezier(.2,.8,.2,1),height .32s cubic-bezier(.2,.8,.2,1)",
+          "count": 1
+        },
+        {
+          "value": "opacity .25s ease",
+          "count": 1
+        },
+        {
+          "value": "transform .35s cubic-bezier(.2,.8,.2,1),filter .35s ease",
+          "count": 1
+        },
+        {
+          "value": "transform .25s cubic-bezier(.2,.8,.2,1),filter .25s ease",
+          "count": 1
+        }
+      ],
+      "easings": [
+        {
+          "value": "linear",
+          "count": 50
+        },
+        {
+          "value": "ease",
+          "count": 14
+        },
+        {
+          "value": "ease-in-out",
+          "count": 3
+        }
+      ],
+      "breakpoints": [
+        {
+          "value": "860px",
+          "count": 1
+        }
+      ],
+      "cssVariables": [
+        {
+          "name": "--k",
+          "value": "calc(min(100vw, 1920px) / 1920px)"
+        },
+        {
+          "name": "--m-ciano",
+          "value": "#00b3dd"
+        },
+        {
+          "name": "--m-fundo",
+          "value": "#09101a"
+        },
+        {
+          "name": "--m-painel",
+          "value": "#111a26"
+        },
+        {
+          "name": "--m-borda",
+          "value": "rgba(255,255,255,.09)"
+        },
+        {
+          "name": "--m-texto",
+          "value": "#eef3f8"
+        },
+        {
+          "name": "--m-suave",
+          "value": "rgba(238,243,248,.62)"
+        }
+      ],
+      "keyframes": [
+        "m-vento",
+        "dvo-vento",
+        "dvo-zhou-pulso"
+      ],
+      "usesPrefersReducedMotion": true,
+      "usesPrefersColorScheme": false,
+      "usesContainerQueries": false,
+      "usesCustomProperties": true
+    }
+  },
+  "structure": {
+    "landmarks": {
+      "header": 1,
+      "nav": 2,
+      "main": 0,
+      "footer": 1,
+      "section": 11,
+      "article": 0,
+      "aside": 0,
+      "form": 0,
+      "dialog": 0,
+      "role=switch": 1
+    },
+    "outline": [
+      {
+        "level": 1,
+        "text": "Intelligence for your ecommerce"
+      },
+      {
+        "level": 3,
+        "text": "Two fronts, one intelligence"
+      },
+      {
+        "level": 2,
+        "text": "What DV Oracle does"
+      },
+      {
+        "level": 3,
+        "text": "An AI shows what already works before you invest"
+      },
+      {
+        "level": 3,
+        "text": "Access any competitor in one click"
+      },
+      {
+        "level": 3,
+        "text": "Everything in one place, on the same account"
+      },
+      {
+        "level": 2,
+        "text": "Our Products"
+      },
+      {
+        "level": 3,
+        "text": "Ad Library"
+      },
+      {
+        "level": 3,
+        "text": "Chrome Extension"
+      },
+      {
+        "level": 2,
+        "text": "Proof"
+      },
+      {
+        "level": 3,
+        "text": "Nothing here is static."
+      },
+      {
+        "level": 2,
+        "text": "How It Works"
+      },
+      {
+        "level": 3,
+        "text": "Open DV Oracle"
+      },
+      {
+        "level": 3,
+        "text": "Filter or analyze"
+      },
+      {
+        "level": 3,
+        "text": "Decide on real data"
+      },
+      {
+        "level": 2,
+        "text": "Why DV Oracle"
+      },
+      {
+        "level": 2,
+        "text": "Frequently Asked Questions"
+      },
+      {
+        "level": 2,
+        "text": "Unlock the full intelligence"
+      },
+      {
+        "level": 3,
+        "text": "PRO"
+      },
+      {
+        "level": 3,
+        "text": "GROWTH"
+      },
+      {
+        "level": 3,
+        "text": "AGENCY"
+      },
+      {
+        "level": 2,
+        "text": "Get access to DV Oracle"
+      },
+      {
+        "level": 4,
+        "text": "Product"
+      },
+      {
+        "level": 4,
+        "text": "Support"
+      },
+      {
+        "level": 4,
+        "text": "DV Shipping"
+      }
+    ],
+    "sections": [
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Hero",
+        "heading": null,
+        "firstText": "Intelligence for your ecommerce DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already perfo",
+        "textChars": 238,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "About Us",
+        "heading": null,
+        "firstText": "Two fronts, one intelligence DV Oracle works on two fronts: the Ad Library, which shows what is already performing before you invest, and th",
+        "textChars": 303,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Achievement",
+        "heading": null,
+        "firstText": "50,000 ads monitored 3,000 stores analyzed ∞ Continuous updates 24/7 AI running 24/7 Data working for you, around the clock.",
+        "textChars": 124,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Best featured",
+        "heading": null,
+        "firstText": "What DV Oracle does Two tools, one intelligence. An AI shows what already works before you invest Our AI scans thousands of live ads and sep",
+        "textChars": 534,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Best featured",
+        "heading": null,
+        "firstText": "Our Products Two tools that work together so you sell more. Thousands of live ads, filtered by an AI that separates what is actually perform",
+        "textChars": 365,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "About Us",
+        "heading": null,
+        "firstText": "Proof What you can expect from DV Oracle. A continuously updated ad catalog, with product and creative side by side. One-click extension ins",
+        "textChars": 460,
+        "links": 0,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Best featured",
+        "heading": null,
+        "firstText": "How It Works Three steps to get started. Open DV Oracle Through your dashboard or by installing the Chrome extension. Filter or analyze Filt",
+        "textChars": 350,
+        "links": 0,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "About Us",
+        "heading": null,
+        "firstText": "Why DV Oracle What makes the difference. All in one system Ad library and extension, with no separate tools to open. AI, not guesswork Every",
+        "textChars": 391,
+        "links": 0,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Footer",
+        "heading": null,
+        "firstText": "Intelligence for people who sell online Product Ad Library Chrome Extension Pricing Support FAQ Contact Terms of Use DV Shipping contact@dvo",
+        "textChars": 149,
+        "links": 2,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Question",
+        "heading": null,
+        "firstText": "Frequently Asked Questions Do I need to be a DV Shipping client to use DV Oracle? No. DV Shipping clients get free access to the Ad Library.",
+        "textChars": 316,
+        "links": 0,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "pricing-section",
+        "heading": null,
+        "firstText": "Unlock the full intelligence Unlimited ad library, plus the AI that analyzes any competing store. Monthly Yearly SAVE 20% PRO Ideal for thos",
+        "textChars": 788,
+        "links": 0,
+        "buttons": 0,
+        "images": 14,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Group 2",
+        "heading": null,
+        "firstText": "Instant Access Get access to DV Oracle Put the artificial intelligence of online sellers to work analyzing your competitors and finding prof",
+        "textChars": 186,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "data attribute",
+        "tag": "div",
+        "id": null,
+        "label": "Navbar",
+        "heading": null,
+        "firstText": "Home Library Extension Pricing FAQ",
+        "textChars": 34,
+        "links": 3,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "nav",
+        "id": null,
+        "label": "idioma",
+        "heading": null,
+        "firstText": null,
+        "textChars": 0,
+        "links": 3,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "header",
+        "id": null,
+        "label": null,
+        "heading": null,
+        "firstText": null,
+        "textChars": 0,
+        "links": 3,
+        "buttons": 0,
+        "images": 4,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "nav",
+        "id": null,
+        "label": "idioma",
+        "heading": null,
+        "firstText": null,
+        "textChars": 0,
+        "links": 3,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Intelligence for your ecommerce",
+        "firstText": "Intelligence for your ecommerce DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already perfo",
+        "textChars": 238,
+        "links": 2,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": null,
+        "firstText": "Data working for you, around the clock. 50,000ads monitored 3,000stores analyzed ∞Continuous updates 24/7AI running 24/7",
+        "textChars": 120,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Two fronts, one intelligence",
+        "firstText": "Two fronts, one intelligence DV Oracle works on two fronts: the Ad Library, which shows what is already performing before you invest, and th",
+        "textChars": 303,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "What DV Oracle does",
+        "firstText": "What DV Oracle does Two tools, one intelligence. An AI shows what already works before you invest Our AI scans thousands of live ads and sep",
+        "textChars": 534,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Our Products",
+        "firstText": "Our Products Two tools that work together so you sell more. Ad Library Thousands of live ads, filtered by an AI that separates what is actua",
+        "textChars": 365,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Proof",
+        "firstText": "Proof What you can expect from DV Oracle. A continuously updated ad catalog, with product and creative side by side. One-click extension ins",
+        "textChars": 460,
+        "links": 0,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "How It Works",
+        "firstText": "How It Works Three steps to get started. Open DV OracleThrough your dashboard or by installing the Chrome extension. Filter or analyzeFilter",
+        "textChars": 347,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Why DV Oracle",
+        "firstText": "Why DV Oracle What makes the difference. Intelligence for people who sell online All in one systemAd library and extension, with no separate",
+        "textChars": 387,
+        "links": 1,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": "m-faq",
+        "label": null,
+        "heading": "Frequently Asked Questions",
+        "firstText": "Frequently Asked Questions Do I need to be a DV Shipping client to use DV Oracle? No. DV Shipping clients get free access to the Ad Library.",
+        "textChars": 595,
+        "links": 0,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": "m-precos",
+        "label": null,
+        "heading": "Unlock the full intelligence",
+        "firstText": "Unlock the full intelligence Unlimited ad library, plus the AI that analyzes any competing store. Monthly Yearly SAVE 20% PRO Ideal for thos",
+        "textChars": 850,
+        "links": 3,
+        "buttons": 0,
+        "images": 0,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "section",
+        "id": null,
+        "label": null,
+        "heading": "Get access to DV Oracle",
+        "firstText": "Instant Access Get access to DV Oracle Put the artificial intelligence of online sellers to work analyzing your competitors and finding prof",
+        "textChars": 186,
+        "links": 1,
+        "buttons": 0,
+        "images": 1,
+        "inputs": 0
+      },
+      {
+        "source": "semantic tag",
+        "tag": "footer",
+        "id": null,
+        "label": null,
+        "heading": null,
+        "firstText": "Intelligence for people who sell online Product Ad Library Chrome Extension Pricing Support FAQ Contact Terms of Use DV Shipping contact@dvo",
+        "textChars": 149,
+        "links": 9,
+        "buttons": 0,
+        "images": 3,
+        "inputs": 0
+      }
+    ],
+    "navLinks": [
+      {
+        "text": "",
+        "href": "./"
+      },
+      {
+        "text": "",
+        "href": "./?lang=pt"
+      },
+      {
+        "text": "",
+        "href": "./?lang=es"
+      },
+      {
+        "text": "",
+        "href": "./"
+      },
+      {
+        "text": "",
+        "href": "./?lang=pt"
+      },
+      {
+        "text": "",
+        "href": "./?lang=es"
+      }
+    ],
+    "ctas": [
+      {
+        "text": "DV Shipping",
+        "occurrences": 4,
+        "kind": "external",
+        "hrefs": [
+          "https://dvshipping.com"
+        ]
+      },
+      {
+        "text": "Start now",
+        "occurrences": 3,
+        "kind": "external",
+        "hrefs": [
+          "https://app.dvoracle.com/login"
+        ]
+      },
+      {
+        "text": "Instagram",
+        "occurrences": 2,
+        "kind": "external",
+        "hrefs": [
+          "https://instagram.com/dv.shipping"
+        ]
+      },
+      {
+        "text": "Get access to DV Oracle",
+        "occurrences": 2,
+        "kind": "external",
+        "hrefs": [
+          "https://app.dvoracle.com/login"
+        ]
+      },
+      {
+        "text": "See how it works",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-escuro"
+        ]
+      },
+      {
+        "text": "Ad Library",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-precos"
+        ]
+      },
+      {
+        "text": "Chrome Extension",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-precos"
+        ]
+      },
+      {
+        "text": "Pricing",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-precos"
+        ]
+      },
+      {
+        "text": "FAQ",
+        "occurrences": 1,
+        "kind": "anchor",
+        "hrefs": [
+          "#m-faq"
+        ]
+      },
+      {
+        "text": "Contact",
+        "occurrences": 1,
+        "kind": "mailto",
+        "hrefs": [
+          "mailto:contact@dvoracle.com"
+        ]
+      },
+      {
+        "text": "Terms of Use",
+        "occurrences": 1,
+        "kind": "internal",
+        "hrefs": [
+          "/terms/"
+        ]
+      },
+      {
+        "text": "contact@dvoracle.com",
+        "occurrences": 1,
+        "kind": "mailto",
+        "hrefs": [
+          "mailto:contact@dvoracle.com"
+        ]
+      }
+    ],
+    "forms": [],
+    "images": {
+      "count": 15,
+      "withAlt": 5,
+      "lazy": 0,
+      "formats": {
+        "webp": 5,
+        "svg": 10
+      },
+      "sources": [
+        "assets/bg-glow.webp",
+        "assets/final-y.webp",
+        "assets/logo-hero.svg",
+        "assets/footer-bg.webp",
+        "assets/productby-footer.svg",
+        "assets/logo-footer.svg",
+        "assets/productby-card.svg",
+        "assets/logo-navbar.svg",
+        "assets/logo-navbar.svg",
+        "assets/logo-hero.svg",
+        "assets/refresh.webp",
+        "assets/productby-card.svg",
+        "assets/final-y.webp",
+        "assets/logo-footer.svg",
+        "assets/productby-footer.svg"
+      ],
+      "inlineSvg": 38
+    },
+    "media": {
+      "video": 0,
+      "audio": 0,
+      "iframes": [],
+      "canvas": 0
+    },
+    "dom": {
+      "totalElements": 673,
+      "maxDepth": 13,
+      "topTags": [
+        {
+          "tag": "div",
+          "count": 356
+        },
+        {
+          "tag": "svg",
+          "count": 38
+        },
+        {
+          "tag": "circle",
+          "count": 34
+        },
+        {
+          "tag": "path",
+          "count": 32
+        },
+        {
+          "tag": "rect",
+          "count": 29
+        },
+        {
+          "tag": "p",
+          "count": 28
+        },
+        {
+          "tag": "a",
+          "count": 25
+        },
+        {
+          "tag": "li",
+          "count": 23
+        },
+        {
+          "tag": "img",
+          "count": 15
+        },
+        {
+          "tag": "span",
+          "count": 13
+        },
+        {
+          "tag": "h3",
+          "count": 13
+        },
+        {
+          "tag": "section",
+          "count": 11
+        },
+        {
+          "tag": "b",
+          "count": 8
+        },
+        {
+          "tag": "h2",
+          "count": 8
+        },
+        {
+          "tag": "small",
+          "count": 7
+        }
+      ]
+    },
+    "interactive": {
+      "withId": 62,
+      "ariaAttributes": 9,
+      "tabindex": 1,
+      "details": 4,
+      "dialogs": 0
+    },
+    "hasSkipLink": false,
+    "hasMobileVariant": true
+  },
+  "content": {
+    "title": "dvoracle.com",
+    "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+    "lang": "en",
+    "canonical": "https://dvoracle.com/",
+    "robotsMeta": null,
+    "viewport": "width=device-width, initial-scale=1",
+    "themeColor": "#09101A",
+    "generator": null,
+    "openGraph": {
+      "title": "dvoracle.com",
+      "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+      "type": "website",
+      "url": "https://dvoracle.com/",
+      "image": null,
+      "locale": "en",
+      "siteName": null
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "site": null,
+      "image": null
+    },
+    "icons": [
+      {
+        "rel": "icon",
+        "href": "/favicon.svg",
+        "sizes": null
+      },
+      {
+        "rel": "icon",
+        "href": "/icon-32.png",
+        "sizes": "32x32"
+      },
+      {
+        "rel": "alternate icon",
+        "href": "/favicon.ico",
+        "sizes": "16x16 32x32 48x48"
+      },
+      {
+        "rel": "apple-touch-icon",
+        "href": "/apple-touch-icon.png",
+        "sizes": "180x180"
+      }
+    ],
+    "hreflang": [
+      {
+        "lang": "en",
+        "href": "https://dvoracle.com/"
+      },
+      {
+        "lang": "pt-BR",
+        "href": "https://dvoracle.com/?lang=pt"
+      },
+      {
+        "lang": "es",
+        "href": "https://dvoracle.com/?lang=es"
+      },
+      {
+        "lang": "x-default",
+        "href": "https://dvoracle.com/"
+      }
+    ],
+    "jsonLd": [],
+    "metas": {
+      "viewport": "width=device-width, initial-scale=1",
+      "description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+      "og:title": "dvoracle.com",
+      "og:description": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place.",
+      "og:type": "website",
+      "og:url": "https://dvoracle.com/",
+      "og:locale": "en",
+      "twitter:card": "summary_large_image",
+      "theme-color": "#09101A"
+    },
+    "wordCount": 1467,
+    "textBlocks": [
+      {
+        "tag": "div",
+        "text": "Intelligence for your ecommerce"
+      },
+      {
+        "tag": "div",
+        "text": "DV Oracle is the artificial intelligence for people who sell online: it finds the ads that are already performing and analyzes any competing store, all in one place."
+      },
+      {
+        "tag": "div",
+        "text": "Get access to DV Oracle"
+      },
+      {
+        "tag": "span",
+        "text": "See how it works"
+      },
+      {
+        "tag": "div",
+        "text": "Two fronts, one intelligence"
+      },
+      {
+        "tag": "div",
+        "text": "DV Oracle works on two fronts: the , which shows what is already performing before you invest, and the , which analyzes any competing store straight from your browser. Both run on the same account, with the same credits — you choose where t"
+      },
+      {
+        "tag": "span",
+        "text": "Ad Library"
+      },
+      {
+        "tag": "span",
+        "text": "Chrome Extension"
+      },
+      {
+        "tag": "div",
+        "text": "Stop deciding in the dark."
+      },
+      {
+        "tag": "div",
+        "text": "50,000"
+      },
+      {
+        "tag": "div",
+        "text": "ads monitored"
+      },
+      {
+        "tag": "div",
+        "text": "3,000"
+      },
+      {
+        "tag": "div",
+        "text": "stores analyzed"
+      },
+      {
+        "tag": "div",
+        "text": "Continuous updates"
+      },
+      {
+        "tag": "div",
+        "text": "24/7"
+      },
+      {
+        "tag": "div",
+        "text": "AI running 24/7"
+      },
+      {
+        "tag": "div",
+        "text": "Data working for you, around the clock."
+      },
+      {
+        "tag": "div",
+        "text": "What DV Oracle does"
+      },
+      {
+        "tag": "div",
+        "text": "Two tools, one intelligence."
+      },
+      {
+        "tag": "div",
+        "text": "An AI shows what already works before you invest"
+      },
+      {
+        "tag": "div",
+        "text": "Our AI scans thousands of live ads and separates the ones that are truly performing, so you do not have to dig through them one by one."
+      },
+      {
+        "tag": "div",
+        "text": "Access any competitor in one click"
+      },
+      {
+        "tag": "div",
+        "text": "The DV Oracle extension AI estimates traffic, catalog and revenue for any store, right on the page you are viewing."
+      },
+      {
+        "tag": "div",
+        "text": "Everything in one place, on the same account"
+      },
+      {
+        "tag": "div",
+        "text": "The ad library and the extension share one login and one credit balance, with no separate tools to open."
+      },
+      {
+        "tag": "div",
+        "text": "Our Products"
+      },
+      {
+        "tag": "div",
+        "text": "Two tools that work together so you sell more."
+      },
+      {
+        "tag": "div",
+        "text": "Thousands of live ads, filtered by an AI that separates what is actually performing right now. Filter by niche, product or creative format."
+      },
+      {
+        "tag": "div",
+        "text": "Install in one click and analyze any competing store straight from your browser. An AI estimates traffic, revenue and catalog in seconds."
+      },
+      {
+        "tag": "div",
+        "text": "Proof"
+      },
+      {
+        "tag": "div",
+        "text": "What you can expect from DV Oracle."
+      },
+      {
+        "tag": "div",
+        "text": "A continuously updated ad catalog, with product and creative side by side."
+      },
+      {
+        "tag": "div",
+        "text": "One-click extension install, with real catalog data (Shopify stores)."
+      },
+      {
+        "tag": "div",
+        "text": "AI-generated estimates for traffic, revenue and ads."
+      },
+      {
+        "tag": "div",
+        "text": "Catalog and pricing are real, public data taken straight from the store."
+      },
+      {
+        "tag": "div",
+        "text": "Nothing here is static."
+      },
+      {
+        "tag": "div",
+        "text": "The AI reprocesses ads and stores continuously. What you see is always the current picture, not a snapshot from months ago."
+      },
+      {
+        "tag": "div",
+        "text": "How It Works"
+      },
+      {
+        "tag": "div",
+        "text": "Three steps to get started."
+      },
+      {
+        "tag": "div",
+        "text": "Open DV Oracle"
+      },
+      {
+        "tag": "div",
+        "text": "Through your dashboard or by installing the Chrome extension."
+      },
+      {
+        "tag": "div",
+        "text": "Filter or analyze"
+      },
+      {
+        "tag": "div",
+        "text": "Filter by niche or product, or analyze any competing store you like in one click."
+      },
+      {
+        "tag": "div",
+        "text": "Decide on real data"
+      },
+      {
+        "tag": "div",
+        "text": "Use the data (ads, traffic, catalog, estimated revenue) as your reference for what to sell and how to advertise."
+      },
+      {
+        "tag": "div",
+        "text": "Why DV Oracle"
+      },
+      {
+        "tag": "div",
+        "text": "What makes the difference."
+      },
+      {
+        "tag": "div",
+        "text": "All in one system"
+      },
+      {
+        "tag": "div",
+        "text": "Ad library and extension, with no separate tools to open."
+      },
+      {
+        "tag": "div",
+        "text": "AI, not guesswork"
+      },
+      {
+        "tag": "div",
+        "text": "Every analysis is done by artificial intelligence, updated continuously."
+      },
+      {
+        "tag": "div",
+        "text": "Any online operation"
+      },
+      {
+        "tag": "div",
+        "text": "Dropshipping, marketplaces or ecommerce in general."
+      },
+      {
+        "tag": "div",
+        "text": "Works on its own"
+      },
+      {
+        "tag": "div",
+        "text": "You do not need to be a DV Shipping client to use it."
+      },
+      {
+        "tag": "div",
+        "text": "Intelligence for people who sell online"
+      },
+      {
+        "tag": "div",
+        "text": "Product"
+      },
+      {
+        "tag": "div",
+        "text": "Pricing"
+      },
+      {
+        "tag": "div",
+        "text": "Support"
+      },
+      {
+        "tag": "div",
+        "text": "FAQ"
+      },
+      {
+        "tag": "div",
+        "text": "Contact"
+      },
+      {
+        "tag": "div",
+        "text": "Terms of Use"
+      },
+      {
+        "tag": "div",
+        "text": "DV Shipping"
+      },
+      {
+        "tag": "div",
+        "text": "contact@dvoracle.com"
+      },
+      {
+        "tag": "div",
+        "text": "Frequently Asked Questions"
+      },
+      {
+        "tag": "div",
+        "text": "Do I need to be a DV Shipping client to use DV Oracle?"
+      },
+      {
+        "tag": "div",
+        "text": "No. DV Shipping clients get free access to the Ad Library. Everyone else can subscribe separately. The Chrome extension is free for anyone, with credits included."
+      },
+      {
+        "tag": "div",
+        "text": "Is this only for dropshipping?"
+      },
+      {
+        "tag": "div",
+        "text": "Is the data real?"
+      },
+      {
+        "tag": "div",
+        "text": "Can I cancel any time?"
+      },
+      {
+        "tag": "div",
+        "text": "Unlock the full intelligence"
+      },
+      {
+        "tag": "div",
+        "text": "Unlimited ad library, plus the AI that analyzes any competing store."
+      },
+      {
+        "tag": "div",
+        "text": "Monthly"
+      },
+      {
+        "tag": "div",
+        "text": "Yearly"
+      },
+      {
+        "tag": "div",
+        "text": "SAVE 20%"
+      },
+      {
+        "tag": "div",
+        "text": "PRO"
+      },
+      {
+        "tag": "div",
+        "text": "Ideal for those starting to validate ads."
+      },
+      {
+        "tag": "div",
+        "text": "US$ 39"
+      },
+      {
+        "tag": "div",
+        "text": "/mo"
+      },
+      {
+        "tag": "div",
+        "text": "Unlimited Ad Library"
+      },
+      {
+        "tag": "div",
+        "text": "100 analysis credits per month"
+      },
+      {
+        "tag": "div",
+        "text": "CSV data export"
+      },
+      {
+        "tag": "div",
+        "text": "Priority chat support"
+      },
+      {
+        "tag": "div",
+        "text": "Start now"
+      },
+      {
+        "tag": "div",
+        "text": "Most Popular"
+      },
+      {
+        "tag": "div",
+        "text": "GROWTH"
+      },
+      {
+        "tag": "div",
+        "text": "The best-selling plan for operations at scale."
+      },
+      {
+        "tag": "div",
+        "text": "US$ 97"
+      },
+      {
+        "tag": "div",
+        "text": "Everything in PRO"
+      },
+      {
+        "tag": "div",
+        "text": "500 analysis credits per month"
+      },
+      {
+        "tag": "div",
+        "text": "3 simultaneous logins"
+      },
+      {
+        "tag": "div",
+        "text": "50 ads per query"
+      },
+      {
+        "tag": "div",
+        "text": "Advanced AI filters"
+      },
+      {
+        "tag": "div",
+        "text": "AGENCY"
+      },
+      {
+        "tag": "div",
+        "text": "Perfect for large agencies and multiple ecommerce brands."
+      },
+      {
+        "tag": "div",
+        "text": "US$ 249"
+      },
+      {
+        "tag": "div",
+        "text": "Everything in GROWTH"
+      },
+      {
+        "tag": "div",
+        "text": "2000 analysis credits per month"
+      },
+      {
+        "tag": "div",
+        "text": "10 simultaneous logins"
+      },
+      {
+        "tag": "div",
+        "text": "150 ads per query"
+      },
+      {
+        "tag": "div",
+        "text": "Dedicated account manager"
+      },
+      {
+        "tag": "div",
+        "text": "Not ready yet?"
+      },
+      {
+        "tag": "span",
+        "text": "Start a free 3-day trial, no card required."
+      },
+      {
+        "tag": "div",
+        "text": "Pick a plan · secure checkout · cancel any time"
+      },
+      {
+        "tag": "div",
+        "text": "Instant Access"
+      },
+      {
+        "tag": "div",
+        "text": "Put the artificial intelligence of online sellers to work analyzing your competitors and finding profitable ads in seconds."
+      },
+      {
+        "tag": "div",
+        "text": "Home"
+      },
+      {
+        "tag": "div",
+        "text": "Library"
+      },
+      {
+        "tag": "div",
+        "text": "Extension"
+      },
+      {
+        "tag": "p",
+        "text": "No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce."
+      },
+      {
+        "tag": "p",
+        "text": "Yes. The data is real and public, updated continuously, covering the last 6 months."
+      },
+      {
+        "tag": "p",
+        "text": "Yes. You can cancel at any time, with no penalty and no lock-in."
+      },
+      {
+        "tag": "li",
+        "text": "Unlimited cached ad library"
+      },
+      {
+        "tag": "li",
+        "text": "10,000 collection credits / month"
+      },
+      {
+        "tag": "li",
+        "text": "Leads by LinkedIn, CNAE and Instagram"
+      },
+      {
+        "tag": "li",
+        "text": "Up to 120 leads per search"
+      },
+      {
+        "tag": "li",
+        "text": "CSV export"
+      },
+      {
+        "tag": "li",
+        "text": "30,000 collection credits / month"
+      },
+      {
+        "tag": "li",
+        "text": "2 seats, one login each"
+      },
+      {
+        "tag": "li",
+        "text": "150 ads per library pull (150 credits)"
+      },
+      {
+        "tag": "li",
+        "text": "Niches your team already pulled cost nothing"
+      },
+      {
+        "tag": "li",
+        "text": "80,000 collection credits / month"
+      },
+      {
+        "tag": "li",
+        "text": "5 seats, one login each"
+      },
+      {
+        "tag": "li",
+        "text": "Up to 200 leads per search"
+      },
+      {
+        "tag": "li",
+        "text": "300 ads per library pull (300 credits)"
+      },
+      {
+        "tag": "p",
+        "text": "Not ready yet? Start a free 3-day trial, no card required."
+      }
+    ],
+    "headlines": [],
+    "prices": [
+      {
+        "amount": "US$ 39/mo",
+        "context": "arly SAVE 20% PRO Ideal for those starting to validate ads. US$ 39/mo Unlimited cached ad library10,000 collection credits / mont"
+      },
+      {
+        "amount": "US$ 97/mo",
+        "context": "pular GROWTH The best-selling plan for operations at scale. US$ 97/mo Everything in PRO30,000 collection credits / month2 seats,"
+      },
+      {
+        "amount": "US$ 249/mo",
+        "context": "Y Perfect for large agencies and multiple ecommerce brands. US$ 249/mo Everything in GROWTH80,000 collection credits / month5 seat"
+      },
+      {
+        "amount": "US$ 374.40",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 931.20",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 2,390.40",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 39",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 31.20",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 97",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 77.60",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 249",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "US$ 199.20",
+        "context": "inline script literal"
+      },
+      {
+        "amount": "R$ 97",
+        "context": "inline script literal"
+      }
+    ],
+    "emails": [
+      "contact@dvoracle.com"
+    ],
+    "phones": [],
+    "socialLinks": [
+      "https://instagram.com/dv.shipping"
+    ],
+    "externalLinkHosts": [
+      {
+        "host": "app.dvoracle.com",
+        "count": 5
+      },
+      {
+        "host": "dvshipping.com",
+        "count": 4
+      },
+      {
+        "host": "instagram.com",
+        "count": 2
+      },
+      {
+        "host": "",
+        "count": 2
+      }
+    ],
+    "comments": {
+      "htmlCount": 5,
+      "jsCount": 42,
+      "sample": [
+        "Reddit Pixel",
+        "DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER",
+        "OpenAI Pixel",
+        "o Safari do iPhone usa o apple-touch-icon; sem ele a guia fica sem icone",
+        "dv: hide stray GTM text",
+        "seletor mensal/anual do celular",
+        "fator de escala da prancha. Nao da pra ler o --k do CSS: ele guarda uma EXPRESSAO calc(), e getComputedStyle devolve o texto cru. Calculo aqui.",
+        "========================================================== 1) Seletor Mensal / Anual O mock do Figma mostra a bolinha a direita mas com \"Mensal\" em destaque e os precos mensais — comeco em Mensal, que e o estado coerente, e a bolinha anda ao clicar. ==========================================================",
+        "O \"/mes\" fica numa coluna fixa no Figma, calibrada para \"R$ 97\". Com os valores reais em dolar (mais largos, e mais largos ainda no anual) ele cobria os digitos. Recoloco logo apos o texto — e como a troca tem 180ms de transicao, preciso medir DEPOIS dela, senao uso a largura antiga e o sufixo cai em cima do numero.",
+        "caixa encolhe ate o texto",
+        "posicoes da bolinha dentro do trilho, medidas do Figma: trilho 52px de largura, bolinha 24px, folga de 2px de cada lado",
+        "agora sim, com a largura nova",
+        "O \"/mes\" fica numa coluna fixa no Figma, calibrada para 'R$ 97'. Com os valores reais em dolar (mais largos) ele ficava por baixo do preco — entao recoloco logo apos o texto, medindo a largura real.",
+        "linha \"cobrado anualmente\" sob cada preco",
+        "========================================================== 2) Cabecalho que acompanha a rolagem e embaca o fundo ==========================================================",
+        "fundo da ilha, atras do conteudo",
+        "tira da prancha, poe no fixo",
+        "========================================================== 3) Rolagem suave (mesma lib do dvshipping.com) ==========================================================",
+        "========================================================== 4) Movimento na rolagem Uso IntersectionObserver (e nao ScrollTrigger) para revelar as secoes: ele dispara mesmo com rolagem programatica ou com a rolagem suave do Lenis. Testei o caminho com ScrollTrigger e, ao pular direto pra uma posicao, as secoes ficavam em opacity 0. ==========================================================",
+        "rede de seguranca: o que ainda estiver escondido apos 4s e ja estiver na tela aparece de qualquer jeito",
+        "========================================================== 5) Parallax do hero e entrada inicial (GSAP) Aqui o GSAP so MOVE coisas ja visiveis: se falhar, nada some. ==========================================================",
+        "========================================================== 6) Vida no ponteiro: botoes e cartoes reagem ==========================================================",
+        "========================================================== 7) Botao da CTA final: texto + seta centralizados como par No Figma o rotulo e a seta ficam lado a lado e o CONJUNTO e que esta centrado no botao. Com o texto mudando de largura a cada idioma, recoloco os dois a partir da largura real do texto — assim vale para pt, en e zh. ==========================================================",
+        "volta a px da prancha",
+        "as fontes podem chegar depois e mudar a largura do texto"
+      ],
+      "languageHint": {
+        "language": "portuguese",
+        "confidence": 0.5
+      }
+    },
+    "languageHint": {
+      "language": "english",
+      "confidence": 1
+    }
+  },
+  "scripts": {
+    "external": [
+      {
+        "src": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
+        "host": "cdnjs.cloudflare.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "GSAP",
+        "version": "3.12.5"
+      },
+      {
+        "src": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js",
+        "host": "cdnjs.cloudflare.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "GSAP",
+        "version": "3.12.5"
+      },
+      {
+        "src": "https://unpkg.com/lenis@1.1.14/dist/lenis.min.js",
+        "host": "unpkg.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "Lenis",
+        "version": "1.1.14"
+      },
+      {
+        "src": "https://chat.dvshipping.com/widget.js",
+        "host": "chat.dvshipping.com",
+        "firstParty": false,
+        "async": false,
+        "defer": true,
+        "module": false,
+        "integrity": null,
+        "crossorigin": null,
+        "library": "Embedded widget",
+        "version": null
+      }
+    ],
+    "inline": [
+      {
+        "type": "text/javascript",
+        "bytes": 342,
+        "purpose": "Google Tag Manager loader",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://www.googletagmanager.com/gtm.js?id="
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.goog"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 404,
+        "purpose": "Reddit Pixel",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_jpe9ofbt2021"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement(\"script\");t.src=\"https://www.redditstatic.com/ads/pixel.js?pix"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 329,
+        "purpose": "OpenAI Pixel",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,\"scr"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 398,
+        "purpose": "OpenAI Pixel",
+        "globals": [],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": true,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "(function(){function r(){var b=document.body,c,i,x;if(!b)return;c=b.childNodes;for(i=c.length-1;i>=0;i--){x=c[i];if(x.nodeType===3&&x.nodeValue.indexOf(\"oaiq(\")>-1&&x.nodeValue.indexOf(\"page_viewed\")>-1)b.removeChild(x);"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 909,
+        "purpose": "embedded data",
+        "globals": [
+          "__dvoFAQ",
+          "__dvoAnual",
+          "__dvoPlanos"
+        ],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "window.__dvoFAQ=[\"No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce.\",\"Yes. The data is real and public, updated continuously, covering the l"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 943,
+        "purpose": "UI interaction",
+        "globals": [],
+        "listeners": [
+          "click",
+          "keydown"
+        ],
+        "elementIds": [
+          "m-toggle",
+          "m-lbl-mes",
+          "m-lbl-ano"
+        ],
+        "selectors": [
+          ".mob .m-valor",
+          ".mob .m-anual"
+        ],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "/* seletor mensal/anual do celular */ (function () { var t = document.getElementById('m-toggle'); if (!t) return; var lm = document.getElementById('m-lbl-mes'), la = document.getElementById('m-lbl-ano'); var anual = fals"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 15778,
+        "purpose": "animation / scroll behaviour",
+        "globals": [
+          "__dvoLenis"
+        ],
+        "listeners": [
+          "load",
+          "click",
+          "keydown",
+          "scroll",
+          "resize"
+        ],
+        "elementIds": [
+          "dvo-toggle",
+          "dvo-knob",
+          "dvo-mensal",
+          "dvo-anual",
+          "dvo-preco-pro",
+          "dvo-sufixo-pro",
+          "dvo-preco-growth",
+          "dvo-sufixo-growth",
+          "dvo-preco-agency",
+          "dvo-sufixo-agency",
+          "dvo-cta-btn",
+          "dvo-cta-lbl",
+          "dvo-cta-seta",
+          "dvo-faq-",
+          "dvo-faqrow-",
+          "dvo-faqic-",
+          "dvo-faqans-1"
+        ],
+        "selectors": [
+          ".stage",
+          ".stage > [data-sec=",
+          ".stage > [data-sec]",
+          ".t",
+          "[data-sec=",
+          ".stage .t, .dvo-navfix .t",
+          "[id]"
+        ],
+        "urls": [],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": true,
+        "usesMutationObserver": false,
+        "usesMatchMedia": true,
+        "usesRequestAnimationFrame": true,
+        "preview": "window.addEventListener('load', function () { var SEM_MOVIMENTO = window.matchMedia('(prefers-reduced-motion: reduce)').matches; var stage = document.querySelector('.stage'); /* fator de escala da prancha. Nao da pra ler"
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 3013,
+        "purpose": "animation / scroll behaviour",
+        "globals": [],
+        "listeners": [
+          "load",
+          "click",
+          "keydown"
+        ],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://app.dvoracle.com/login"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "/* Menu do cabecalho. Antes eu casava o rotulo pelo TEXTO ('Início', 'Preços'...), o que so funcionava em portugues: em ingles e chines nada acontecia ao clicar. Agora cada link tem um id proprio e o destino e a posicao "
+      },
+      {
+        "type": "text/javascript",
+        "bytes": 913,
+        "purpose": "configuration object",
+        "globals": [
+          "DVChatConfig"
+        ],
+        "listeners": [],
+        "elementIds": [],
+        "selectors": [],
+        "urls": [
+          "https://dvoracle.com/terms/",
+          "https://dvoracle.com/icon-192.png"
+        ],
+        "usesFetch": false,
+        "usesStorage": false,
+        "usesCookies": false,
+        "usesIntersectionObserver": false,
+        "usesMutationObserver": false,
+        "usesMatchMedia": false,
+        "usesRequestAnimationFrame": false,
+        "preview": "window.DVChatConfig = { title: 'ZHOU', subtitle: \"Account Assistant\", welcome: \"Hi! How can I help you? 🙂\", footerText: \"This chat is being recorded. By chatting, you agree to the\", termsText: \"AI Terms\", termsUrl: 'htt"
+      }
+    ],
+    "totals": {
+      "external": 4,
+      "thirdPartyExternal": 4,
+      "inline": 9,
+      "inlineBytes": 23029,
+      "withIntegrity": 0
+    },
+    "dataBlobs": [
+      {
+        "name": "__dvoFAQ",
+        "kind": "array",
+        "bytes": 286,
+        "shape": "array(3) of string",
+        "sample": "[\"No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce.\",\"Yes. The data is real and public, updated continuously, covering the last 6 months.\",\"Yes. You can cancel at any time, with no penalty and no lock-in.\"]",
+        "parsed": [
+          "No. It is not only for dropshipping: it works for any operation that sells online, including marketplaces and your own ecommerce.",
+          "Yes. The data is real and public, updated continuously, covering the last 6 months.",
+          "Yes. You can cancel at any time, with no penalty and no lock-in."
+        ]
+      },
+      {
+        "name": "__dvoAnual",
+        "kind": "array",
+        "bytes": 84,
+        "shape": "array(3) of string",
+        "sample": "[\"US$ 374.40 billed yearly\",\"US$ 931.20 billed yearly\",\"US$ 2,390.40 billed yearly\"]",
+        "parsed": [
+          "US$ 374.40 billed yearly",
+          "US$ 931.20 billed yearly",
+          "US$ 2,390.40 billed yearly"
+        ]
+      },
+      {
+        "name": "__dvoPlanos",
+        "kind": "array",
+        "bytes": 483,
+        "shape": "array(3) of array(5) of string",
+        "sample": "[[\"Unlimited cached ad library\",\"10,000 collection credits \\/ month\",\"Leads by LinkedIn, CNAE and Instagram\",\"Up to 120 leads per search\",\"CSV export\"],[\"Everything in PRO\",\"30,000 collection credits \\/ month\",\"2 seats, one login each\",\"150 ads per library pull (150 credits)\",\"Niches your team already pulled cost nothing\"],[\"Everything in GROWTH\",\"80,000 collection credits \\/ month\",\"5 seats, one ",
+        "parsed": [
+          [
+            "Unlimited cached ad library",
+            "10,000 collection credits / month",
+            "Leads by LinkedIn, CNAE and Instagram",
+            "Up to 120 leads per search",
+            "CSV export"
+          ],
+          [
+            "Everything in PRO",
+            "30,000 collection credits / month",
+            "2 seats, one login each",
+            "150 ads per library pull (150 credits)",
+            "Niches your team already pulled cost nothing"
+          ],
+          [
+            "Everything in GROWTH",
+            "80,000 collection credits / month",
+            "5 seats, one login each",
+            "Up to 200 leads per search",
+            "300 ads per library pull (300 credits)"
+          ]
+        ]
+      },
+      {
+        "name": "DVChatConfig",
+        "kind": "object",
+        "bytes": 877,
+        "shape": "{ title, subtitle, welcome, footerText, termsText, termsUrl, headerBg, launcherBg, inputBg, userBg, userText, sendColor, sendActiveColor }",
+        "sample": "{\n  title:      'ZHOU',\n  subtitle:   \"Account Assistant\",\n  welcome:    \"Hi! How can I help you? 🙂\",\n  footerText: \"This chat is being recorded. By chatting, you agree to the\",\n  termsText:  \"AI Terms\",\n  termsUrl:   'https://dvoracle.com/terms/',\n\n  /* logo: o mesmo chevron do site, fundo transparente — por isso combina\n     tanto no lançador quanto no cabeçalho escuro */\n  logoUrl:    'https:/"
+      }
+    ],
+    "trackingIds": {
+      "gtm": [
+        "GTM-N7TLPBPF"
+      ],
+      "redditPixel": [
+        "a2_jpe9ofbt2021"
+      ],
+      "openaiPixel": [
+        "Jf2xESMk6VRh9ovoBDsAv5"
+      ]
+    },
+    "behaviours": [
+      "Toggle / switch control (e.g. monthly ↔ yearly pricing)",
+      "Accordion / FAQ expand-collapse",
+      "Smooth scrolling",
+      "Scroll-linked parallax / reveal animation",
+      "Reveal-on-scroll via IntersectionObserver",
+      "Anchor navigation with programmatic scroll",
+      "Respects prefers-reduced-motion",
+      "Responsive scaling computed in JS",
+      "Multi-language content switching"
+    ],
+    "fetchedScripts": [
+      {
+        "src": "https://chat.dvshipping.com/widget.js",
+        "ok": true,
+        "firstParty": false,
+        "bytes": 34731,
+        "truncated": false,
+        "contentType": "text/javascript",
+        "lastModified": "Sat, 03 Oct 2026 04:45:09 GMT",
+        "minified": false,
+        "sourceMap": null,
+        "endpoints": [
+          "https://SEUDOMINIO/dv-chat/chat.php",
+          "https://SEUDOMINIO/dv-chat/widget.js",
+          "https://chat.dvshipping.com/chat.php",
+          "https://chat.dvshipping.com/logo-bolinha.png?v=1",
+          "https://chat.dvshipping.com/logo.png",
+          "https://dvshipping.com/privacy-and-terms/",
+          "http://www.w3.org/2000/svg"
+        ],
+        "relativeEndpoints": [],
+        "globals": [
+          "DVChatConfig"
+        ],
+        "storageKeys": [
+          "dvchat_sid"
+        ],
+        "headerComment": "DV Shipping — Widget de chat com IA  (incorporável) Estilo inspirado no agente do Jotform: cabeçalho claro com logo + selo \"AI\", botões de sugestão, campo lavanda com clipe e botão de enviar redondo, rodapé. ------------------------------------------------------------------ Uso (antes de </body>):   <script>     window.DVChatConfig = { endpoint: \"https://SEUDOMINIO/dv-chat/chat.php\" };   </script>   <script src=\"https://SEUDOMINIO/dv-chat/widget.js\" defer></script> ------------------------------------------------------------------",
+        "usesFetch": true,
+        "usesWebSocket": false
+      }
+    ]
+  },
+  "network": {
+    "hosts": [
+      {
+        "host": "dvshipping.com",
+        "kinds": [
+          "anchor",
+          "literal"
+        ],
+        "count": 8,
+        "firstParty": false,
+        "category": "Other",
+        "insecure": false
+      },
+      {
+        "host": "www.w3.org",
+        "kinds": [
+          "literal"
+        ],
+        "count": 5,
+        "firstParty": false,
+        "category": "Other",
+        "insecure": false
+      },
+      {
+        "host": "cdnjs.cloudflare.com",
+        "kinds": [
+          "script",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Public JS CDN",
+        "insecure": false
+      },
+      {
+        "host": "fonts.googleapis.com",
+        "kinds": [
+          "link:preconnect",
+          "link:stylesheet",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Web fonts",
+        "insecure": false
+      },
+      {
+        "host": "instagram.com",
+        "kinds": [
+          "anchor",
+          "literal"
+        ],
+        "count": 4,
+        "firstParty": false,
+        "category": "Social profile",
+        "insecure": false
+      },
+      {
+        "host": "unpkg.com",
+        "kinds": [
+          "script",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Public JS CDN",
+        "insecure": false
+      },
+      {
+        "host": "chat.dvshipping.com",
+        "kinds": [
+          "script",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Chat / support",
+        "insecure": false
+      },
+      {
+        "host": "fonts.gstatic.com",
+        "kinds": [
+          "link:preconnect",
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Web fonts",
+        "insecure": false
+      },
+      {
+        "host": "www.googletagmanager.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 2,
+        "firstParty": false,
+        "category": "Tag manager",
+        "insecure": false
+      },
+      {
+        "host": "www.redditstatic.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 1,
+        "firstParty": false,
+        "category": "Ad pixel",
+        "insecure": false
+      },
+      {
+        "host": "bzrcdn.openai.com",
+        "kinds": [
+          "literal"
+        ],
+        "count": 1,
+        "firstParty": false,
+        "category": "Ad pixel",
+        "insecure": false
+      },
+      {
+        "host": "dvoracle.com",
+        "kinds": [
+          "link:canonical",
+          "link:alternate",
+          "link:icon",
+          "link:apple-touch-icon",
+          "media",
+          "anchor",
+          "literal"
+        ],
+        "count": 44,
+        "firstParty": true,
+        "category": "Other",
+        "insecure": false
+      },
+      {
+        "host": "app.dvoracle.com",
+        "kinds": [
+          "anchor",
+          "literal"
+        ],
+        "count": 11,
+        "firstParty": true,
+        "category": "Other",
+        "insecure": false
+      }
+    ],
+    "thirdPartyCount": 11,
+    "byCategory": {
+      "Other": [
+        "dvshipping.com",
+        "www.w3.org"
+      ],
+      "Public JS CDN": [
+        "cdnjs.cloudflare.com",
+        "unpkg.com"
+      ],
+      "Web fonts": [
+        "fonts.googleapis.com",
+        "fonts.gstatic.com"
+      ],
+      "Social profile": [
+        "instagram.com"
+      ],
+      "Chat / support": [
+        "chat.dvshipping.com"
+      ],
+      "Tag manager": [
+        "www.googletagmanager.com"
+      ],
+      "Ad pixel": [
+        "www.redditstatic.com",
+        "bzrcdn.openai.com"
+      ]
+    },
+    "preconnects": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ],
+    "preloads": [],
+    "mixedContent": [],
+    "subdomainsOfTarget": [
+      "app.dvoracle.com"
+    ]
+  },
+  "security": {
+    "https": true,
+    "score": 33,
+    "headerChecks": [
+      {
+        "header": "strict-transport-security",
+        "label": "HSTS",
+        "weight": 2,
+        "advice": "Add Strict-Transport-Security with max-age ≥ 31536000.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "content-security-policy",
+        "label": "Content-Security-Policy",
+        "weight": 3,
+        "advice": "Define a CSP; inline scripts will need nonces or hashes.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "x-content-type-options",
+        "label": "X-Content-Type-Options",
+        "weight": 1,
+        "advice": "Set X-Content-Type-Options: nosniff.",
+        "present": true,
+        "value": "nosniff"
+      },
+      {
+        "header": "x-frame-options",
+        "label": "X-Frame-Options / frame-ancestors",
+        "weight": 1,
+        "advice": "Set X-Frame-Options: DENY or CSP frame-ancestors.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "referrer-policy",
+        "label": "Referrer-Policy",
+        "weight": 1,
+        "advice": "Set Referrer-Policy (strict-origin-when-cross-origin is a safe default).",
+        "present": true,
+        "value": "strict-origin-when-cross-origin"
+      },
+      {
+        "header": "permissions-policy",
+        "label": "Permissions-Policy",
+        "weight": 1,
+        "advice": "Set Permissions-Policy to disable unused browser features.",
+        "present": false,
+        "value": null
+      },
+      {
+        "header": "cross-origin-opener-policy",
+        "label": "Cross-Origin-Opener-Policy",
+        "weight": 1,
+        "advice": "Consider COOP: same-origin.",
+        "present": false,
+        "value": null
+      }
+    ],
+    "cookies": [],
+    "cacheControl": "public, max-age=300, must-revalidate",
+    "server": "nginx",
+    "poweredBy": null,
+    "findings": [
+      {
+        "severity": "medium",
+        "text": "HSTS header missing. Add Strict-Transport-Security with max-age ≥ 31536000."
+      },
+      {
+        "severity": "medium",
+        "text": "Content-Security-Policy header missing. Define a CSP; inline scripts will need nonces or hashes."
+      },
+      {
+        "severity": "low",
+        "text": "X-Frame-Options / frame-ancestors header missing. Set X-Frame-Options: DENY or CSP frame-ancestors."
+      },
+      {
+        "severity": "low",
+        "text": "Permissions-Policy header missing. Set Permissions-Policy to disable unused browser features."
+      },
+      {
+        "severity": "low",
+        "text": "Cross-Origin-Opener-Policy header missing. Consider COOP: same-origin."
+      },
+      {
+        "severity": "medium",
+        "text": "4 third-party script(s) load without Subresource Integrity: cdnjs.cloudflare.com, cdnjs.cloudflare.com, unpkg.com, chat.dvshipping.com."
+      },
+      {
+        "severity": "info",
+        "text": "9 inline script block(s); a strict CSP would need nonces/hashes."
+      }
+    ]
+  },
+  "discovery": {
+    "robots": {
+      "url": "https://dvoracle.com/robots.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    },
+    "sitemap": {
+      "url": "https://dvoracle.com/sitemap.xml",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/xml; charset=utf-8",
+      "bytes": 256,
+      "error": null,
+      "urls": [
+        "https://dvoracle.com/",
+        "https://dvoracle.com/terms/"
+      ],
+      "isIndex": false
+    },
+    "securityTxt": {
+      "url": "https://dvoracle.com/.well-known/security.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    },
+    "humans": {
+      "url": "https://dvoracle.com/humans.txt",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    },
+    "manifest": {
+      "url": "https://dvoracle.com/manifest.json",
+      "status": 404,
+      "ok": false,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 763,
+      "error": null
+    }
+  },
+  "visuals": {
+    "icon": {
+      "ok": true,
+      "url": "https://dvoracle.com/apple-touch-icon.png",
+      "type": "image/png",
+      "bytes": 1482,
+      "dataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFf0lEQVR4nOzdQZITRxCF4ZLMAbz1whEOO3wOa/bmTDDn8DE4AOIcDtiw4BSjQSnR0EyIQVKVsjNf/t/CLB0Mj6fMUnexboCQdQOEEGhIIdCQQqAhhUBDCoGGFAINKQQaUgg0pBBoSCHQkEKgIYVAQwqBhhQCDSkEGlIINKQQaEgh0JBCoCGFQEMKgYYUAg0pBBpSCDSkEGhIIdCQQqAhhUBDCoGGFAINKQQaUgg0pBBoSCHQkPKiKXrz/vX+v69al9X2+Ovju+Ovu217+fe2IbRVU/Xmw9t9GDdtvPv28q/XDSEJjxwP9+02Xu0/AR6/fAogGN2GNrdr6ZndHaNIHOJL4c1aemb9lraOQ7uhjUtLHzBbB6AfaGMzrw9CvbAq59AOo8fBfmH8f9OwmBqBPrTmdK58a790nn+jR6FvCh+cWno/rx/mdiyhxgw98VsQG8d5yyj2LIdXSxtGjyXUCvSxMR1HD86nvdUaOSZ+x3i2kNb8GS+k6uOjfqMHLe2qbnuwIEoq/IA/C6Ki2vMdLS2n+CtYtLSa2oHmGE8OR0qGYzwZvPV9sJ9vvfCcx03RFhMWRAk09FcsiApo6DlaOj0a+ju0dHYEeo5jvPQYOU4pMHp8+jjiurSz3f/2u8/LwzT0SSVGD7f/r1eYDYE+5dCYXi/V2ujh+6b4l3b24lgOBPoZ0i0t2c6GQP+IaEsrt7NhKfwZoec8VBfBORr653hdKxEa+hwCx3gV2tnQ0GeRWBBlF8E5An2O5Aui+iI4R6DPlrqlS7SzIdDnSvqcR6V2NiyFl0p0jFdlEZyjoS+W6XWt1T/NzW7bAiDQl0qyIB7b2euo0do5xssKBPoqKRbEMovgHIG+RvCWrrYIzhHoq4Vu6ZLtbAj0tYIe41VuZ8OxXa9Az3lUPKZ7iobuFmr0KDtqTAh0ryALYvVRY0KghwjR0uXb2RDoERZuadr5GwI9zDIt/enjIdxO7bzaRm5nQ6BHWewYb71pbh7fteA4thvN8Rjvvz9W239/9XxeI3Y7mxKB3s+Ybo987v/Q3X6mqr+vHi+aONWFiUXwNPmGpp37ZWlnI93QtPMQadrZyAZa9bkGntd4Hsd2kCLZ0LTzEOna2UguhSyC/TItgnNyDc0iOESqRXBOrqFp535Z29lINTTtPETadjYygWYRHCLlIjgndGwne0uQ47+/EuP2ox4SDa16S5D3qBHl9qMeEkshi2C/zIvgXPqGZhEcIvUiOJf+byXt3E+lnU3qhqadh5BpZ5M20BzTDZH+mO6ptB81jBrd5MJsUjY0o0Y/xTCblA1NO/fa3SmcOZ+S7ptC2rmH3e6kG2aTqqGPtwStO/8hnXPZLUF/3jUHToug5Mz8VLKGXm+am/i3BJ1namX9MJs0SyHHdJeyID9IPJ9xiTQjB4vgc6abT+1T5fjEXLUgT1I0tPI3Z0pfO0eQ4ofJcw04V/iG5rkGXCJ0oHmuAZfi5iRICdvQtDOuEXYBYhHENUI2NIsgrhWymWhnXCtcQ9PO6BEq0CyC6BXs2M7v9iPCrClMQ3vfftQgKcxCxCKIEUI0NIsgRgnRVLQzRlm8oWlnjLRooDmmw2iLfvwyamC0xRrad9TYuVxHgOUtOXI4jho1XxitaJFAO7Yzc3Mx7nOl4+1HhLmgBZ7lWG/aTdW6KQjfcx05bn9M53cfHWJyHTluc0xX88ornObW0GMWwenKK3O89oogY44vGyCFezkghUBDCoGGFAINKQQaUgg0pBBoSCHQkEKgIYVAQwqBhhQCDSkEGlIINKQQaEgh0JBCoCGFQEMKgYYUAg0pBBpSCDSkEGhIIdCQQqAhhUBDCoGGFAINKQQaUgg0pBBoSCHQkEKgIYVAQwqBhpTPAAAA//9oeEPnAAAABklEQVQDABDGfxm/lRv6AAAAAElFTkSuQmCC",
+      "rel": "apple-touch-icon",
+      "declaredSize": 180
+    },
+    "iconAttempts": [
+      {
+        "url": "https://dvoracle.com/apple-touch-icon.png",
+        "rel": "apple-touch-icon",
+        "ok": true,
+        "error": null
+      }
+    ],
+    "ogImage": null,
+    "screenshot": {
+      "dataUrl": "data:image/jpeg;base64,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",
+      "width": 640,
+      "height": 400,
+      "capturedAt": "2026-10-13T11:15:34.261Z",
+      "engine": "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
+      "partial": null
+    },
+    "screenshotError": null,
+    "brandColor": "#00b3dd",
+    "backgroundColor": "#09101a",
+    "mode": "dark"
+  },
+  "limitations": [
+    "Static analysis of the HTML response only; JavaScript was not executed, so client-rendered DOM, XHR/fetch traffic and runtime state are not observed."
+  ],
+  "blueprint": {
+    "components": [
+      {
+        "name": "Hero",
+        "sourceLabel": "Hero",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body"
+        ]
+      },
+      {
+        "name": "AboutUs",
+        "sourceLabel": "About Us",
+        "heading": null,
+        "occurrences": 3,
+        "contentHints": [
+          "long copy",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Achievement",
+        "sourceLabel": "Achievement",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body"
+        ]
+      },
+      {
+        "name": "BestFeatured",
+        "sourceLabel": "Best featured",
+        "heading": null,
+        "occurrences": 3,
+        "contentHints": [
+          "long copy",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Footer",
+        "sourceLabel": "Footer",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Question",
+        "sourceLabel": "Question",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "PricingSection",
+        "sourceLabel": "pricing-section",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "long copy",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Group2",
+        "sourceLabel": "Group 2",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "Navbar",
+        "sourceLabel": "Navbar",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Idioma",
+        "sourceLabel": "idioma",
+        "heading": null,
+        "occurrences": 2,
+        "contentHints": [
+          "link list",
+          "image gallery / cards"
+        ],
+        "props": [
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Header",
+        "sourceLabel": "header",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "image gallery / cards"
+        ],
+        "props": [
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "IntelligenceForYourEcommerce",
+        "sourceLabel": "Intelligence for your ecommerce",
+        "heading": "Intelligence for your ecommerce",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "cta"
+        ]
+      },
+      {
+        "name": "Section",
+        "sourceLabel": "section",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "body"
+        ]
+      },
+      {
+        "name": "TwoFrontsOneIntelligence",
+        "sourceLabel": "Two fronts, one intelligence",
+        "heading": "Two fronts, one intelligence",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "WhatDvOracleDoes",
+        "sourceLabel": "What DV Oracle does",
+        "heading": "What DV Oracle does",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "OurProducts",
+        "sourceLabel": "Our Products",
+        "heading": "Our Products",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "Proof",
+        "sourceLabel": "Proof",
+        "heading": "Proof",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "media"
+        ]
+      },
+      {
+        "name": "HowItWorks",
+        "sourceLabel": "How It Works",
+        "heading": "How It Works",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "WhyDvOracle",
+        "sourceLabel": "Why DV Oracle",
+        "heading": "Why DV Oracle",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "FrequentlyAskedQuestions",
+        "sourceLabel": "Frequently Asked Questions",
+        "heading": "Frequently Asked Questions",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body"
+        ]
+      },
+      {
+        "name": "UnlockTheFullIntelligence",
+        "sourceLabel": "Unlock the full intelligence",
+        "heading": "Unlock the full intelligence",
+        "occurrences": 1,
+        "contentHints": [
+          "long copy"
+        ],
+        "props": [
+          "title",
+          "body",
+          "cta"
+        ]
+      },
+      {
+        "name": "GetAccessToDvOracle",
+        "sourceLabel": "Get access to DV Oracle",
+        "heading": "Get access to DV Oracle",
+        "occurrences": 1,
+        "contentHints": [],
+        "props": [
+          "title",
+          "body",
+          "cta",
+          "media"
+        ]
+      },
+      {
+        "name": "Footer",
+        "sourceLabel": "footer",
+        "heading": null,
+        "occurrences": 1,
+        "contentHints": [
+          "link list",
+          "image gallery / cards"
+        ],
+        "props": [
+          "body",
+          "cta",
+          "media"
+        ]
+      }
+    ],
+    "tokensCss": ":root {\n  --color-background: #09101a;\n  --color-foreground: #ffffff;\n  --color-accent: #00b3dd;\n  --palette-1: #ffffff; /* text (light), 140× */\n  --palette-2: #00b3dd; /* accent / surface, 52× */\n  --palette-3: #000000; /* background (dark), 48× */\n  --palette-4: #181818; /* overlay / border, 22× */\n  --palette-5: #00b7e1; /* overlay / border, 18× */\n  --palette-6: #1a1a1a; /* text (dark), 12× */\n  --palette-7: #09101a; /* background (dark), 8× */\n  --palette-8: #888888; /* text (accent), 6× */\n  --palette-9: #eef3f8; /* text (light), 5× */\n  --palette-10: #06222c; /* text (dark), 3× */\n  --palette-11: #1f1f1f; /* background (dark), 3× */\n  --palette-12: #f8f9fb; /* text (light), 3× */\n  --font-heading: 'Prometo', system-ui, sans-serif;\n  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;\n  --text-1: 14px;\n  --text-2: 15px;\n  --text-3: 16px;\n  --text-4: 20px;\n  --text-5: 24px;\n  --text-6: 32px;\n  --text-7: 40px;\n  --text-8: 64px;\n  --radius-1: 25.0px 0.0px 25.0px 0.0px;\n  --radius-2: 25.0px;\n  --radius-3: 50%;\n  --shadow-1: 0 8px 26px rgba(0,0,0,.34);\n  --shadow-2: 0 0 0 1px rgba(0,179,221,.35);\n  --ease-1: linear;\n  --ease-2: ease;\n}",
+    "integrations": [
+      {
+        "name": "Google Fonts",
+        "category": "Web fonts",
+        "website": "https://fonts.google.com/",
+        "observedId": null,
+        "note": null
+      },
+      {
+        "name": "Self-hosted @font-face",
+        "category": "Web fonts",
+        "website": "https://developer.mozilla.org/docs/Web/CSS/@font-face",
+        "observedId": null,
+        "note": null
+      },
+      {
+        "name": "Google Tag Manager",
+        "category": "Tag manager",
+        "website": "https://tagmanager.google.com/",
+        "observedId": "GTM-N7TLPBPF",
+        "note": "Observed identifier belongs to the target; create your own account/ID."
+      },
+      {
+        "name": "Reddit Pixel",
+        "category": "Ad / marketing pixel",
+        "website": "https://advertising.reddithelp.com/",
+        "observedId": "a2_jpe9ofbt2021",
+        "note": "Observed identifier belongs to the target; create your own account/ID."
+      },
+      {
+        "name": "OpenAI Pixel (oaiq)",
+        "category": "Ad / marketing pixel",
+        "website": "https://openai.com/",
+        "observedId": "Jf2xESMk6VRh9ovoBDsAv5",
+        "note": "Observed identifier belongs to the target; create your own account/ID."
+      },
+      {
+        "name": "Custom embedded AI chat widget (DVChatConfig)",
+        "category": "Chat / support",
+        "website": "https://chat.dvshipping.com/widget.js",
+        "observedId": null,
+        "note": null
+      }
+    ],
+    "interactions": [
+      "Toggle / switch control (e.g. monthly ↔ yearly pricing)",
+      "Accordion / FAQ expand-collapse",
+      "Smooth scrolling",
+      "Scroll-linked parallax / reveal animation",
+      "Reveal-on-scroll via IntersectionObserver",
+      "Anchor navigation with programmatic scroll",
+      "Respects prefers-reduced-motion",
+      "Responsive scaling computed in JS",
+      "Multi-language content switching",
+      "Language switcher for: en, pt-BR, es, x-default",
+      "Separate mobile layout variant (target ships a distinct mobile DOM)"
+    ],
+    "recommendedStack": {
+      "frontend": "Vite + React + Tailwind CSS (static marketing page; replace fixed-canvas absolute positioning with responsive flex/grid sections)",
+      "animation": [
+        "GSAP + ScrollTrigger",
+        "Lenis smooth scroll (or native CSS scroll-behavior)"
+      ],
+      "hosting": "Any static host (target uses nginx)",
+      "backend": "Separate app origin(s) observed: app.dvoracle.com — plan an authenticated app shell apart from the marketing site",
+      "analytics": [
+        "Google Tag Manager",
+        "Reddit Pixel",
+        "OpenAI Pixel (oaiq)"
+      ]
+    },
+    "contentModel": {
+      "pages": [
+        "https://dvoracle.com/",
+        "https://dvoracle.com/terms/"
+      ],
+      "sections": [
+        "Hero",
+        "AboutUs",
+        "Achievement",
+        "BestFeatured",
+        "Footer",
+        "Question",
+        "PricingSection",
+        "Group2",
+        "Navbar",
+        "Idioma",
+        "Header",
+        "IntelligenceForYourEcommerce",
+        "Section",
+        "TwoFrontsOneIntelligence",
+        "WhatDvOracleDoes",
+        "OurProducts",
+        "Proof",
+        "HowItWorks",
+        "WhyDvOracle",
+        "FrequentlyAskedQuestions",
+        "UnlockTheFullIntelligence",
+        "GetAccessToDvOracle",
+        "Footer"
+      ],
+      "pricingTiers": "Pricing table detected (see Content → prices); model tiers as data, not markup.",
+      "embeddedData": [
+        {
+          "name": "__dvoFAQ",
+          "shape": "array(3) of string"
+        },
+        {
+          "name": "__dvoAnual",
+          "shape": "array(3) of string"
+        },
+        {
+          "name": "__dvoPlanos",
+          "shape": "array(3) of array(5) of string"
+        },
+        {
+          "name": "DVChatConfig",
+          "shape": "{ title, subtitle, welcome, footerText, termsText, termsUrl, headerBg, launcherBg, inputBg, userBg, userText, sendColor, sendActiveColor }"
+        }
+      ],
+      "faq": "FAQ section detected; model as an array of {question, answer}.",
+      "locales": [
+        "en",
+        "pt-BR",
+        "es",
+        "x-default"
+      ]
+    },
+    "checklist": [
+      "Write original copy, imagery and brand assets; do not reuse the target's text, logos, fonts or screenshots.",
+      "Build 23 section components: Hero, AboutUs, Achievement, BestFeatured, Footer, Question, PricingSection, Group2, Navbar, Idioma, Header, IntelligenceForYourEcommerce, Section, TwoFrontsOneIntelligence, WhatDvOracleDoes, OurProducts, Proof, HowItWorks, WhyDvOracle, FrequentlyAskedQuestions, UnlockTheFullIntelligence, GetAccessToDvOracle, Footer.",
+      "Apply the token sheet below and verify contrast (background/foreground ratio 19.08).",
+      "Re-implement: Toggle / switch control (e.g. monthly ↔ yearly pricing).",
+      "Re-implement: Accordion / FAQ expand-collapse.",
+      "Re-implement: Smooth scrolling.",
+      "Re-implement: Scroll-linked parallax / reveal animation.",
+      "Re-implement: Reveal-on-scroll via IntersectionObserver.",
+      "Re-implement: Anchor navigation with programmatic scroll.",
+      "Re-implement: Respects prefers-reduced-motion.",
+      "Re-implement: Responsive scaling computed in JS.",
+      "Re-implement: Multi-language content switching.",
+      "Re-implement: Language switcher for: en, pt-BR, es, x-default.",
+      "Re-implement: Separate mobile layout variant (target ships a distinct mobile DOM).",
+      "Set up your own Google Tag Manager account and ID.",
+      "Set up your own Reddit Pixel account and ID.",
+      "Set up your own OpenAI Pixel (oaiq) account and ID.",
+      "Set up your own Custom embedded AI chat widget (DVChatConfig) account and ID.",
+      "License or substitute the typefaces (self-hosted fonts observed on the target are not yours to redistribute).",
+      "Avoid the target's gap: HSTS header missing. Add Strict-Transport-Security with max-age ≥ 31536000.",
+      "Avoid the target's gap: Content-Security-Policy header missing. Define a CSP; inline scripts will need nonces or hashes.",
+      "Avoid the target's gap: X-Frame-Options / frame-ancestors header missing. Set X-Frame-Options: DENY or CSP frame-ancestors.",
+      "Avoid the target's gap: Permissions-Policy header missing. Set Permissions-Policy to disable unused browser features."
+    ],
+    "legalNote": "This blueprint describes structure, tokens and integrations observed in public HTML for research and competitive analysis. Copying text, images, logos, licensed fonts or code verbatim may infringe copyright or trademark rights; build an original implementation."
+  }
+}

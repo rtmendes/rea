@@ -1,0 +1,11 @@
+{
+  "name": "Reverse Engineer Any App",
+  "short_name": "REA Webapp",
+  "description": "Paste a URL, get the customer avatar, offer, keywords, reach, pages, design system, stack and a rebuild blueprint, with renders and evidence.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f17",
+  "theme_color": "#0b0f17",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
