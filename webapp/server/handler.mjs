@@ -3,7 +3,7 @@
 import { analyzeUrl } from './analyze/index.mjs'
 import { FetchBlockedError, assertPublicHost, normalizeTargetUrl } from './analyze/fetch.mjs'
 import { captureScreenshot } from './screenshot.mjs'
-import { OMNICANVAS_API, pushBoard, validateBoard } from '../shared/omnicanvas.mjs'
+import { OMNICANVAS_API, folderFromName, importBoard, pushBoard, validateBoard } from '../shared/omnicanvas.mjs'
 
 const inflight = new Map()
 
@@ -87,21 +87,26 @@ export async function handleCapture(req, res) {
 }
 
 /**
- * POST /api/omnicanvas {token, name, graph} → writes the board through OmniCanvas's public
- * board API from the server, which avoids the browser CORS restriction on that API.
- * The destination host is fixed (OMNICANVAS_API env or the default); only the token varies.
+ * POST /api/omnicanvas from the server (no browser CORS involved). Two modes:
+ *   {key, name, graph, folder?, labels?} → creates a NEW board in a folder (import key,
+ *       OmniCanvas Settings → Import; POST /api/v1/import/boards).
+ *   {token, name, graph} → replaces an existing board (board token, Share → API access).
+ * The destination host is fixed (OMNICANVAS_API env or the default); only the credential varies.
  */
 export async function handleOmniCanvas(req, res) {
   if (req.method === 'OPTIONS') { res.statusCode = 204; res.end(); return }
   if (req.method !== 'POST') return send(res, 405, { error: 'Use POST.' })
   let body
   try { body = await readJson(req, 1024 * 1024) } catch (e) { return send(res, 400, { error: e.message }) }
-  const { token, name, graph } = body || {}
+  const { key, token, name, graph, folder, labels } = body || {}
   if (!graph || !Array.isArray(graph.nodes) || !Array.isArray(graph.edges)) return send(res, 400, { error: 'graph {nodes, edges} is required.' })
   const problems = validateBoard(graph)
   if (problems.length) return send(res, 400, { error: `Board graph is invalid: ${problems.slice(0, 3).join('; ')}` })
   try {
-    const result = await pushBoard({ token, name: String(name || 'REA board').slice(0, 200), graph, apiBase: process.env.OMNICANVAS_API || OMNICANVAS_API, signal: AbortSignal.timeout(30000) })
+    const common = { name: String(name || 'REA board').slice(0, 200), graph, apiBase: process.env.OMNICANVAS_API || OMNICANVAS_API, signal: AbortSignal.timeout(30000) }
+    const result = key
+      ? await importBoard({ ...common, key, folder: String(folder || folderFromName(name)).slice(0, 300), labels: Array.isArray(labels) ? labels.slice(0, 10).map(String) : undefined })
+      : await pushBoard({ ...common, token })
     return send(res, 200, result)
   } catch (e) {
     return send(res, e.status && e.status < 500 ? 400 : 502, { error: e.message })

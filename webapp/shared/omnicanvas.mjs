@@ -16,6 +16,13 @@
 export const OMNICANVAS_APP = 'https://canvas.insightprofit.live'
 export const OMNICANVAS_API = 'https://canvas-api.insightprofit.live'
 export const REA_APP = 'https://rtmendes.github.io/rea/'
+// Where Send to OmniCanvas files each report: "REA reports" › one subfolder per site,
+// labelled REA so the sidebar's label chip shows every report at once.
+export const REA_FOLDER = 'REA reports'
+export const REA_LABEL = 'REA'
+export const boardFolder = (siteHost) => `${REA_FOLDER}/${String(siteHost || 'site').replace(/[\\/]+/g, '-').slice(0, 60)}`
+/** The folder for a board whose name follows reportToBoard ("REA · host · date"), e.g. a downloaded board.json. */
+export const folderFromName = (name) => boardFolder(String(name || '').split(' · ')[1] || 'site')
 
 const CARD_W = 384
 const GAP = 40
@@ -235,7 +242,7 @@ export function reportToBoard(report, options = {}) {
   })
   for (const from of ['snapshot', 'offer', 'value', 'persona', 'desire']) if (have.has(from)) edge(id(from), id('our-offer'))
 
-  return { name: `REA · ${h} · ${now.slice(0, 10)}`, graph: { nodes, edges } }
+  return { name: `REA · ${h} · ${now.slice(0, 10)}`, folder: boardFolder(h), labels: [REA_LABEL], graph: { nodes, edges } }
 }
 
 /** Structural checks matching OmniCanvas's own rules (ids, endpoints, parents, no cycles). */
@@ -299,4 +306,30 @@ export async function pushBoard({ token, name, graph, apiBase = OMNICANVAS_API, 
     throw err
   }
   return { id: body?.id, ok: true, boardUrl: body?.id ? `${OMNICANVAS_APP}/?board=${body.id}` : OMNICANVAS_APP }
+}
+
+/**
+ * Create a NEW board in the owner's OmniCanvas (POST /api/v1/import/boards) with a personal
+ * import key from OmniCanvas Settings → Import. The board lands in `folder` (created on
+ * demand) with `labels`; nothing existing is overwritten.
+ */
+export async function importBoard({ key, name, graph, folder = REA_FOLDER, labels = [REA_LABEL], apiBase = OMNICANVAS_API, fetchImpl = fetch, signal }) {
+  const k = String(key || '').trim()
+  if (!/^oc_imp_[\w-]{16,}$/.test(k)) throw new Error('Paste your import key from OmniCanvas: Settings → Import (it starts with oc_imp_).')
+  const res = await fetchImpl(`${apiBase}/api/v1/import/boards`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', authorization: `Bearer ${k}` },
+    body: JSON.stringify({ name, graph, folder, labels }),
+    signal,
+  })
+  const text = await res.text()
+  let body = null
+  try { body = JSON.parse(text) } catch { /* not JSON */ }
+  if (!res.ok) {
+    const detail = body?.detail || text.slice(0, 200) || res.statusText
+    const err = new Error(res.status === 401 ? 'OmniCanvas did not accept this import key (unknown or revoked). Create a new one in Settings → Import.' : `OmniCanvas returned ${res.status}: ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`)
+    err.status = res.status
+    throw err
+  }
+  return { id: body.id, ok: true, folderId: body.folder_id, boardUrl: body.url || `${OMNICANVAS_APP}/?board=${body.id}` }
 }

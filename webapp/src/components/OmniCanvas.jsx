@@ -1,11 +1,14 @@
 // Hand the research to OmniCanvas (the team's AI canvas) as a ready-to-run board.
 import { useMemo, useState } from 'react'
 import { ExternalLink, Section } from './ui.jsx'
-import { OMNICANVAS_APP, pushBoard, reportToBoard, validateBoard } from '../../shared/omnicanvas.mjs'
+import { OMNICANVAS_APP, importBoard, pushBoard, reportToBoard, validateBoard } from '../../shared/omnicanvas.mjs'
 
 const TOKEN_STORAGE = 'rea-webapp:omnicanvas-token'
-const readToken = () => { try { return localStorage.getItem(TOKEN_STORAGE) || '' } catch { return '' } }
-const writeToken = (t) => { try { if (t) localStorage.setItem(TOKEN_STORAGE, t.trim()); else localStorage.removeItem(TOKEN_STORAGE) } catch { /* blocked */ } }
+const KEY_STORAGE = 'rea-webapp:omnicanvas-import-key'
+const read = (k) => { try { return localStorage.getItem(k) || '' } catch { return '' } }
+const write = (k, v) => { try { if (v) localStorage.setItem(k, v.trim()); else localStorage.removeItem(k) } catch { /* blocked */ } }
+const BLOCKED = 'The browser blocked the call to OmniCanvas. Download the board and use the command line below, or try again in a minute.'
+const isBlocked = (e) => e instanceof TypeError || /Failed to fetch|NetworkError|Load failed/i.test(e.message)
 
 const TONE = { source: 'var(--oc-source)', generator: 'var(--oc-generator)', structure: 'var(--oc-structure)' }
 
@@ -41,27 +44,32 @@ function BoardMap({ graph }) {
 export function OmniCanvasCard({ report, mode, onDownload }) {
   const board = useMemo(() => reportToBoard(report), [report])
   const problems = useMemo(() => validateBoard(board.graph), [board])
-  const [token, setToken] = useState(readToken)
+  const [key, setKey] = useState(() => read(KEY_STORAGE))
+  const [token, setToken] = useState(() => read(TOKEN_STORAGE))
   const [state, setState] = useState(null)
   const counts = board.graph.nodes.reduce((m, n) => { m[n.data.category] = (m[n.data.category] || 0) + 1; return m }, {})
 
-  async function push() {
-    writeToken(token)
-    setState({ busy: true })
+  // Send = create a NEW board in "REA reports/<site>" (import key). Replace = overwrite one
+  // existing board (board token). In API mode the app's own server makes the call.
+  async function deliver(how) {
+    const body = how === 'send'
+      ? { key: key.trim(), name: board.name, graph: board.graph, folder: board.folder, labels: board.labels }
+      : { token: token.trim(), name: board.name, graph: board.graph }
+    if (how === 'send') write(KEY_STORAGE, key); else write(TOKEN_STORAGE, token)
+    setState({ busy: how })
     try {
       let result
       if (mode === 'api') {
-        const res = await fetch('/api/omnicanvas', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ token: token.trim(), name: board.name, graph: board.graph }) })
-        const body = await res.json().catch(() => ({}))
-        if (!res.ok) throw new Error(body.error || `Server returned ${res.status}`)
-        result = body
+        const res = await fetch('/api/omnicanvas', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
+        const out = await res.json().catch(() => ({}))
+        if (!res.ok) throw new Error(out.error || `Server returned ${res.status}`)
+        result = out
       } else {
-        result = await pushBoard({ token: token.trim(), name: board.name, graph: board.graph })
+        result = how === 'send' ? await importBoard(body) : await pushBoard(body)
       }
-      setState({ ok: true, url: result.boardUrl })
+      setState({ ok: how, url: result.boardUrl })
     } catch (e) {
-      const blocked = e instanceof TypeError || /Failed to fetch|NetworkError|Load failed/i.test(e.message)
-      setState({ error: blocked ? 'The browser blocked the call: the OmniCanvas API only accepts requests from its own sites. Download the board and push it with the command below, or add this site to CORS_ORIGINS on the OmniCanvas API.' : e.message })
+      setState({ error: isBlocked(e) ? BLOCKED : e.message })
     }
   }
 
@@ -80,19 +88,27 @@ export function OmniCanvasCard({ report, mode, onDownload }) {
         </div>
         <div className="space-y-3 text-sm">
           <ol className="list-decimal space-y-1 pl-5 text-xs text-ink-300">
-            <li>In <ExternalLink href={OMNICANVAS_APP}>OmniCanvas</ExternalLink>, create a new board.</li>
-            <li>Open Share, turn on API access, and copy the board token.</li>
-            <li>Paste it here and push. This replaces that board's cards.</li>
+            <li>Once: in <ExternalLink href={OMNICANVAS_APP}>OmniCanvas</ExternalLink>, open Settings → Import and create an import key.</li>
+            <li>Paste it here. It stays in this browser.</li>
+            <li>Send. Each report becomes a new board in <span className="text-white">{board.folder.replace('/', ' › ')}</span>, labelled {board.labels.join(', ')}. Nothing is overwritten.</li>
           </ol>
-          <input value={token} onChange={(e) => setToken(e.target.value)} placeholder="Board token" autoComplete="off" spellCheck={false} className="w-full rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 font-mono text-xs text-white" />
+          <input value={key} onChange={(e) => setKey(e.target.value)} placeholder="Import key (oc_imp_…)" aria-label="OmniCanvas import key" autoComplete="off" spellCheck={false} className="w-full rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 font-mono text-xs text-white" />
           <div className="flex flex-wrap gap-2">
-            <button type="button" disabled={!token.trim() || state?.busy || problems.length > 0} onClick={push} className="rounded-md bg-accent-600 px-3 py-1.5 text-sm font-semibold text-ink-950 hover:bg-accent-400 disabled:opacity-60">{state?.busy ? 'Pushing…' : 'Push to OmniCanvas'}</button>
+            <button type="button" disabled={!key.trim() || !!state?.busy || problems.length > 0} onClick={() => deliver('send')} className="rounded-md bg-accent-600 px-3 py-1.5 text-sm font-semibold text-ink-950 hover:bg-accent-400 disabled:opacity-60">{state?.busy === 'send' ? 'Sending…' : 'Send to OmniCanvas'}</button>
             <button type="button" onClick={() => onDownload(JSON.stringify(board, null, 2))} className="rounded-md border border-ink-700 px-3 py-1.5 text-sm text-ink-200 hover:border-accent-500">Download board (.json)</button>
           </div>
-          {state?.ok ? <div className="text-xs text-emerald-300">Board written. <ExternalLink href={state.url}>Open it in OmniCanvas</ExternalLink></div> : null}
+          {state?.ok ? <div className="text-xs text-emerald-300">{state.ok === 'send' ? 'New board created.' : 'Board replaced.'} <ExternalLink href={state.url}>Open it in OmniCanvas</ExternalLink></div> : null}
           {state?.error ? <div className="text-xs text-rose-300">{state.error}</div> : null}
-          <div className="text-[11px] text-ink-400">The token stays in this browser. Command line:</div>
-          <pre className="overflow-x-auto rounded-md bg-ink-950 p-2 text-[11px] text-ink-200">cd webapp &amp;&amp; npm run omnicanvas -- board.json --token &lt;token&gt;</pre>
+          <details className="text-xs text-ink-300">
+            <summary className="cursor-pointer text-ink-400 hover:text-ink-200">Replace an existing board instead</summary>
+            <div className="mt-2 space-y-2">
+              <div className="text-[11px] text-ink-400">In the board's Share dialog turn on API access and copy its token. This overwrites that board's cards.</div>
+              <input value={token} onChange={(e) => setToken(e.target.value)} placeholder="Board token" aria-label="OmniCanvas board token" autoComplete="off" spellCheck={false} className="w-full rounded-md border border-ink-700 bg-ink-950 px-2 py-1.5 font-mono text-xs text-white" />
+              <button type="button" disabled={!token.trim() || !!state?.busy || problems.length > 0} onClick={() => deliver('replace')} className="rounded-md border border-ink-700 px-3 py-1.5 text-sm text-ink-200 hover:border-accent-500 disabled:opacity-60">{state?.busy === 'replace' ? 'Replacing…' : 'Replace board'}</button>
+            </div>
+          </details>
+          <div className="text-[11px] text-ink-400">Command line:</div>
+          <pre className="overflow-x-auto rounded-md bg-ink-950 p-2 text-[11px] text-ink-200">cd webapp &amp;&amp; npm run omnicanvas -- board.json --key &lt;import key&gt;</pre>
         </div>
       </div>
     </Section>

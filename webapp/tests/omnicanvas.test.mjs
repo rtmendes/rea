@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { reportToBoard, researchBlocks, validateBoard, pushBoard, OMNICANVAS_API } from '../shared/omnicanvas.mjs'
+import { reportToBoard, researchBlocks, validateBoard, pushBoard, importBoard, folderFromName, OMNICANVAS_API } from '../shared/omnicanvas.mjs'
 
 const report = JSON.parse(readFileSync(new URL('../research/fullyloopy.com/site.report.json', import.meta.url), 'utf8'))
 const RUNNABLE = new Set(['editor', 'chat', 'imagegen']) // omnicanvas backend/app/flow/engine.py RUNNABLE_TYPES
@@ -71,4 +71,30 @@ test('pushBoard sends the public board API request and explains refusals', async
   const denied = async () => new Response(JSON.stringify({ detail: 'API access is disabled for this board' }), { status: 403 })
   await assert.rejects(pushBoard({ token: 'tok_12345678', name: 'n', graph: { nodes: [], edges: [] }, fetchImpl: denied }), /Turn on "API access"/)
   await assert.rejects(pushBoard({ token: 'bad', name: 'n', graph: {}, fetchImpl: ok }), /board token/)
+})
+
+test('reports file into "REA reports/<site>" with the REA label', () => {
+  const board = reportToBoard(report)
+  assert.equal(board.folder, 'REA reports/fullyloopy.com')
+  assert.deepEqual(board.labels, ['REA'])
+  assert.equal(folderFromName(board.name), 'REA reports/fullyloopy.com')
+  assert.equal(folderFromName('something else'), 'REA reports/site')
+})
+
+test('importBoard creates a new board through the import endpoint and explains refusals', async () => {
+  const calls = []
+  const key = 'oc_imp_abcdefghijklmnopqrstuvwxyz012345'
+  const ok = async (url, init) => { calls.push({ url, init }); return new Response(JSON.stringify({ id: 'p9', name: 'n', folder_id: 'f1', url: 'https://canvas.insightprofit.live/?board=p9' }), { status: 201 }) }
+  const r = await importBoard({ key, name: 'n', graph: { nodes: [], edges: [] }, folder: 'REA reports/x.com', fetchImpl: ok })
+  assert.equal(calls[0].url, `${OMNICANVAS_API}/api/v1/import/boards`)
+  assert.equal(calls[0].init.method, 'POST')
+  assert.equal(calls[0].init.headers.authorization, `Bearer ${key}`)
+  assert.deepEqual(JSON.parse(calls[0].init.body), { name: 'n', graph: { nodes: [], edges: [] }, folder: 'REA reports/x.com', labels: ['REA'] })
+  assert.equal(r.boardUrl, 'https://canvas.insightprofit.live/?board=p9')
+  assert.equal(r.folderId, 'f1')
+  const revoked = async () => new Response(JSON.stringify({ detail: 'Unknown or revoked import key' }), { status: 401 })
+  await assert.rejects(importBoard({ key, name: 'n', graph: { nodes: [], edges: [] }, fetchImpl: revoked }), /Settings → Import/)
+  const bad = async () => new Response(JSON.stringify({ detail: 'Board check failed: x' }), { status: 422 })
+  await assert.rejects(importBoard({ key, name: 'n', graph: { nodes: [], edges: [] }, fetchImpl: bad }), /422: Board check failed/)
+  await assert.rejects(importBoard({ key: 'tok_12345678', name: 'n', graph: {}, fetchImpl: ok }), /starts with oc_imp_/)
 })

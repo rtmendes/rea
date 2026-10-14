@@ -55,14 +55,19 @@ Step 10 also turns the report into a board for [OmniCanvas](https://canvas.insig
 | Ask | A chat card wired to every research card | Answers from the research only |
 | Strategy chain | Play → Persona → Desires → Angles (five awareness levels) → Hooks → Briefs → Final briefs, plus "Our original offer" | `editor` cards that run on the board owner's own keys and model routing |
 
-To push: create a board in OmniCanvas, open Share, turn on API access, copy the token, paste it in step 10 and press **Push to OmniCanvas**. This replaces that board's cards. From a server or the command line:
+To send: once, in OmniCanvas open **Settings → Import** and create an import key (shown once, starts with `oc_imp_`). Paste it in step 10 and press **Send to OmniCanvas**. Every send creates a **new** board in the folder **REA reports › &lt;site&gt;** (created on demand) with the **REA** label; nothing is overwritten. The key stays in your browser; revoke it in OmniCanvas any time.
+
+To overwrite one existing board instead, open "Replace an existing board instead": in that board's Share dialog turn on API access and paste its board token.
+
+From a server or the command line:
 
 ```bash
-npm run omnicanvas -- research/fullyloopy.com/site.report.json --token <board token>   # or a downloaded board.json
-npm run omnicanvas -- report.json --out board.json                                     # just write the graph
+npm run omnicanvas -- research/fullyloopy.com/site.report.json --key <import key>     # new board in "REA reports/fullyloopy.com"
+npm run omnicanvas -- board.json --token <board token>                                # replace an existing board
+npm run omnicanvas -- report.json --out board.json                                    # just write the graph
 ```
 
-The server route `POST /api/omnicanvas {token, name, graph}` validates the graph (ids, endpoints, parents, no cycles) and writes it through `PATCH /api/v1/boards/{token}` on `OMNICANVAS_API` (default `https://canvas-api.insightprofit.live`). The OmniCanvas API only accepts browser requests from its own sites, so the GitHub Pages build can push only after that origin is added to the API's `CORS_ORIGINS`; until then use the download and the command line.
+`OMNICANVAS_IMPORT_KEY` / `OMNICANVAS_BOARD_TOKEN` work in place of the flags. The server route `POST /api/omnicanvas` accepts `{key, name, graph, folder?, labels?}` (new board through `POST /api/v1/import/boards`) or `{token, name, graph}` (replace through `PATCH /api/v1/boards/{token}`) on `OMNICANVAS_API` (default `https://canvas-api.insightprofit.live`), after validating the graph (ids, endpoints, parents, no cycles). The OmniCanvas API accepts browser calls from `https://rtmendes.github.io`, so the GitHub Pages build sends directly.
 
 ## Three ways to run it
 
@@ -122,7 +127,7 @@ npm test
 
 `POST /api/analyze` with `{"url": "...", "discover": true, "scripts": true, "screenshot": true}` or `GET /api/analyze?url=...`. Returns the full report (`reportVersion: 2`); `visuals.screenshot.dataUrl` and `visuals.icon.dataUrl` carry the images inline. Errors are `400` for blocked/invalid targets and `500` for analysis failures.
 
-`POST /api/omnicanvas` with `{"token": "...", "name": "...", "graph": {"nodes": [], "edges": []}}` writes a board to OmniCanvas (see above).
+`POST /api/omnicanvas` with `{"key": "oc_imp_...", "name": "...", "graph": {"nodes": [], "edges": []}}` creates a board in OmniCanvas, or with `{"token": ...}` replaces one (see above).
 
 Deployable to Vercel as-is: [`vercel.json`](vercel.json) builds the Vite UI and [`api/analyze.js`](api/analyze.js) wraps the same handler as a serverless function. Vercel functions have no Chromium, so screenshots are skipped there (the `og:image` fallback still works); run `npm start` on a machine with Chromium for full visuals.
 
